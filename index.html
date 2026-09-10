@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DX3906 · A Private Planet for Research, Memory & Becoming</title>
+<meta name="description" content="DX3906 — Dongxiong67's GitHub personal page. Materials science, computational chemistry, AI for Science. A private planet, made public.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='20' fill='%23F0B25A'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%230A0E18'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#0A0E18;
+    --bg2:#0D1322;
+    --bg3:#111A2E;
+    --line:#1D2A47;
+    --line2:#2A3B61;
+    --text:#E6EAF4;
+    --muted:#8A94AD;
+    --dim:#5C6A80;
+    --star:#F0B25A;
+    --star-soft:rgba(240,178,90,.16);
+    --cyan:#66D9E8;
+    --cyan-soft:rgba(102,217,232,.12);
+    --serif:"Noto Serif SC",Georgia,"Songti SC","SimSun",serif;
+    --sans:"Noto Sans SC","Microsoft YaHei","PingFang SC",-apple-system,sans-serif;
+    --mono:ui-monospace,"Cascadia Code","SF Mono",Consolas,"Courier New",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    font-weight:300;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:rgba(240,178,90,.3)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+  .sky{
+    position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(1px 1px at 12% 22%,rgba(230,234,244,.55) 50%,transparent 51%),
+      radial-gradient(1px 1px at 28% 68%,rgba(230,234,244,.4) 50%,transparent 51%),
+      radial-gradient(1.5px 1.5px at 41% 14%,rgba(240,178,90,.5) 50%,transparent 51%),
+      radial-gradient(1px 1px at 55% 42%,rgba(230,234,244,.45) 50%,transparent 51%),
+      radial-gradient(1.5px 1.5px at 63% 78%,rgba(230,234,244,.35) 50%,transparent 51%),
+      radial-gradient(1px 1px at 72% 30%,rgba(240,178,90,.4) 50%,transparent 51%),
+      radial-gradient(1px 1px at 84% 60%,rgba(230,234,244,.5) 50%,transparent 51%),
+      radial-gradient(1.5px 1.5px at 92% 18%,rgba(230,234,244,.35) 50%,transparent 51%),
+      radial-gradient(1px 1px at 7% 86%,rgba(230,234,244,.4) 50%,transparent 51%),
+      radial-gradient(1px 1px at 34% 90%,rgba(230,234,244,.3) 50%,transparent 51%),
+      radial-gradient(ellipse 900px 500px at 70% -10%,rgba(31,52,94,.55),transparent 70%),
+      radial-gradient(ellipse 700px 420px at 15% 110%,rgba(58,41,20,.35),transparent 70%),
+      var(--bg);
+  }
+
+  .hero{
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding-block:96px 64px;position:relative;
+  }
+  .catalog{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.18em;
+    color:var(--star);border:1px solid var(--line2);
+    background:rgba(240,178,90,.06);
+    padding:8px 16px;border-radius:999px;margin-bottom:36px;
+  }
+  .catalog .dot{width:6px;height:6px;border-radius:50%;background:var(--star);box-shadow:0 0 10px var(--star)}
+  .hero h1{
+    font-family:var(--serif);font-weight:900;
+    font-size:clamp(64px,13vw,150px);line-height:.95;letter-spacing:.01em;
+    color:var(--text);
+  }
+  .hero h1 .num{color:var(--star);}
+  .hero .mission{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(19px,3vw,30px);line-height:1.5;
+    margin-top:26px;max-width:22em;color:#F4F6FB;
+  }
+  .hero .mission em{font-style:normal;color:var(--star)}
+  .hero .zh{
+    margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.06em;
+  }
+  .hero .roles{
+    margin-top:34px;display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .role{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;
+    color:var(--cyan);border:1px solid rgba(102,217,232,.35);
+    background:var(--cyan-soft);padding:7px 14px;border-radius:6px;
+  }
+  .hero .actions{margin-top:44px;display:flex;flex-wrap:wrap;gap:14px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:13px 26px;border-radius:8px;
+    font-size:14.5px;font-weight:500;font-family:var(--sans);
+    transition:all .22s cubic-bezier(.22,1,.36,1);
+  }
+  .btn svg{width:16px;height:16px;transition:transform .22s}
+  .btn:hover svg{transform:translateX(3px)}
+  .btn-solid{background:var(--star);color:#171208;box-shadow:0 6px 24px rgba(240,178,90,.25)}
+  .btn-solid:hover{background:#FFC977;box-shadow:0 8px 30px rgba(240,178,90,.4)}
+  .btn-ghost{border:1px solid var(--line2);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--star);color:var(--star)}
+
+  .molecule{
+    position:absolute;right:4%;bottom:8%;
+    width:min(300px,42vw);opacity:.5;pointer-events:none;
+  }
+  .molecule svg{width:100%;height:auto;overflow:visible}
+  .molecule .hex{fill:none;stroke:var(--cyan);stroke-width:1.4;opacity:.8}
+  .molecule .atom{fill:var(--star);opacity:.9}
+  .spin{transform-origin:50% 50%;animation:spin 60s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.spin{animation:none}}
+
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+  .rv.in{opacity:1;transform:none}
+
+  section{padding:92px 0}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:44px}
+  .sec-index{font-family:var(--mono);font-size:13px;color:var(--star);letter-spacing:.14em}
+  .sec-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(24px,3.4vw,34px)}
+  .sec-head .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent)}
+
+  .card{
+    background:linear-gradient(180deg,var(--bg3),var(--bg2));
+    border:1px solid var(--line);border-radius:12px;padding:26px;
+    transition:border-color .25s,transform .25s cubic-bezier(.22,1,.36,1);
+  }
+  .card:hover{border-color:var(--line2);transform:translateY(-3px)}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .card h3{font-family:var(--serif);font-weight:700;font-size:17px;margin-bottom:12px}
+  .card h3 .sym{color:var(--cyan);margin-right:8px;font-family:var(--mono);font-size:14px}
+  .card p{font-size:13.5px;color:var(--muted)}
+  .card ul{list-style:none;font-size:13.5px;color:var(--muted)}
+  .card ul li{padding:4px 0;padding-left:16px;position:relative}
+  .card ul li::before{content:"";position:absolute;left:2px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--star);opacity:.7}
+
+  .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:18px;align-items:stretch}
+  .about-card{background:linear-gradient(180deg,var(--bg3),var(--bg2));border:1px solid var(--line);border-radius:12px;padding:32px}
+  .about-card .lead{font-family:var(--serif);font-weight:600;font-size:clamp(16px,2vw,19px);line-height:1.8;color:#F0F3FA}
+  .about-card .lead .hi{color:var(--star)}
+  .about-card .body{margin-top:16px;font-size:14px;color:var(--muted)}
+  .values{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .value{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--cyan);border:1px solid rgba(102,217,232,.3);border-radius:6px;padding:7px 14px}
+  .facts{display:flex;flex-direction:column;gap:14px}
+  .fact{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--bg2);border:1px solid var(--line);border-radius:10px}
+  .fact .k{font-family:var(--serif);font-weight:900;font-size:26px;color:var(--star);line-height:1;min-width:74px}
+  .fact .v{font-size:12.5px;color:var(--muted);line-height:1.5}
+
+  .research-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+  .research-grid .card ul{columns:2;column-gap:26px}
+  .ongoing{
+    margin-top:18px;display:flex;gap:18px;align-items:flex-start;
+    background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--star);
+    border-radius:10px;padding:22px 26px;
+  }
+  .ongoing .tag{flex:none;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--star);border:1px solid rgba(240,178,90,.4);border-radius:999px;padding:4px 12px;margin-top:2px}
+  .ongoing .t{font-family:var(--serif);font-weight:700;font-size:16px;margin-bottom:6px}
+  .ongoing .d{font-size:13.5px;color:var(--muted)}
+
+  .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .proj{display:flex;flex-direction:column;background:linear-gradient(180deg,var(--bg3),var(--bg2));border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color .25s,transform .25s cubic-bezier(.22,1,.36,1)}
+  .proj:hover{border-color:var(--star);transform:translateY(-3px)}
+  .proj .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .proj .name{font-family:var(--mono);font-size:15px;color:var(--cyan);letter-spacing:.02em}
+  .proj .ext{color:var(--dim);font-size:12px;font-family:var(--mono)}
+  .proj h3{font-family:var(--serif);font-weight:700;font-size:16.5px;margin-bottom:8px}
+  .proj p{font-size:13px;color:var(--muted);flex:1}
+  .proj .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .proj .tag2{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--line2);border-radius:999px;padding:3px 10px}
+  .proj .go{margin-top:16px;font-family:var(--mono);font-size:12px;color:var(--star);display:inline-flex;align-items:center;gap:6px}
+  .proj .go svg{width:13px;height:13px;transition:transform .2s}
+  .proj:hover .go svg{transform:translateX(3px)}
+
+  .tl{--date:96px;--axis:26px;display:grid;grid-template-columns:var(--date) var(--axis) 1fr;gap:0;max-width:820px;position:relative}
+  .tl::before{content:"";position:absolute;top:0;bottom:0;left:calc(var(--date) + var(--axis)/2);width:1px;background:var(--line2)}
+  .tl .date{font-family:var(--mono);font-size:12.5px;color:var(--star);padding:4px 20px 26px 0;text-align:right}
+  .tl .node{justify-self:center;align-self:start;padding-top:4px;display:flex}
+  .tl .dot{width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--star);box-sizing:border-box}
+  .tl .entry{padding:0 0 30px 20px}
+  .tl .entry h3{font-family:var(--serif);font-weight:700;font-size:15.5px}
+  .tl .entry p{font-size:13px;color:var(--muted);margin-top:4px}
+
+  footer{padding:56px 0 72px;border-top:1px solid var(--line)}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .foot .id{font-family:var(--serif);font-weight:700;font-size:20px}
+  .foot .id span{color:var(--star)}
+  .foot .links{display:flex;gap:6px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+  .foot .links a{padding:12px 10px;display:inline-block}
+  .foot .links a:hover{color:var(--star)}
+  .foot .motto{margin-top:14px;color:var(--dim);font-size:12.5px;letter-spacing:.1em;font-family:var(--mono)}
+
+  @media(max-width:900px){
+    .grid3,.project-grid{grid-template-columns:repeat(2,1fr)}
+    .about-grid,.research-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:640px){
+    .grid3,.grid2,.project-grid{grid-template-columns:1fr}
+    .molecule{display:none}
+    .tl{--date:74px;--axis:22px}
+    section{padding:64px 0}
+    .research-grid .card ul{columns:1}
+    .card p,.card ul,.proj p,.ongoing .d,.tl .entry p{font-size:14px}
+    .fact .v{font-size:13px}
+  }
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+
+<header class="hero wrap">
+  <div class="catalog rv"><span class="dot"></span>STAR CATALOG · GITHUB PERSONAL PAGE</div>
+  <h1 class="rv">DX<span class="num">3906</span></h1>
+  <p class="mission rv">A private planet for <em>research</em>, <em>memory</em>, and <em>becoming</em>.</p>
+  <p class="zh rv">科研 · 记忆 · 生成 —— 一颗私人星球，公开生长。</p>
+  <div class="roles rv">
+    <span class="role">MATERIALS SCIENCE</span>
+    <span class="role">COMPUTATIONAL CHEMISTRY</span>
+    <span class="role">AI FOR SCIENCE</span>
+  </div>
+  <div class="actions rv">
+    <a class="btn btn-solid" href="https://github.com/Dongxiong67" target="_blank" rel="noopener">GitHub 主页
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <a class="btn btn-ghost" href="https://dongxiong67.github.io/DX3906/" target="_blank" rel="noopener">进入 DX3906 Station
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+
+  <div class="molecule" aria-hidden="true">
+    <svg viewBox="0 0 320 240" class="spin">
+      <g class="hex">
+        <polygon points="80,40 110,56 110,88 80,104 50,88 50,56"/>
+        <polygon points="140,40 170,56 170,88 140,104 110,88 110,56"/>
+        <polygon points="200,40 230,56 230,88 200,104 170,88 170,56"/>
+        <polygon points="110,104 140,120 140,152 110,168 80,152 80,120"/>
+        <polygon points="170,104 200,120 200,152 170,168 140,152 140,120"/>
+        <polygon points="140,168 170,184 170,216 140,232 110,216 110,184"/>
+      </g>
+      <g class="atom">
+        <circle cx="50" cy="56" r="4"/><circle cx="230" cy="56" r="4"/>
+        <circle cx="80" cy="104" r="3"/><circle cx="170" cy="104" r="3"/>
+        <circle cx="110" cy="168" r="3"/><circle cx="200" cy="120" r="3"/>
+        <circle cx="140" cy="232" r="4"/>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-index">01 / ABOUT</span>
+      <h2>关于这颗星球</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card rv">
+        <p class="lead"><span class="hi">DX3906</span> 是东北大学材料专业的一名本科生，正在走向计算材料与 AI for Science 的方向。</p>
+        <p class="body">I run semi-empirical quantum chemistry workflows, process scientific data with Python, and document everything openly — how I learn, struggle, think, create, and move forward. DX3906 is not only a personal page, but a structured archive of becoming.</p>
+        <div class="values">
+          <span class="value">RECORD</span>
+          <span class="value">MODEL</span>
+          <span class="value">OUTPUT</span>
+          <span class="value">BECOME</span>
+        </div>
+      </div>
+      <div class="facts rv">
+        <div class="fact"><span class="k">7</span><span class="v">public repositories<br>on GitHub</span></div>
+        <div class="fact"><span class="k">2025</span><span class="v">joined GitHub as Dongxiong67<br>bio: "to be better"</span></div>
+        <div class="fact"><span class="k">179</span><span class="v">structures computed in the<br>Terrylene-O₂ study (2026)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-index">02 / RESEARCH</span>
+      <h2>研究实验室</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="research-grid">
+      <div class="card rv">
+        <h3><span class="sym">◆</span>方法与工具箱</h3>
+        <ul>
+          <li>DFT / DFTB+ / xTB</li>
+          <li>半经验方法 PM7（MOPAC）</li>
+          <li>Gaussian / ORCA</li>
+          <li>ASE / PySCF</li>
+          <li>机器学习势 (ML potentials)</li>
+          <li>Python 数据处理管线</li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <h3><span class="sym">◆</span>方向</h3>
+        <ul>
+          <li>计算材料</li>
+          <li>计算化学</li>
+          <li>AI for Science</li>
+          <li>材料发现与催化剂设计</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ongoing rv">
+      <span class="tag">ONGOING</span>
+      <div>
+        <p class="t">基于 MOPAC 的三萘嵌苯（Terrylene）双氧嵌入模拟计算</p>
+        <p class="d">Semi-empirical quantum chemistry study of dioxygen-embedded terrylene systems — 179 structure calculations, a pipeline spanning 5,554 output files, delivered 2026-09. 半经验量子化学工作流的完整落地：从参数设定、批量计算到 Kabsch 结构判定与数据分析。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-index">03 / PROJECTS</span>
+      <h2>公开项目</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="project-grid">
+      <a class="proj rv" href="https://github.com/Dongxiong67/DX3906" target="_blank" rel="noopener">
+        <div class="top"><span class="name">DX3906</span><span class="ext">2026</span></div>
+        <h3>DX3906 Station</h3>
+        <p>A private planet for research, memory, and becoming — personal knowledge archive of academic route, research notes and survival methods.</p>
+        <div class="tags"><span class="tag2">jekyll</span><span class="tag2">knowledge-base</span><span class="tag2">pages</span></div>
+        <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="proj rv" href="https://github.com/Dongxiong67/dx3906-station-3d" target="_blank" rel="noopener">
+        <div class="top"><span class="name">dx3906-station-3d</span><span class="ext">2026</span></div>
+        <h3>DX3906 Station 3D</h3>
+        <p>A 3D interactive space station experience — the private planet rendered in three dimensions.</p>
+        <div class="tags"><span class="tag2">three.js</span><span class="tag2">3d</span><span class="tag2">interactive</span></div>
+        <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="proj rv" href="https://github.com/Dongxiong67/pde-learning" target="_blank" rel="noopener">
+        <div class="top"><span class="name">pde-learning</span><span class="ext">2026</span></div>
+        <h3>PDE Learning</h3>
+        <p>Notebooks and notes on partial differential equations — numerical methods learned in public.</p>
+        <div class="tags"><span class="tag2">jupyter</span><span class="tag2">math</span></div>
+        <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="proj rv" href="https://github.com/Dongxiong67/junyi-insights" target="_blank" rel="noopener">
+        <div class="top"><span class="name">junyi-insights</span><span class="ext">2026</span></div>
+        <h3>Junyi Insights</h3>
+        <p>Notes on personal capital and long-term accumulation, distilled from sharing sessions.</p>
+        <div class="tags"><span class="tag2">notes</span><span class="tag2">growth</span></div>
+        <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="proj rv" href="https://github.com/Dongxiong67/relationship-insight" target="_blank" rel="noopener">
+        <div class="top"><span class="name">relationship-insight</span><span class="ext">2026</span></div>
+        <h3>Relationship Insight</h3>
+        <p>A privacy-safe, shared relationship conversation analysis dashboard.</p>
+        <div class="tags"><span class="tag2">dashboard</span><span class="tag2">privacy</span></div>
+        <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="proj rv" href="https://github.com/Dongxiong67/qingwen" target="_blank" rel="noopener">
+        <div class="top"><span class="name">qingwen</span><span class="ext">2026</span></div>
+        <h3>Qingwen</h3>
+        <p>Experimental web project — the latest exploration in this corner of the galaxy.</p>
+        <div class="tags"><span class="tag2">web</span><span class="tag2">experiment</span></div>
+        <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="route">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-index">04 / ROUTE</span>
+      <h2>星轨</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="tl">
+      <div class="date rv">2025-09</div><div class="node rv"><span class="dot"></span></div>
+      <div class="entry rv"><h3>加入 GitHub — Dongxiong67</h3><p>注册账号，写下 bio："to be better"。</p></div>
+
+      <div class="date rv">2026-07</div><div class="node rv"><span class="dot"></span></div>
+      <div class="entry rv"><h3>DX3906 Station 发射</h3><p>个人知识星球上线：科研、记忆与自我生成的结构化存档。</p></div>
+
+      <div class="date rv">2026-07</div><div class="node rv"><span class="dot"></span></div>
+      <div class="entry rv"><h3>3D 空间站与 PDE 笔记</h3><p>dx3906-station-3d 交互空间站 + pde-learning 数值方法笔记。</p></div>
+
+      <div class="date rv">2026-08</div><div class="node rv"><span class="dot"></span></div>
+      <div class="entry rv"><h3>分析与洞察项目</h3><p>relationship-insight 关系分析看板与 junyi-insights 长期积累笔记。</p></div>
+
+      <div class="date rv">2026-09</div><div class="node rv"><span class="dot"></span></div>
+      <div class="entry rv"><h3>Terrylene-O₂ 计算完成</h3><p>179 个结构、5,554 个输出文件的 MOPAC 半经验计算管线交付。</p></div>
+
+      <div class="date rv">2026-09</div><div class="node rv"><span class="dot"></span></div>
+      <div class="entry rv"><h3>本页面上线</h3><p>Dongxiong67.github.io —— 星球的对外坐标。</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="id">DX<span>3906</span></div>
+      <div class="links">
+        <a href="https://github.com/Dongxiong67" target="_blank" rel="noopener">GITHUB</a>
+        <a href="https://dongxiong67.github.io/DX3906/" target="_blank" rel="noopener">STATION</a>
+        <a href="mailto:2443550272@qq.com">EMAIL</a>
+      </div>
+    </div>
+    <p class="motto">TO BE BETTER · 持续生成中</p>
+  </div>
+</footer>
+
+<script>
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:.12});
+    items.forEach(function(el){ io.observe(el); });
+  }
+</script>
+</body>
+</html>
