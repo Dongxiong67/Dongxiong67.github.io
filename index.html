@@ -320,7 +320,11 @@ footer{
 .footer-inner .links a:hover{color:var(--link)}
 
 @media(max-width:640px){
-  .nav-links{display:none}
+  .nav-links{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;justify-content:flex-start;gap:1px;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{font-size:13px;padding:6px 8px;white-space:nowrap}
+  .nav-inner{flex-wrap:nowrap}
+  .brand-name{font-size:14px;white-space:nowrap}
   .welcome{padding:44px 0 28px}
   .post-item h2{font-size:19px}
   .post-item .post-excerpt{font-size:15px}
@@ -1019,7 +1023,7 @@ function renderHome(){
           <div class="recent-meta"><b>2026.08 · TCD 访学</b><span>CRANN/AMBER、Long Room · 点击看官方报道 →</span></div>
         </a>
         <a class="recent-card" href="https://mp.weixin.qq.com/s/Lqst7Uh_9JedgMd-rP7Z1w" target="_blank" rel="noopener">
-          <img src="assets/school-2024-04.jpg" alt="Returning to high school">
+          <img src="assets/return-school-correct.jpg" alt="Returning to high school">
           <div class="recent-meta"><b>2024.02 · 回到永丰中学分享</b><span>优秀大学生代表 · 点击看原文 →</span></div>
         </a>
       </div>
