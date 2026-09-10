@@ -1,161 +1,165 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DX3906 · A Private Planet for Research, Memory & Becoming</title>
-<meta name="description" content="DX3906 — Dongxiong67's GitHub personal page. Materials science, computational chemistry, AI for Science. A private planet, made public.">
+<title>DX3906 · Computational Materials & AI for Science</title>
+<meta name="description" content="DX3906 (Dongxiong67) — undergraduate researcher at Northeastern University. Computational materials, computational chemistry (MOPAC/PM7), AI for Science.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='20' fill='%23F0B25A'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%230A0E18'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://miaoda.feishu.cn">
-<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
 <style>
   :root{
-    --bg:#0A0E18;
-    --bg2:#0D1322;
-    --bg3:#111A2E;
-    --line:#1D2A47;
-    --line2:#2A3B61;
-    --text:#E6EAF4;
-    --muted:#8A94AD;
-    --dim:#5C6A80;
-    --star:#F0B25A;
-    --star-soft:rgba(240,178,90,.16);
-    --cyan:#66D9E8;
-    --cyan-soft:rgba(102,217,232,.12);
     --serif:"Noto Serif SC",Georgia,"Songti SC","SimSun",serif;
     --sans:"Noto Sans SC","Microsoft YaHei","PingFang SC",-apple-system,sans-serif;
     --mono:ui-monospace,"Cascadia Code","SF Mono",Consolas,"Courier New",monospace;
   }
+  html[data-theme="dark"]{
+    --bg:#0A0E18;--bg2:#0D1322;--bg3:#111A2E;
+    --line:#1D2A47;--line2:#2A3B61;
+    --text:#E6EAF4;--muted:#8A94AD;--dim:#5C6A80;
+    --star:#F0B25A;--cyan:#66D9E8;--chip:rgba(102,217,232,.1);
+    --card:linear-gradient(180deg,#111A2E,#0D1322);
+    --shadow:0 18px 44px rgba(0,0,0,.35);
+  }
+  html[data-theme="light"]{
+    --bg:#F5F2EB;--bg2:#FBF9F4;--bg3:#FFFFFF;
+    --line:#E2DCCE;--line2:#CBC3B0;
+    --text:#22273A;--muted:#5E667C;--dim:#8A91A6;
+    --star:#B26E14;--cyan:#0E7485;--chip:rgba(14,116,133,.08);
+    --card:linear-gradient(180deg,#FFFFFF,#FBF9F4);
+    --shadow:0 18px 44px rgba(60,50,20,.10);
+  }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
   body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:var(--sans);
-    font-weight:300;
-    line-height:1.75;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    background:var(--bg);color:var(--text);
+    font-family:var(--sans);font-weight:300;line-height:1.75;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+    transition:background .35s,color .35s;
   }
   ::selection{background:rgba(240,178,90,.3)}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
 
-  .sky{
-    position:fixed;inset:0;z-index:-2;
-    background:
-      radial-gradient(1px 1px at 12% 22%,rgba(230,234,244,.55) 50%,transparent 51%),
-      radial-gradient(1px 1px at 28% 68%,rgba(230,234,244,.4) 50%,transparent 51%),
-      radial-gradient(1.5px 1.5px at 41% 14%,rgba(240,178,90,.5) 50%,transparent 51%),
-      radial-gradient(1px 1px at 55% 42%,rgba(230,234,244,.45) 50%,transparent 51%),
-      radial-gradient(1.5px 1.5px at 63% 78%,rgba(230,234,244,.35) 50%,transparent 51%),
-      radial-gradient(1px 1px at 72% 30%,rgba(240,178,90,.4) 50%,transparent 51%),
-      radial-gradient(1px 1px at 84% 60%,rgba(230,234,244,.5) 50%,transparent 51%),
-      radial-gradient(1.5px 1.5px at 92% 18%,rgba(230,234,244,.35) 50%,transparent 51%),
-      radial-gradient(1px 1px at 7% 86%,rgba(230,234,244,.4) 50%,transparent 51%),
-      radial-gradient(1px 1px at 34% 90%,rgba(230,234,244,.3) 50%,transparent 51%),
-      radial-gradient(ellipse 900px 500px at 70% -10%,rgba(31,52,94,.55),transparent 70%),
-      radial-gradient(ellipse 700px 420px at 15% 110%,rgba(58,41,20,.35),transparent 70%),
-      var(--bg);
-  }
+  .sky{position:fixed;inset:0;z-index:-2;pointer-events:none;background:var(--bg);
+    transition:background .35s}
+  html[data-theme="dark"] .sky{background:
+    radial-gradient(1px 1px at 12% 22%,rgba(230,234,244,.5) 50%,transparent 51%),
+    radial-gradient(1px 1px at 28% 68%,rgba(230,234,244,.38) 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 41% 14%,rgba(240,178,90,.5) 50%,transparent 51%),
+    radial-gradient(1px 1px at 55% 42%,rgba(230,234,244,.42) 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 63% 78%,rgba(230,234,244,.32) 50%,transparent 51%),
+    radial-gradient(1px 1px at 72% 30%,rgba(240,178,90,.4) 50%,transparent 51%),
+    radial-gradient(1px 1px at 84% 60%,rgba(230,234,244,.45) 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 92% 18%,rgba(230,234,244,.32) 50%,transparent 51%),
+    radial-gradient(1px 1px at 7% 86%,rgba(230,234,244,.38) 50%,transparent 51%),
+    radial-gradient(1px 1px at 34% 90%,rgba(230,234,244,.28) 50%,transparent 51%),
+    radial-gradient(ellipse 900px 500px at 70% -10%,rgba(31,52,94,.55),transparent 70%),
+    radial-gradient(ellipse 700px 420px at 15% 110%,rgba(58,41,20,.35),transparent 70%),
+    var(--bg);}
 
-  .hero{
-    min-height:100vh;
-    display:flex;flex-direction:column;justify-content:center;
-    padding-block:96px 64px;position:relative;
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb,var(--bg) 82%,transparent);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
   }
+  .nav-inner{max-width:1080px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-family:var(--serif);font-weight:900;font-size:17px;letter-spacing:.02em;padding:10px 8px;margin-left:-8px;border-radius:8px}
+  .brand span{color:var(--star)}
+  .nav-links{display:flex;align-items:center;gap:4px}
+  .nav-links a{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--muted);padding:8px 12px;border-radius:6px;transition:color .2s,background .2s}
+  .nav-links a:hover{color:var(--star);background:rgba(240,178,90,.08)}
+  .theme-btn{
+    width:40px;height:40px;border-radius:8px;border:1px solid var(--line2);
+    background:transparent;color:var(--muted);cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;transition:all .2s;
+  }
+  .theme-btn:hover{color:var(--star);border-color:var(--star)}
+  .theme-btn svg{width:16px;height:16px}
+  html[data-theme="dark"] .theme-btn .sun{display:block}
+  html[data-theme="dark"] .theme-btn .moon{display:none}
+  html[data-theme="light"] .theme-btn .sun{display:none}
+  html[data-theme="light"] .theme-btn .moon{display:block}
+
+  .hero{min-height:calc(100vh - 69px);display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center;padding-block:80px 64px}
   .catalog{
     display:inline-flex;align-items:center;gap:10px;
     font-family:var(--mono);font-size:12px;letter-spacing:.18em;
-    color:var(--star);border:1px solid var(--line2);
-    background:rgba(240,178,90,.06);
-    padding:8px 16px;border-radius:999px;margin-bottom:36px;
+    color:var(--star);border:1px solid var(--line2);background:color-mix(in srgb,var(--star) 7%,transparent);
+    padding:7px 15px;border-radius:999px;margin-bottom:30px;
   }
   .catalog .dot{width:6px;height:6px;border-radius:50%;background:var(--star);box-shadow:0 0 10px var(--star)}
-  .hero h1{
-    font-family:var(--serif);font-weight:900;
-    font-size:clamp(64px,13vw,150px);line-height:.95;letter-spacing:.01em;
-    color:var(--text);
-  }
-  .hero h1 .num{color:var(--star);}
-  .hero .mission{
-    font-family:var(--serif);font-weight:600;
-    font-size:clamp(19px,3vw,30px);line-height:1.5;
-    margin-top:26px;max-width:22em;color:#F4F6FB;
-  }
-  .hero .mission em{font-style:normal;color:var(--star)}
-  .hero .zh{
-    margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.06em;
-  }
-  .hero .roles{
-    margin-top:34px;display:flex;flex-wrap:wrap;gap:10px;
-  }
-  .role{
-    font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;
-    color:var(--cyan);border:1px solid rgba(102,217,232,.35);
-    background:var(--cyan-soft);padding:7px 14px;border-radius:6px;
-  }
-  .hero .actions{margin-top:44px;display:flex;flex-wrap:wrap;gap:14px}
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:13px 26px;border-radius:8px;
-    font-size:14.5px;font-weight:500;font-family:var(--sans);
-    transition:all .22s cubic-bezier(.22,1,.36,1);
-  }
-  .btn svg{width:16px;height:16px;transition:transform .22s}
+  .hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(56px,9.5vw,104px);line-height:1;letter-spacing:.01em}
+  .hero h1 .num{color:var(--star)}
+  .hero .title{font-family:var(--serif);font-weight:600;font-size:clamp(17px,2.2vw,21px);line-height:1.7;margin-top:18px;color:color-mix(in srgb,var(--text) 88%,transparent)}
+  .hero .title em{font-style:normal;color:var(--star)}
+  .hero .zh{margin-top:10px;color:var(--muted);font-size:14.5px;letter-spacing:.06em}
+  .hero .roles{margin-top:26px;display:flex;flex-wrap:wrap;gap:9px}
+  .role{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--cyan);border:1px solid color-mix(in srgb,var(--cyan) 40%,transparent);background:var(--chip);padding:6px 13px;border-radius:6px}
+  .hero .actions{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;transition:all .22s cubic-bezier(.22,1,.36,1)}
+  .btn svg{width:15px;height:15px;transition:transform .22s}
   .btn:hover svg{transform:translateX(3px)}
-  .btn-solid{background:var(--star);color:#171208;box-shadow:0 6px 24px rgba(240,178,90,.25)}
-  .btn-solid:hover{background:#FFC977;box-shadow:0 8px 30px rgba(240,178,90,.4)}
+  .btn-solid{background:var(--star);color:var(--bg);box-shadow:0 6px 22px color-mix(in srgb,var(--star) 30%,transparent)}
+  .btn-solid:hover{filter:brightness(1.08)}
   .btn-ghost{border:1px solid var(--line2);color:var(--text)}
   .btn-ghost:hover{border-color:var(--star);color:var(--star)}
 
-  .molecule{
-    position:absolute;right:4%;bottom:8%;
-    width:min(300px,42vw);opacity:.5;pointer-events:none;
+  .profile{
+    position:relative;border:1px solid var(--line);border-radius:16px;
+    background:var(--card);box-shadow:var(--shadow);padding:30px;overflow:hidden;
   }
-  .molecule svg{width:100%;height:auto;overflow:visible}
-  .molecule .hex{fill:none;stroke:var(--cyan);stroke-width:1.4;opacity:.8}
-  .molecule .atom{fill:var(--star);opacity:.9}
-  .spin{transform-origin:50% 50%;animation:spin 60s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  @media (prefers-reduced-motion:reduce){.spin{animation:none}}
+  .profile::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 220px at 85% -10%,color-mix(in srgb,var(--star) 14%,transparent),transparent 65%);pointer-events:none}
+  .avatar{width:92px;height:92px;border-radius:50%;border:2px solid var(--star);object-fit:cover;display:block;margin-bottom:18px;background:var(--bg3)}
+  .profile h2{font-family:var(--serif);font-weight:700;font-size:21px}
+  .profile .aff{font-family:var(--mono);font-size:12px;color:var(--cyan);margin-top:6px;letter-spacing:.04em}
+  .profile .addr{margin-top:10px;font-size:13px;color:var(--muted);line-height:1.8}
+  .profile .addr b{color:var(--text);font-weight:500}
+  .profile .divider{height:1px;background:var(--line);margin:18px 0}
+  .profile .links{display:flex;flex-wrap:wrap;gap:8px}
+  .icon-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line2);border-radius:7px;padding:10px 13px;transition:all .2s}
+  .icon-btn svg{width:14px;height:14px}
+  .icon-btn:hover{color:var(--star);border-color:var(--star)}
 
-  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
   .rv.in{opacity:1;transform:none}
 
-  section{padding:92px 0}
-  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:44px}
-  .sec-index{font-family:var(--mono);font-size:13px;color:var(--star);letter-spacing:.14em}
-  .sec-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(24px,3.4vw,34px)}
+  section{padding:84px 0}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:40px}
+  .sec-index{font-family:var(--mono);font-size:12.5px;color:var(--star);letter-spacing:.14em}
+  .sec-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(23px,3.2vw,31px)}
   .sec-head .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent)}
 
-  .card{
-    background:linear-gradient(180deg,var(--bg3),var(--bg2));
-    border:1px solid var(--line);border-radius:12px;padding:26px;
-    transition:border-color .25s,transform .25s cubic-bezier(.22,1,.36,1);
-  }
-  .card:hover{border-color:var(--line2);transform:translateY(-3px)}
-
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .card h3{font-family:var(--serif);font-weight:700;font-size:17px;margin-bottom:12px}
-  .card h3 .sym{color:var(--cyan);margin-right:8px;font-family:var(--mono);font-size:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px;transition:border-color .25s,transform .25s cubic-bezier(.22,1,.36,1)}
+  .card:hover{border-color:var(--line2);transform:translateY(-2px)}
+  .card h3{font-family:var(--serif);font-weight:700;font-size:16.5px;margin-bottom:12px}
+  .card h3 .sym{color:var(--cyan);margin-right:8px;font-family:var(--mono);font-size:13.5px}
   .card p{font-size:13.5px;color:var(--muted)}
   .card ul{list-style:none;font-size:13.5px;color:var(--muted)}
   .card ul li{padding:4px 0;padding-left:16px;position:relative}
   .card ul li::before{content:"";position:absolute;left:2px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--star);opacity:.7}
 
-  .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:18px;align-items:stretch}
-  .about-card{background:linear-gradient(180deg,var(--bg3),var(--bg2));border:1px solid var(--line);border-radius:12px;padding:32px}
-  .about-card .lead{font-family:var(--serif);font-weight:600;font-size:clamp(16px,2vw,19px);line-height:1.8;color:#F0F3FA}
+  .about-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:18px;align-items:stretch}
+  .about-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:32px}
+  .about-card .lead{font-family:var(--serif);font-weight:600;font-size:clamp(15.5px,2vw,18px);line-height:1.85;color:color-mix(in srgb,var(--text) 92%,transparent)}
   .about-card .lead .hi{color:var(--star)}
   .about-card .body{margin-top:16px;font-size:14px;color:var(--muted)}
-  .values{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-  .value{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--cyan);border:1px solid rgba(102,217,232,.3);border-radius:6px;padding:7px 14px}
-  .facts{display:flex;flex-direction:column;gap:14px}
-  .fact{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--bg2);border:1px solid var(--line);border-radius:10px}
-  .fact .k{font-family:var(--serif);font-weight:900;font-size:26px;color:var(--star);line-height:1;min-width:74px}
+  .values{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+  .value{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--cyan);border:1px solid color-mix(in srgb,var(--cyan) 35%,transparent);border-radius:6px;padding:6px 13px}
+  .facts{display:flex;flex-direction:column;gap:12px}
+  .fact{display:flex;align-items:center;gap:14px;padding:15px 17px;background:var(--bg2);border:1px solid var(--line);border-radius:10px}
+  .fact .k{font-family:var(--serif);font-weight:900;font-size:24px;color:var(--star);line-height:1;min-width:66px}
   .fact .v{font-size:12.5px;color:var(--muted);line-height:1.5}
+
+  .news{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:12px;background:var(--bg2);overflow:hidden}
+  .news .item{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:15px 24px;border-bottom:1px solid var(--line);transition:background .2s}
+  .news .item:last-child{border-bottom:none}
+  .news .item:hover{background:color-mix(in srgb,var(--star) 5%,transparent)}
+  .news .d{font-family:var(--mono);font-size:12.5px;color:var(--star);padding-top:3px}
+  .news .t{font-size:14px;color:var(--text)}
+  .news .t small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
 
   .research-grid{display:grid;grid-template-columns:2fr 1fr;gap:18px}
   .research-grid .card ul{columns:2;column-gap:26px}
@@ -164,17 +168,25 @@
     background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--star);
     border-radius:10px;padding:22px 26px;
   }
-  .ongoing .tag{flex:none;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--star);border:1px solid rgba(240,178,90,.4);border-radius:999px;padding:4px 12px;margin-top:2px}
+  .ongoing .tag{flex:none;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--star);border:1px solid color-mix(in srgb,var(--star) 45%,transparent);border-radius:999px;padding:4px 12px;margin-top:2px}
   .ongoing .t{font-family:var(--serif);font-weight:700;font-size:16px;margin-bottom:6px}
   .ongoing .d{font-size:13.5px;color:var(--muted)}
 
+  .out-list{display:flex;flex-direction:column;gap:14px}
+  .out{display:grid;grid-template-columns:1fr auto;gap:16px;padding:22px 26px;background:var(--card);border:1px solid var(--line);border-radius:12px;transition:border-color .25s}
+  .out:hover{border-color:var(--line2)}
+  .out .kind{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--star);border:1px solid color-mix(in srgb,var(--star) 45%,transparent);border-radius:999px;padding:3px 11px;white-space:nowrap;height:fit-content}
+  .out h3{font-family:var(--serif);font-weight:700;font-size:16px}
+  .out .meta{margin-top:5px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .out p{font-size:13px;color:var(--muted);margin-top:8px;max-width:72ch}
+
   .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .proj{display:flex;flex-direction:column;background:linear-gradient(180deg,var(--bg3),var(--bg2));border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color .25s,transform .25s cubic-bezier(.22,1,.36,1)}
+  .proj{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;transition:border-color .25s,transform .25s cubic-bezier(.22,1,.36,1)}
   .proj:hover{border-color:var(--star);transform:translateY(-3px)}
   .proj .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-  .proj .name{font-family:var(--mono);font-size:15px;color:var(--cyan);letter-spacing:.02em}
+  .proj .name{font-family:var(--mono);font-size:14.5px;color:var(--cyan);letter-spacing:.02em}
   .proj .ext{color:var(--dim);font-size:12px;font-family:var(--mono)}
-  .proj h3{font-family:var(--serif);font-weight:700;font-size:16.5px;margin-bottom:8px}
+  .proj h3{font-family:var(--serif);font-weight:700;font-size:16px;margin-bottom:8px}
   .proj p{font-size:13px;color:var(--muted);flex:1}
   .proj .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
   .proj .tag2{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--line2);border-radius:999px;padding:3px 10px}
@@ -191,9 +203,9 @@
   .tl .entry h3{font-family:var(--serif);font-weight:700;font-size:15.5px}
   .tl .entry p{font-size:13px;color:var(--muted);margin-top:4px}
 
-  footer{padding:56px 0 72px;border-top:1px solid var(--line)}
+  footer{padding:52px 0 68px;border-top:1px solid var(--line)}
   .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
-  .foot .id{font-family:var(--serif);font-weight:700;font-size:20px}
+  .foot .id{font-family:var(--serif);font-weight:700;font-size:19px}
   .foot .id span{color:var(--star)}
   .foot .links{display:flex;gap:6px;font-family:var(--mono);font-size:13px;color:var(--muted)}
   .foot .links a{padding:12px 10px;display:inline-block}
@@ -201,96 +213,131 @@
   .foot .motto{margin-top:14px;color:var(--dim);font-size:12.5px;letter-spacing:.1em;font-family:var(--mono)}
 
   @media(max-width:900px){
-    .grid3,.project-grid{grid-template-columns:repeat(2,1fr)}
+    .hero{grid-template-columns:1fr;gap:34px}
     .about-grid,.research-grid{grid-template-columns:1fr}
+    .project-grid{grid-template-columns:repeat(2,1fr)}
+    .nav-links a{padding:8px 8px;font-size:11.5px}
   }
   @media(max-width:640px){
-    .grid3,.grid2,.project-grid{grid-template-columns:1fr}
-    .molecule{display:none}
+    .wrap{padding:0 20px}
+    .hero{padding-block:56px 40px;min-height:auto}
+    .project-grid{grid-template-columns:1fr}
+    .news .item{grid-template-columns:86px 1fr;padding:13px 18px}
     .tl{--date:74px;--axis:22px}
-    section{padding:64px 0}
+    section{padding:60px 0}
     .research-grid .card ul{columns:1}
-    .card p,.card ul,.proj p,.ongoing .d,.tl .entry p{font-size:14px}
-    .fact .v{font-size:13px}
+    .out{grid-template-columns:1fr;gap:10px}
+    .card p,.card ul,.proj p,.ongoing .d,.tl .entry p,.out p,.news .t{font-size:14px}
+    .fact .v,.profile .addr{font-size:13.5px}
+    .icon-btn{min-height:44px;padding:11px 14px}
+    .nav-links{display:none}
   }
 </style>
 </head>
 <body>
 <div class="sky" aria-hidden="true"></div>
 
-<header class="hero wrap">
-  <div class="catalog rv"><span class="dot"></span>STAR CATALOG · GITHUB PERSONAL PAGE</div>
-  <h1 class="rv">DX<span class="num">3906</span></h1>
-  <p class="mission rv">A private planet for <em>research</em>, <em>memory</em>, and <em>becoming</em>.</p>
-  <p class="zh rv">科研 · 记忆 · 生成 —— 一颗私人星球，公开生长。</p>
-  <div class="roles rv">
-    <span class="role">MATERIALS SCIENCE</span>
-    <span class="role">COMPUTATIONAL CHEMISTRY</span>
-    <span class="role">AI FOR SCIENCE</span>
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top">DX<span>3906</span></a>
+    <div class="nav-links">
+      <a href="#about">ABOUT</a>
+      <a href="#news">NEWS</a>
+      <a href="#research">RESEARCH</a>
+      <a href="#outputs">OUTPUTS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#route">ROUTE</a>
+    </div>
+    <button class="theme-btn" id="themeBtn" aria-label="切换深浅色主题">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
   </div>
-  <div class="actions rv">
-    <a class="btn btn-solid" href="https://github.com/Dongxiong67" target="_blank" rel="noopener">GitHub 主页
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-    <a class="btn btn-ghost" href="https://dongxiong67.github.io/DX3906/" target="_blank" rel="noopener">进入 DX3906 Station
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
+</nav>
+
+<header class="hero wrap" id="top">
+  <div>
+    <div class="catalog rv"><span class="dot"></span>STAR CATALOG · ACADEMIC PAGE</div>
+    <h1 class="rv">DX<span class="num">3906</span></h1>
+    <p class="title rv">Computational Materials · Computational Chemistry · <em>AI for Science</em></p>
+    <p class="zh rv">科研 · 记忆 · 生成 —— 一颗私人星球，公开生长。</p>
+    <div class="roles rv">
+      <span class="role">MOPAC / PM7</span>
+      <span class="role">DFT · DFTB+ · xTB</span>
+      <span class="role">PYTHON</span>
+      <span class="role">DATA PIPELINES</span>
+    </div>
+    <div class="actions rv">
+      <a class="btn btn-solid" href="https://github.com/Dongxiong67" target="_blank" rel="noopener">GitHub 主页
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="https://dongxiong67.github.io/DX3906/" target="_blank" rel="noopener">进入 DX3906 Station
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
   </div>
 
-  <div class="molecule" aria-hidden="true">
-    <svg viewBox="0 0 320 240" class="spin">
-      <g class="hex">
-        <polygon points="80,40 110,56 110,88 80,104 50,88 50,56"/>
-        <polygon points="140,40 170,56 170,88 140,104 110,88 110,56"/>
-        <polygon points="200,40 230,56 230,88 200,104 170,88 170,56"/>
-        <polygon points="110,104 140,120 140,152 110,168 80,152 80,120"/>
-        <polygon points="170,104 200,120 200,152 170,168 140,152 140,120"/>
-        <polygon points="140,168 170,184 170,216 140,232 110,216 110,184"/>
-      </g>
-      <g class="atom">
-        <circle cx="50" cy="56" r="4"/><circle cx="230" cy="56" r="4"/>
-        <circle cx="80" cy="104" r="3"/><circle cx="170" cy="104" r="3"/>
-        <circle cx="110" cy="168" r="3"/><circle cx="200" cy="120" r="3"/>
-        <circle cx="140" cy="232" r="4"/>
-      </g>
-    </svg>
-  </div>
+  <aside class="profile rv">
+    <img class="avatar" src="https://github.com/Dongxiong67.png" alt="DX3906" width="92" height="92">
+    <h2>DX3906 <span style="color:var(--star)">·</span> 冬熊</h2>
+    <p class="aff">DONGXIONG67 · GITHUB</p>
+    <p class="addr">
+      <b>东北大学 · 材料科学</b><br>
+      Northeastern University<br>
+      计算材料 / 计算化学方向本科生<br>
+      <span style="color:var(--dim)">Shenyang, China</span>
+    </p>
+    <div class="divider"></div>
+    <div class="links">
+      <a class="icon-btn" href="mailto:2443550272@qq.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>EMAIL
+      </a>
+      <a class="icon-btn" href="https://github.com/Dongxiong67" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GITHUB
+      </a>
+      <a class="icon-btn" href="https://dongxiong67.github.io/DX3906/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>STATION
+      </a>
+    </div>
+  </aside>
 </header>
 
 <section id="about">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="sec-index">01 / ABOUT</span>
-      <h2>关于这颗星球</h2>
-      <div class="rule"></div>
-    </div>
+    <div class="sec-head rv"><span class="sec-index">01 / ABOUT</span><h2>关于我</h2><div class="rule"></div></div>
     <div class="about-grid">
       <div class="about-card rv">
-        <p class="lead"><span class="hi">DX3906</span> 是东北大学材料专业的一名本科生，正在走向计算材料与 AI for Science 的方向。</p>
-        <p class="body">I run semi-empirical quantum chemistry workflows, process scientific data with Python, and document everything openly — how I learn, struggle, think, create, and move forward. DX3906 is not only a personal page, but a structured archive of becoming.</p>
+        <p class="lead"><span class="hi">DX3906</span> 是东北大学材料专业的一名本科生，研究方向为计算材料与计算化学，正在走向 AI for Science。</p>
+        <p class="body">I run semi-empirical quantum chemistry workflows, process scientific data with Python, and document everything openly — how I learn, model, and build. This site is both an academic homepage and a structured archive of becoming.</p>
         <div class="values">
-          <span class="value">RECORD</span>
-          <span class="value">MODEL</span>
-          <span class="value">OUTPUT</span>
-          <span class="value">BECOME</span>
+          <span class="value">RECORD</span><span class="value">MODEL</span><span class="value">OUTPUT</span><span class="value">BECOME</span>
         </div>
       </div>
       <div class="facts rv">
+        <div class="fact"><span class="k">179</span><span class="v">structures computed in the<br>Terrylene-O₂ study (2026)</span></div>
         <div class="fact"><span class="k">7</span><span class="v">public repositories<br>on GitHub</span></div>
         <div class="fact"><span class="k">2025</span><span class="v">joined GitHub as Dongxiong67<br>bio: "to be better"</span></div>
-        <div class="fact"><span class="k">179</span><span class="v">structures computed in the<br>Terrylene-O₂ study (2026)</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-index">02 / NEWS</span><h2>近况</h2><div class="rule"></div></div>
+    <div class="news rv">
+      <div class="item"><div class="d">2026-09</div><div class="t">Terrylene-O₂ MOPAC 半经验计算管线交付<small>179 个结构 · 5,554 个输出文件 · 从参数化、批量计算到 Kabsch 判定与数据分析的完整工作流</small></div></div>
+      <div class="item"><div class="d">2026-09</div><div class="t">学术主页 Dongxiong67.github.io 上线<small>本页：以 DX3906 星球为意象的学术个人主页</small></div></div>
+      <div class="item"><div class="d">2026-08</div><div class="t">完成数字人直播带货消费行为研究答辩报告<small>779 份问卷 · SEM 结构方程 · Logistic 回归 · Python 数据管线</small></div></div>
+      <div class="item"><div class="d">2026-07</div><div class="t">DX3906 Station 与系列项目公开<small>个人知识星球 · 3D 空间站 · PDE 数值方法笔记</small></div></div>
+      <div class="item"><div class="d">2025-09</div><div class="t">加入 GitHub — Dongxiong67<small>写下 bio："to be better"</small></div></div>
     </div>
   </div>
 </section>
 
 <section id="research">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="sec-index">02 / RESEARCH</span>
-      <h2>研究实验室</h2>
-      <div class="rule"></div>
-    </div>
+    <div class="sec-head rv"><span class="sec-index">03 / RESEARCH</span><h2>研究</h2><div class="rule"></div></div>
     <div class="research-grid">
       <div class="card rv">
         <h3><span class="sym">◆</span>方法与工具箱</h3>
@@ -304,7 +351,7 @@
         </ul>
       </div>
       <div class="card rv">
-        <h3><span class="sym">◆</span>方向</h3>
+        <h3><span class="sym">◆</span>研究兴趣</h3>
         <ul>
           <li>计算材料</li>
           <li>计算化学</li>
@@ -317,7 +364,47 @@
       <span class="tag">ONGOING</span>
       <div>
         <p class="t">基于 MOPAC 的三萘嵌苯（Terrylene）双氧嵌入模拟计算</p>
-        <p class="d">Semi-empirical quantum chemistry study of dioxygen-embedded terrylene systems — 179 structure calculations, a pipeline spanning 5,554 output files, delivered 2026-09. 半经验量子化学工作流的完整落地：从参数设定、批量计算到 Kabsch 结构判定与数据分析。</p>
+        <p class="d">Semi-empirical quantum chemistry study of dioxygen-embedded terrylene systems — 179 structure calculations, a pipeline spanning 5,554 output files. 从参数设定、批量计算到 Kabsch 结构判定与数据分析的完整半经验量子化学工作流。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="outputs">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="sec-index">04 / OUTPUTS</span><h2>研究产出</h2><div class="rule"></div></div>
+    <div class="out-list">
+      <div class="out rv">
+        <div>
+          <h3>基于 MOPAC 的三萘嵌苯双氧嵌入模拟计算</h3>
+          <p class="meta">RESEARCH PROJECT · 2026 · MOPAC/PM7 · Terrylene-O₂</p>
+          <p>双氧嵌入三萘嵌苯体系的半经验量子化学研究：179 个结构参数化与批量计算，5,554 个输出文件的管线化管理，Kabsch 结构判定与数据归因。</p>
+        </div>
+        <span class="kind">ONGOING</span>
+      </div>
+      <div class="out rv">
+        <div>
+          <h3>数字人直播带货消费行为研究</h3>
+          <p class="meta">RESEARCH REPORT · 2026 · Python · SEM · Logistic</p>
+          <p>以 779 份问卷为基础，构建结构方程模型并做 Logistic 回归，量化数字人直播场景下的消费行为影响因素；完成答辩报告。</p>
+        </div>
+        <span class="kind">REPORT</span>
+      </div>
+      <div class="out rv">
+        <div>
+          <h3>Terrylene-O₂ 计算数据集</h3>
+          <p class="meta">DATASET · 2026 · 5,554 FILES · ≈1.18 GB</p>
+          <p>批量半经验计算的结构与能量数据资产，配套管线的完整落盘与归档。</p>
+        </div>
+        <span class="kind">DATA</span>
+      </div>
+      <div class="out rv">
+        <div>
+          <h3>PDE 数值方法学习笔记</h3>
+          <p class="meta">LEARNING NOTES · 2026 · Jupyter</p>
+          <p>偏微分方程数值方法的公开学习笔记，持续更新于 pde-learning 仓库。</p>
+        </div>
+        <span class="kind">NOTES</span>
       </div>
     </div>
   </div>
@@ -325,16 +412,12 @@
 
 <section id="projects">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="sec-index">03 / PROJECTS</span>
-      <h2>公开项目</h2>
-      <div class="rule"></div>
-    </div>
+    <div class="sec-head rv"><span class="sec-index">05 / PROJECTS</span><h2>公开项目</h2><div class="rule"></div></div>
     <div class="project-grid">
       <a class="proj rv" href="https://github.com/Dongxiong67/DX3906" target="_blank" rel="noopener">
         <div class="top"><span class="name">DX3906</span><span class="ext">2026</span></div>
         <h3>DX3906 Station</h3>
-        <p>A private planet for research, memory, and becoming — personal knowledge archive of academic route, research notes and survival methods.</p>
+        <p>Personal knowledge archive for research, memory, and becoming — academic route, research notes and survival methods.</p>
         <div class="tags"><span class="tag2">jekyll</span><span class="tag2">knowledge-base</span><span class="tag2">pages</span></div>
         <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
@@ -352,38 +435,13 @@
         <div class="tags"><span class="tag2">jupyter</span><span class="tag2">math</span></div>
         <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="proj rv" href="https://github.com/Dongxiong67/junyi-insights" target="_blank" rel="noopener">
-        <div class="top"><span class="name">junyi-insights</span><span class="ext">2026</span></div>
-        <h3>Junyi Insights</h3>
-        <p>Notes on personal capital and long-term accumulation, distilled from sharing sessions.</p>
-        <div class="tags"><span class="tag2">notes</span><span class="tag2">growth</span></div>
-        <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="proj rv" href="https://github.com/Dongxiong67/relationship-insight" target="_blank" rel="noopener">
-        <div class="top"><span class="name">relationship-insight</span><span class="ext">2026</span></div>
-        <h3>Relationship Insight</h3>
-        <p>A privacy-safe, shared relationship conversation analysis dashboard.</p>
-        <div class="tags"><span class="tag2">dashboard</span><span class="tag2">privacy</span></div>
-        <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="proj rv" href="https://github.com/Dongxiong67/qingwen" target="_blank" rel="noopener">
-        <div class="top"><span class="name">qingwen</span><span class="ext">2026</span></div>
-        <h3>Qingwen</h3>
-        <p>Experimental web project — the latest exploration in this corner of the galaxy.</p>
-        <div class="tags"><span class="tag2">web</span><span class="tag2">experiment</span></div>
-        <span class="go">VIEW <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
     </div>
   </div>
 </section>
 
 <section id="route">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="sec-index">04 / ROUTE</span>
-      <h2>星轨</h2>
-      <div class="rule"></div>
-    </div>
+    <div class="sec-head rv"><span class="sec-index">06 / ROUTE</span><h2>星轨</h2><div class="rule"></div></div>
     <div class="tl">
       <div class="date rv">2025-09</div><div class="node rv"><span class="dot"></span></div>
       <div class="entry rv"><h3>加入 GitHub — Dongxiong67</h3><p>注册账号，写下 bio："to be better"。</p></div>
@@ -395,7 +453,7 @@
       <div class="entry rv"><h3>3D 空间站与 PDE 笔记</h3><p>dx3906-station-3d 交互空间站 + pde-learning 数值方法笔记。</p></div>
 
       <div class="date rv">2026-08</div><div class="node rv"><span class="dot"></span></div>
-      <div class="entry rv"><h3>分析与洞察项目</h3><p>relationship-insight 关系分析看板与 junyi-insights 长期积累笔记。</p></div>
+      <div class="entry rv"><h3>数字人直播消费行为研究完成</h3><p>779 份问卷、SEM 与 Logistic 回归的完整研究并完成答辩。</p></div>
 
       <div class="date rv">2026-09</div><div class="node rv"><span class="dot"></span></div>
       <div class="entry rv"><h3>Terrylene-O₂ 计算完成</h3><p>179 个结构、5,554 个输出文件的 MOPAC 半经验计算管线交付。</p></div>
@@ -421,6 +479,16 @@
 </footer>
 
 <script>
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('dx3906-theme'); } catch(e){}
+  if (saved) root.setAttribute('data-theme', saved);
+  document.getElementById('themeBtn').addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', cur);
+    try { localStorage.setItem('dx3906-theme', cur); } catch(e){}
+  });
+
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var items = document.querySelectorAll('.rv');
   if (reduce || !('IntersectionObserver' in window)) {
