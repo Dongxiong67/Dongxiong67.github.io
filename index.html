@@ -3,257 +3,294 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DX3906 · Dongxiong Liu</title>
-<meta name="description" content="Dongxiong Liu (DX3906) — computational materials researcher, lifelong learner. Personal academic homepage with research, notes, and stories.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='20' fill='%23c89b3c'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23fafafa'/%3E%3C/svg%3E">
+<title>Lil'Log · Dongxiong Liu</title>
+<meta name="description" content="Dongxiong Liu (DX3906) — computational materials researcher. Research notes, essays, and learning journal.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%91%8B%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://miaoda.feishu.cn">
-<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 :root{
   --serif:"Noto Serif SC",Georgia,"Songti SC","SimSun",serif;
-  --sans:"Noto Sans SC","Microsoft YaHei","PingFang SC",-apple-system,BlinkMacSystemFont,sans-serif;
-  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Courier New",monospace;
+  --sans:"Noto Sans SC","Microsoft YaHei","PingFang SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
 }
 html[data-theme="light"]{
-  --bg:#fafafa;--bg-soft:#f3f3f0;--bg-card:#ffffff;
-  --text:#1a1a2e;--text-soft:#4a4a5a;--muted:#8a8a9a;
-  --line:#e8e8e0;--line-strong:#d0d0c8;
-  --accent:#0b5fff;--accent-soft:rgba(11,95,255,.08);
-  --gold:#b8860b;--gold-soft:rgba(184,134,11,.1);
-  --shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);
+  --bg:#ffffff;--bg-soft:#f6f8fa;--bg-code:#f6f8fa;--bg-quote:#f6f8fa;
+  --text:#24292f;--text-soft:#57606a;--muted:#8c959f;
+  --line:#d0d7de;--line-soft:#eaeef2;
+  --link:#0969da;--link-hover:#0550ae;
+  --accent:#0969da;--gold:#bf8700;
+  --shadow:0 1px 3px rgba(0,0,0,.06);
 }
 html[data-theme="dark"]{
-  --bg:#0d1117;--bg-soft:#161b22;--bg-card:#161b22;
-  --text:#e6edf3;--text-soft:#9ba7b4;--muted:#6e7681;
-  --line:#21262d;--line-strong:#30363d;
-  --accent:#58a6ff;--accent-soft:rgba(88,166,255,.12);
-  --gold:#e0b85c;--gold-soft:rgba(224,184,92,.12);
-  --shadow:0 1px 3px rgba(0,0,0,.3),0 4px 12px rgba(0,0,0,.2);
+  --bg:#0d1117;--bg-soft:#161b22;--bg-code:#161b22;--bg-quote:#161b22;
+  --text:#e6edf3;--text-soft:#9da7b3;--muted:#6e7681;
+  --line:#30363d;--line-soft:#21262d;
+  --link:#4493f8;--link-hover:#79b8ff;
+  --accent:#4493f8;--gold:#e3b341;
+  --shadow:0 1px 3px rgba(0,0,0,.3);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{
   background:var(--bg);color:var(--text);
-  font-family:var(--sans);font-weight:400;line-height:1.8;
+  font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.85;
   -webkit-font-smoothing:antialiased;transition:background .3s,color .3s;
 }
-::selection{background:var(--accent-soft)}
-a{color:var(--accent);text-decoration:none;transition:opacity .2s}
-a:hover{opacity:.75}
+::selection{background:rgba(9,105,218,.15)}
+a{color:var(--link);text-decoration:none}
+a:hover{color:var(--link-hover);text-decoration:underline}
 img{max-width:100%;height:auto}
+hr{border:none;border-top:1px solid var(--line-soft);margin:32px 0}
+
+/* ===== Nav ===== */
 nav{
   position:sticky;top:0;z-index:100;
-  background:color-mix(in srgb,var(--bg) 88%,transparent);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--bg) 90%,transparent);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line-soft);
 }
 .nav-inner{
-  max-width:820px;margin:0 auto;padding:0 24px;
-  height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  max-width:760px;margin:0 auto;padding:0 24px;
+  height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px;
 }
 .brand{
-  font-family:var(--serif);font-weight:700;font-size:17px;
-  color:var(--text);letter-spacing:.01em;
-  display:flex;align-items:center;gap:8px;
-  padding:8px 10px;margin:-8px -10px;border-radius:7px;
+  font-family:var(--serif);font-weight:700;font-size:17px;color:var(--text);
+  display:flex;align-items:center;gap:7px;
+  padding:6px 8px;margin:-6px -8px;border-radius:6px;
 }
-.brand .star{color:var(--gold);width:14px;height:14px}
+.brand:hover{text-decoration:none;color:var(--text)}
+.brand .wave{font-size:16px}
 .nav-links{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
 .nav-links a{
-  font-size:13.5px;color:var(--text-soft);padding:7px 12px;border-radius:6px;
-  transition:color .2s,background .2s;font-weight:400;
+  font-size:14px;color:var(--text-soft);padding:6px 12px;border-radius:6px;
+  transition:color .15s,background .15s;font-weight:400;
 }
-.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--bg-soft)}
-.nav-actions{display:flex;align-items:center;gap:6px}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--bg-soft);text-decoration:none}
+.nav-actions{display:flex;align-items:center;gap:4px}
 .icon-btn{
-  width:40px;height:40px;border-radius:7px;border:1px solid transparent;
+  width:36px;height:36px;border-radius:6px;border:1px solid transparent;
   background:transparent;color:var(--text-soft);cursor:pointer;
   display:inline-flex;align-items:center;justify-content:center;
-  font-size:13px;font-family:var(--sans);transition:all .2s;
+  font-size:12.5px;font-family:var(--mono);font-weight:500;transition:all .15s;
 }
 .icon-btn:hover{color:var(--text);border-color:var(--line);background:var(--bg-soft)}
 .icon-btn svg{width:16px;height:16px}
-.lang-btn{font-family:var(--mono);font-size:12px;font-weight:500;min-width:40px}
-.container{max-width:780px;margin:0 auto;padding:0 24px}
-.page{display:none;animation:fadeIn .35s ease}
+
+/* ===== Layout ===== */
+.container{max-width:720px;margin:0 auto;padding:0 24px}
+.page{display:none;animation:fadeIn .3s ease}
 .page.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.hero{padding:72px 24px 48px}
-.hero-meta{
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ===== Home / Welcome ===== */
+.welcome{padding:56px 24px 40px}
+.welcome h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(26px,4vw,34px);
+  line-height:1.35;margin-bottom:16px;
+}
+.welcome .intro{
+  font-size:16.5px;line-height:1.9;color:var(--text-soft);margin-bottom:12px;
+}
+.welcome .intro b{color:var(--text);font-weight:500}
+.welcome .meta-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--muted);
+  margin-top:20px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;
+}
+.welcome .meta-line a{color:var(--muted)}
+.welcome .meta-line a:hover{color:var(--link)}
+
+/* ===== Post List ===== */
+.post-list-section{padding:16px 24px 48px}
+.post-list-section .section-label{
   font-family:var(--mono);font-size:12px;color:var(--muted);
-  letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;
-  display:flex;align-items:center;gap:10px;
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;
 }
-.hero-meta .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
-.hero h1{
-  font-family:var(--serif);font-weight:700;
-  font-size:clamp(32px,5vw,46px);line-height:1.25;letter-spacing:-.01em;
-  margin-bottom:16px;
-}
-.hero h1 .gold{color:var(--gold)}
-.hero .subtitle{
-  font-size:17px;color:var(--text-soft);line-height:1.8;max-width:620px;margin-bottom:28px;
-}
-.hero .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
-.hero .tag{
-  font-family:var(--mono);font-size:11.5px;color:var(--text-soft);
-  border:1px solid var(--line);border-radius:999px;padding:4px 12px;
-}
-.hero .cta-row{display:flex;flex-wrap:wrap;gap:12px}
-.btn{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:10px 20px;border-radius:7px;font-size:14px;font-weight:500;
-  transition:all .2s;cursor:pointer;border:1px solid transparent;
-}
-.btn-primary{background:var(--text);color:var(--bg)}
-.btn-primary:hover{opacity:.88}
-.btn-ghost{border-color:var(--line-strong);color:var(--text)}
-.btn-ghost:hover{border-color:var(--text);background:var(--bg-soft)}
-.btn svg{width:14px;height:14px}
-.section{padding-block:48px}
-.section-title{
-  font-family:var(--serif);font-weight:700;font-size:22px;
-  margin-bottom:8px;display:flex;align-items:baseline;gap:12px;
-}
-.section-title .num{font-family:var(--mono);font-size:13px;color:var(--gold);font-weight:400}
-.section-desc{font-size:14px;color:var(--muted);margin-bottom:28px}
-.post-list{display:flex;flex-direction:column;gap:0}
 .post-item{
-  padding:24px 0;border-bottom:1px solid var(--line);
-  cursor:pointer;transition:background .2s;
+  padding:28px 0;border-bottom:1px solid var(--line-soft);
 }
 .post-item:last-child{border-bottom:none}
-.post-item:hover{background:var(--bg-soft);margin:0 -16px;padding-left:16px;padding-right:16px;border-radius:8px}
-.post-item h3{
-  font-family:var(--serif);font-weight:600;font-size:18px;
-  color:var(--text);margin-bottom:8px;line-height:1.5;
-}
-.post-item:hover h3{color:var(--accent)}
-.post-item .excerpt{
-  font-size:14px;color:var(--text-soft);line-height:1.75;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+.post-item h2{
+  font-family:var(--serif);font-weight:700;font-size:21px;line-height:1.45;
   margin-bottom:10px;
 }
-.post-item .meta{
-  font-family:var(--mono);font-size:12px;color:var(--muted);
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+.post-item h2 a{color:var(--text)}
+.post-item h2 a:hover{color:var(--link);text-decoration:none}
+.post-item .post-meta{
+  font-family:var(--mono);font-size:12.5px;color:var(--muted);
+  margin-bottom:14px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;
 }
-.post-item .meta .tag-pill{
-  color:var(--gold);border:1px solid var(--gold-soft);
-  background:var(--gold-soft);padding:1px 8px;border-radius:4px;
+.post-item .post-meta .tag{
+  color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);
+  background:color-mix(in srgb,var(--gold) 8%,transparent);
+  padding:1px 8px;border-radius:4px;font-size:11.5px;
 }
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
-.card{
-  background:var(--bg-card);border:1px solid var(--line);border-radius:10px;
-  padding:20px;transition:border-color .2s,transform .2s,box-shadow .2s;
+.post-item .post-excerpt{
+  font-size:15.5px;line-height:1.85;color:var(--text-soft);
 }
-.card:hover{border-color:var(--line-strong);transform:translateY(-2px);box-shadow:var(--shadow)}
-.card h4{font-family:var(--serif);font-weight:600;font-size:15px;margin-bottom:6px}
-.card .card-meta{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-bottom:8px}
-.card p{font-size:13px;color:var(--text-soft);line-height:1.7}
-.timeline{position:relative;padding-left:28px}
-.timeline::before{
-  content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:var(--line-strong);
+.post-item .post-excerpt p{margin-bottom:12px}
+.post-item .post-excerpt p:last-child{margin-bottom:0}
+.post-item .read-more{
+  font-family:var(--mono);font-size:12.5px;color:var(--link);
+  display:inline-block;margin-top:10px;
 }
-.tl-item{position:relative;padding-bottom:28px}
-.tl-item:last-child{padding-bottom:0}
-.tl-item::before{
-  content:"";position:absolute;left:-25px;top:7px;width:11px;height:11px;
-  border-radius:50%;background:var(--bg);border:2px solid var(--gold);
-}
-.tl-item .tl-date{font-family:var(--mono);font-size:12px;color:var(--gold);margin-bottom:4px}
-.tl-item h4{font-family:var(--serif);font-weight:600;font-size:15px;margin-bottom:4px}
-.tl-item .tl-sub{font-size:13px;color:var(--text-soft);margin-bottom:4px}
-.tl-item p{font-size:13px;color:var(--muted);line-height:1.7}
-.award-list{display:flex;flex-direction:column;gap:0}
-.award-item{
-  display:grid;grid-template-columns:100px 1fr auto;gap:16px;align-items:baseline;
-  padding:14px 0;border-bottom:1px solid var(--line);
-}
-.award-item:last-child{border-bottom:none}
-.award-year{font-family:var(--mono);font-size:13px;color:var(--gold)}
-.award-name{font-size:14.5px;color:var(--text)}
-.award-level{
-  font-family:var(--mono);font-size:11px;color:var(--muted);
-  border:1px solid var(--line);border-radius:4px;padding:2px 8px;white-space:nowrap;
-}
-.post-detail{padding-block:48px 80px}
+
+/* ===== Post Detail ===== */
+.post-detail{padding:48px 24px 80px}
 .post-detail .back-link{
   font-family:var(--mono);font-size:12.5px;color:var(--muted);
-  display:inline-flex;align-items:center;gap:6px;margin-bottom:32px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:5px;margin-bottom:28px;cursor:pointer;
 }
-.post-detail .back-link:hover{color:var(--accent)}
+.post-detail .back-link:hover{color:var(--link);text-decoration:none}
 .post-detail h1{
-  font-family:var(--serif);font-weight:700;font-size:clamp(26px,4vw,34px);
+  font-family:var(--serif);font-weight:700;font-size:clamp(26px,4.5vw,34px);
   line-height:1.35;margin-bottom:14px;
 }
 .post-detail .post-meta{
   font-family:var(--mono);font-size:12.5px;color:var(--muted);
-  display:flex;gap:16px;flex-wrap:wrap;margin-bottom:36px;
-  padding-bottom:20px;border-bottom:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;
+  padding-bottom:20px;border-bottom:1px solid var(--line-soft);
 }
-.post-detail .post-body{font-size:15.5px;line-height:1.9;color:var(--text)}
-.post-detail .post-body h2{
-  font-family:var(--serif);font-weight:700;font-size:21px;
-  margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line);
+.post-detail .post-meta .tag{color:var(--gold)}
+
+/* TOC */
+.toc{
+  background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:8px;
+  padding:18px 22px;margin-bottom:36px;
 }
-.post-detail .post-body h3{
-  font-family:var(--serif);font-weight:600;font-size:17px;margin:28px 0 10px;
+.toc-title{
+  font-family:var(--mono);font-size:11.5px;color:var(--muted);
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;
 }
-.post-detail .post-body p{margin-bottom:16px}
-.post-detail .post-body ul,.post-detail .post-body ol{margin:0 0 16px 24px}
-.post-detail .post-body li{margin-bottom:6px;font-size:15px}
-.post-detail .post-body blockquote{
-  border-left:3px solid var(--gold);padding:8px 20px;margin:20px 0;
-  color:var(--text-soft);background:var(--gold-soft);border-radius:0 6px 6px 0;
-  font-style:italic;
+.toc ul{list-style:none}
+.toc li{padding:2px 0}
+.toc li a{font-size:13.5px;color:var(--text-soft)}
+.toc li a:hover{color:var(--link)}
+.toc li.level-3{padding-left:18px}
+
+/* Article Body */
+.post-body{font-size:16px;line-height:1.9;color:var(--text)}
+.post-body h2{
+  font-family:var(--serif);font-weight:700;font-size:23px;
+  margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line-soft);
 }
-.post-detail .post-body code{
-  font-family:var(--mono);font-size:13.5px;background:var(--bg-soft);
-  padding:2px 6px;border-radius:4px;
+.post-body h3{
+  font-family:var(--serif);font-weight:600;font-size:18.5px;
+  margin:28px 0 12px;
 }
-.profile-header{
-  display:flex;gap:28px;align-items:flex-start;margin-bottom:40px;flex-wrap:wrap;
+.post-body p{margin-bottom:16px}
+.post-body ul,.post-body ol{margin:0 0 16px 24px}
+.post-body li{margin-bottom:6px;font-size:15.5px;line-height:1.8}
+.post-body strong{font-weight:600}
+.post-body em{font-style:italic}
+.post-body blockquote{
+  border-left:3px solid var(--line);background:var(--bg-quote);
+  padding:12px 20px;margin:20px 0;border-radius:0 6px 6px 0;
+  color:var(--text-soft);font-size:15px;
 }
-.profile-header .avatar{
-  width:96px;height:96px;border-radius:50%;object-fit:cover;
-  border:2px solid var(--line-strong);flex-shrink:0;
+.post-body blockquote p{margin-bottom:8px}
+.post-body blockquote p:last-child{margin-bottom:0}
+.post-body code{
+  font-family:var(--mono);font-size:13.5px;background:var(--bg-code);
+  padding:2px 6px;border-radius:4px;color:var(--text);
 }
-.profile-header .info h1{
-  font-family:var(--serif);font-weight:700;font-size:28px;margin-bottom:4px;
+.post-body pre{
+  background:var(--bg-code);border:1px solid var(--line-soft);border-radius:8px;
+  padding:16px 18px;margin:20px 0;overflow-x:auto;
 }
-.profile-header .info .role{font-size:15px;color:var(--text-soft);margin-bottom:8px}
-.profile-header .info .contact{
-  font-family:var(--mono);font-size:12.5px;color:var(--muted);
-  display:flex;flex-wrap:wrap;gap:14px;
+.post-body pre code{
+  background:none;padding:0;font-size:13px;line-height:1.7;color:var(--text);
 }
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px}
-.info-block h3{
-  font-family:var(--mono);font-size:12px;color:var(--gold);
-  letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;
+.post-body .spicy-take{
+  display:inline-block;font-family:var(--mono);font-size:11px;
+  color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);
+  background:color-mix(in srgb,var(--gold) 10%,transparent);
+  padding:2px 8px;border-radius:4px;margin-right:8px;vertical-align:middle;
 }
-.info-block p,.info-block li{font-size:14px;color:var(--text-soft);line-height:1.8}
-.info-block ul{list-style:none}
-.info-block li{padding:3px 0;padding-left:14px;position:relative}
-.info-block li::before{content:"·";position:absolute;left:0;color:var(--gold);font-weight:700}
+.post-body .ref{
+  font-size:13px;color:var(--muted);font-family:var(--mono);
+}
+.post-body .ref a{color:var(--muted)}
+
+/* References */
+.references{
+  margin-top:48px;padding-top:24px;border-top:1px solid var(--line-soft);
+}
+.references h3{
+  font-family:var(--mono);font-size:13px;color:var(--muted);
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;
+}
+.references ol{margin-left:20px}
+.references li{
+  font-size:13px;color:var(--text-soft);line-height:1.7;margin-bottom:6px;
+}
+
+/* ===== CV / Research ===== */
+.page-section{padding:48px 24px 64px}
+.page-section h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(24px,4vw,30px);
+  margin-bottom:8px;
+}
+.page-section .page-desc{font-size:15px;color:var(--muted);margin-bottom:32px}
+.page-section h2{
+  font-family:var(--mono);font-size:13px;color:var(--muted);
+  letter-spacing:.08em;text-transform:uppercase;margin:36px 0 16px;
+  padding-bottom:8px;border-bottom:1px solid var(--line-soft);
+}
+.cv-item{margin-bottom:24px}
+.cv-item .cv-date{
+  font-family:var(--mono);font-size:12.5px;color:var(--gold);margin-bottom:4px;
+}
+.cv-item h3{font-family:var(--serif);font-weight:600;font-size:16.5px;margin-bottom:4px}
+.cv-item .cv-sub{font-size:14px;color:var(--text-soft);margin-bottom:6px}
+.cv-item p{font-size:14.5px;color:var(--text-soft);line-height:1.8}
+.cv-item ul{margin:6px 0 0 20px}
+.cv-item li{font-size:14px;color:var(--text-soft);margin-bottom:4px}
+
+.award-row{
+  display:grid;grid-template-columns:90px 1fr auto;gap:14px;
+  padding:10px 0;border-bottom:1px solid var(--line-soft);align-items:baseline;
+}
+.award-row:last-child{border-bottom:none}
+.award-year{font-family:var(--mono);font-size:12.5px;color:var(--gold)}
+.award-name{font-size:14.5px}
+.award-level{
+  font-family:var(--mono);font-size:11px;color:var(--muted);
+  border:1px solid var(--line);border-radius:4px;padding:1px 7px;white-space:nowrap;
+}
+
+/* ===== FAQ ===== */
+.faq-item{margin-bottom:28px}
+.faq-item .q{
+  font-family:var(--serif);font-weight:600;font-size:17px;margin-bottom:8px;
+  color:var(--text);
+}
+.faq-item .a{font-size:15.5px;line-height:1.85;color:var(--text-soft)}
+.faq-item .a p{margin-bottom:10px}
+.faq-item .a p:last-child{margin-bottom:0}
+
+/* ===== Footer ===== */
 footer{
-  border-top:1px solid var(--line);margin-top:64px;padding:36px 0 48px;
+  border-top:1px solid var(--line-soft);margin-top:48px;padding:32px 0 48px;
 }
 .footer-inner{
-  max-width:780px;margin:0 auto;padding:0 24px;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  max-width:720px;margin:0 auto;padding:0 24px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
 }
 .footer-inner .copy{font-family:var(--mono);font-size:12px;color:var(--muted)}
 .footer-inner .links{display:flex;gap:16px;font-family:var(--mono);font-size:12px}
-.footer-inner .links a{color:var(--muted);padding:8px 4px;display:inline-block}
-.footer-inner .links a:hover{color:var(--accent)}
-@media(max-width:680px){
+.footer-inner .links a{color:var(--muted);padding:6px 4px}
+.footer-inner .links a:hover{color:var(--link)}
+
+@media(max-width:640px){
   .nav-links{display:none}
-  .hero{padding:48px 24px 32px}
-  .info-grid{grid-template-columns:1fr}
-  .award-item{grid-template-columns:80px 1fr;gap:10px}
+  .welcome{padding:40px 0 28px}
+  .post-item h2{font-size:19px}
+  .post-item .post-excerpt{font-size:15px}
+  .award-row{grid-template-columns:70px 1fr;gap:8px}
   .award-level{grid-column:2;font-size:10.5px}
-  .post-item:hover{margin:0;padding-left:0;padding-right:0}
+  .post-body{font-size:15.5px}
+  .post-body h2{font-size:21px}
 }
 </style>
 </head>
@@ -261,18 +298,18 @@ footer{
 <nav>
   <div class="nav-inner">
     <a class="brand" href="#home" onclick="navigate('home')">
-      <svg class="star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg> DX3906
+      <span class="wave">👋</span> Lil'Log
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#home" onclick="navigate('home')" data-i18n="nav.home">首页</a>
-      <a href="#about" onclick="navigate('about')" data-i18n="nav.about">关于</a>
-      <a href="#research" onclick="navigate('research')" data-i18n="nav.research">研究</a>
       <a href="#notes" onclick="navigate('notes')" data-i18n="nav.notes">笔记</a>
+      <a href="#research" onclick="navigate('research')" data-i18n="nav.research">研究</a>
       <a href="#cv" onclick="navigate('cv')" data-i18n="nav.cv">简历</a>
       <a href="#stories" onclick="navigate('stories')" data-i18n="nav.stories">故事</a>
+      <a href="#faq" onclick="navigate('faq')" data-i18n="nav.faq">FAQ</a>
     </div>
     <div class="nav-actions">
-      <button class="icon-btn lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+      <button class="icon-btn" id="langBtn" onclick="toggleLang()">EN</button>
       <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" aria-label="toggle theme">
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -283,7 +320,7 @@ footer{
 <main id="app"></main>
 <footer>
   <div class="footer-inner">
-    <div class="copy">© 2026 Dongxiong Liu · DX3906 · <span data-i18n="footer.motto">to be better</span></div>
+    <div class="copy">© 2026 Dongxiong Liu · <span data-i18n="footer.built">Built with pure HTML/CSS/JS</span></div>
     <div class="links">
       <a href="https://github.com/Dongxiong67" target="_blank" rel="noopener">GitHub</a>
       <a href="mailto:liudongxiong1@gmail.com">Email</a>
@@ -292,224 +329,398 @@ footer{
 </footer>
 <script>
 const I18N = {
-  zh: {
-    "nav.home":"首页","nav.about":"关于","nav.research":"研究","nav.notes":"笔记","nav.cv":"简历","nav.stories":"故事",
-    "footer.motto":"持续生成中",
-    "home.heroTag":"PERSONAL ACADEMIC HOMEPAGE",
-    "home.heroTitle1":"你好，我是",
-    "home.heroTitle2":"刘东雄",
-    "home.heroTitle3":"。",
-    "home.subtitle":"东北大学材料物理专业本科生，新加坡国立大学 3+1 项目在读。研究方向为计算材料科学与 AI for Science，用半经验量子化学方法探索分子结构与性质。这里记录我的研究、学习与成长。",
-    "home.notesTitle":"最新笔记",
-    "home.notesDesc":"研究方法、学习感悟与思考记录",
-    "home.researchTitle":"研究方向",
-    "home.researchDesc":"正在进行与已完成的科研项目",
-    "home.viewAll":"查看全部",
-    "home.readMore":"阅读全文",
+  zh:{
+    "nav.home":"首页","nav.notes":"笔记","nav.research":"研究","nav.cv":"简历","nav.stories":"故事","nav.faq":"FAQ",
+    "footer.built":"纯 HTML/CSS/JS 构建",
+    "home.welcome":"👋 欢迎来到 Lil'Log",
+    "home.intro1":"你好，我是<b>刘东雄</b>（Dongxiong Liu），东北大学材料物理专业本科生，新加坡国立大学 3+1 项目在读。",
+    "home.intro2":"我从 2024 年开始在这里记录学习笔记——计算材料、半经验量子化学、AI for Science，以及一个本科生在科研路上的思考与踩坑。",
+    "home.intro3":"研究方向是<b>计算材料科学</b>，目前在做 Terrylene-O₂ 体系的系统计算筛选。业余时间运营 125 万粉丝的校园微博，相信跨领域的经历会相互滋养。",
+    "home.recent":"最新笔记",
+    "home.readMore":"阅读全文 →",
     "home.minRead":"分钟阅读",
-    "about.title":"关于我",
-    "about.edu":"教育背景",
-    "about.skills":"技能与工具",
-    "about.interests":"研究兴趣",
-    "about.bioTitle":"个人简介",
-    "research.title":"研究",
-    "research.ongoing":"进行中",
-    "research.completed":"已完成",
-    "notes.title":"笔记",
-    "notes.desc":"研究笔记、学习感悟与思考",
-    "cv.title":"简历",
-    "cv.download":"下载 PDF 简历",
-    "cv.education":"教育经历",
-    "cv.research":"科研经历",
-    "cv.awards":"荣誉奖项",
-    "cv.activities":"学生工作与实践",
-    "stories.title":"故事",
-    "stories.desc":"个人陈述与成长经历",
-    "back":"返回列表",
+    "notes.title":"笔记","notes.desc":"研究方法、学习感悟与思考记录",
+    "research.title":"研究","research.desc":"正在进行与已完成的科研项目",
+    "cv.title":"简历","cv.desc":"学术简历 · 最后更新 2026.08",
+    "cv.education":"教育背景","cv.research":"科研经历","cv.awards":"荣誉奖项","cv.activities":"实践经历",
+    "stories.title":"故事","stories.desc":"个人陈述与成长经历",
+    "faq.title":"常见问题","faq.desc":"关于我和这个网站的一些问答",
+    "back":"← 返回列表",
+    "toc.title":"目录",
+    "refs.title":"参考文献",
   },
-  en: {
-    "nav.home":"Home","nav.about":"About","nav.research":"Research","nav.notes":"Notes","nav.cv":"CV","nav.stories":"Stories",
-    "footer.motto":"to be better",
-    "home.heroTag":"PERSONAL ACADEMIC HOMEPAGE",
-    "home.heroTitle1":"Hi, I'm ",
-    "home.heroTitle2":"Dongxiong Liu",
-    "home.heroTitle3":".",
-    "home.subtitle":"Undergraduate in Materials Physics at Northeastern University (Project 985), incoming NUS 3+1 student. I work on computational materials science and AI for Science, exploring molecular structures with semi-empirical quantum chemistry. This is where I document my research, learning, and growth.",
-    "home.notesTitle":"Latest Notes",
-    "home.notesDesc":"Research methods, learning reflections, and thoughts",
-    "home.researchTitle":"Research",
-    "home.researchDesc":"Ongoing and completed research projects",
-    "home.viewAll":"View all",
-    "home.readMore":"Read more",
+  en:{
+    "nav.home":"Home","nav.notes":"Notes","nav.research":"Research","nav.cv":"CV","nav.stories":"Stories","nav.faq":"FAQ",
+    "footer.built":"Built with pure HTML/CSS/JS",
+    "home.welcome":"👋 Welcome to Lil'Log",
+    "home.intro1":"Hi, I'm <b>Dongxiong Liu</b>, an undergraduate in Materials Physics at Northeastern University (Project 985), incoming NUS 3+1 student.",
+    "home.intro2":"I've been documenting my learning notes here since 2024 — computational materials, semi-empirical quantum chemistry, AI for Science, and the thoughts and pitfalls of an undergrad finding his way in research.",
+    "home.intro3":"My research focus is <b>computational materials science</b>, currently working on systematic computational screening of Terrylene-O₂ systems. Outside research, I run a campus Weibo account with 1.25M followers. I believe cross-disciplinary experiences nourish each other.",
+    "home.recent":"Latest Notes",
+    "home.readMore":"Read more →",
     "home.minRead":"min read",
-    "about.title":"About",
-    "about.edu":"Education",
-    "about.skills":"Skills & Tools",
-    "about.interests":"Research Interests",
-    "about.bioTitle":"Biography",
-    "research.title":"Research",
-    "research.ongoing":"Ongoing",
-    "research.completed":"Completed",
-    "notes.title":"Notes",
-    "notes.desc":"Research notes, learning reflections, and thoughts",
-    "cv.title":"Curriculum Vitae",
-    "cv.download":"Download PDF",
-    "cv.education":"Education",
-    "cv.research":"Research Experience",
-    "cv.awards":"Honors & Awards",
-    "cv.activities":"Leadership & Activities",
-    "stories.title":"Stories",
-    "stories.desc":"Personal statements and growth journey",
-    "back":"Back to list",
+    "notes.title":"Notes","notes.desc":"Research methods, learning reflections, and thoughts",
+    "research.title":"Research","research.desc":"Ongoing and completed research projects",
+    "cv.title":"Curriculum Vitae","cv.desc":"Academic CV · Last updated Aug 2026",
+    "cv.education":"Education","cv.research":"Research","cv.awards":"Awards & Honors","cv.activities":"Activities",
+    "stories.title":"Stories","stories.desc":"Personal statements and growth journey",
+    "faq.title":"FAQ","faq.desc":"Questions about me and this site",
+    "back":"← Back to list",
+    "toc.title":"Table of Contents",
+    "refs.title":"References",
   }
 };
+
 const POSTS = [
   {
     id:"terrylene-workflow",
-    date:"2026-09-15", readTime:12, tag:{"zh":"计算化学","en":"Comp. Chem."},
-    title:{"zh":"Terrylene-O₂ 计算管线：从 160 个构型到可复现的科研工作流","en":"Terrylene-O₂ Computational Pipeline: From 160 Configurations to Reproducible Workflow"},
-    excerpt:{"zh":"系统筛选 160 种初始吸附构型，PM7 半经验方法完成结构优化与振动频率校正，建立基于 SHA256 的版本化质量控制流程。本文记录整个管线的设计思路与踩坑经验。","en":"A systematic screening of 160 initial adsorption configurations, PM7 semi-empirical geometry optimizations and vibrational frequency corrections, with SHA256-based versioned quality control. This post documents the pipeline design and lessons learned."},
-    body:{zh:`<p>2024 年 9 月，我开始了 Terrylene-O₂ 体系的半经验量子化学计算研究。作为项目队长，我需要从零搭建一条从构型生成、批量计算到数据分析的完整工作流。</p>
-<h2>为什么选择 PM7？</h2>
-<p>对于 C30H16-O2 这样的中大型体系，DFT 计算成本较高。PM7 半经验方法在保持合理精度的同时，将单个构型的优化时间压缩到分钟级，使得大规模筛选成为可能。</p>
-<h2>160 个构型的系统设计</h2>
-<p>我们构建了 158 个对称性独立的初始位点对，覆盖 O2 分子在 Terrylene 骨架上所有可能的吸附位置。每个构型记录完整的生成参数与坐标来源，确保可追溯。</p>
-<h2>质量控制：不止于"算完了"</h2>
-<p>计算中最容易被忽视的是质量控制。我们建立了三层审核机制：异常几何检查、对称性重复检测、命名-坐标一致性校验。所有产物附带版本化清单与 SHA256 哈希，确保任何时候都能复现。</p>
-<blockquote>科研不是一次性的计算，而是可复现、可审计的工作流。</blockquote>
-<h2>后续方向</h2>
-<p>目前已完成 65 个结构盆地的分类与 138 模振动频率计算。下一步将进行 INDO/CIS12 UV-Vis 光谱计算，并探索更高精度方法的验证。</p>`,
-    en:`<p>In September 2024, I started semi-empirical quantum chemistry calculations on the Terrylene-O₂ system. As team leader, I needed to build a complete workflow from configuration generation, batch computation, to data analysis from scratch.</p>
-<h2>Why PM7?</h2>
-<p>For medium-large systems like C30H16-O2, DFT is computationally expensive. PM7 semi-empirical method compresses single-configuration optimization to minutes while maintaining reasonable accuracy, enabling large-scale screening.</p>
-<h2>Systematic Design of 160 Configurations</h2>
-<p>We constructed 158 symmetry-independent initial site pairs, covering all possible adsorption positions of O2 on the Terrylene skeleton. Each configuration records complete generation parameters and coordinate provenance for traceability.</p>
-<h2>Quality Control: Beyond "It Computed"</h2>
-<p>The most overlooked part of computation is quality control. We established a three-layer audit: abnormal geometry detection, symmetry duplicate detection, and naming-coordinate consistency checks. All artifacts come with versioned manifests and SHA256 hashes for reproducibility.</p>
-<blockquote>Research is not a one-time computation — it is a reproducible, auditable workflow.</blockquote>
-<h2>Next Steps</h2>
-<p>We have classified 65 structural basins and completed 138-mode vibrational frequency calculations. Next steps include INDO/CIS12 UV-Vis spectroscopy and validation with higher-level methods.</p>`}
+    date:"2026-09-15", readTime:14, tag:{zh:"计算化学",en:"Comp. Chem."},
+    title:{zh:"Terrylene-O₂ 计算管线：从 160 个构型到可复现的科研工作流",en:"Terrylene-O₂ Pipeline: From 160 Configurations to a Reproducible Workflow"},
+    excerpt:{
+      zh:`<p>2024 年 9 月，我开始了 Terrylene-O₂ 体系的半经验量子化学计算研究。作为项目队长，我需要从零搭建一条从构型生成、批量计算到数据分析的完整工作流。两年后回头看，这条管线最有价值的产出不是 179 个优化结构，而是一套<b>可复现、可审计、可扩展</b>的计算流程。</p>
+<p>对于 C₃₀H₁₆-O₂ 这样的中大型体系，DFT 计算成本较高。PM7 半经验方法在保持合理精度的同时，将单个构型的优化时间压缩到分钟级，使得大规模筛选成为可能。但"算得快"只是起点——如何保证 160 个构型的质量、如何追踪每个结构的来源、如何在 5,554 个输出文件中快速定位问题，才是真正的挑战。</p>`,
+      en:`<p>In September 2024, I started semi-empirical quantum chemistry calculations on the Terrylene-O₂ system. As team leader, I needed to build a complete workflow from configuration generation, batch computation, to data analysis from scratch. Two years later, the most valuable output of this pipeline is not the 179 optimized structures, but a <b>reproducible, auditable, and extensible</b> computational process.</p>
+<p>For medium-large systems like C₃₀H₁₆-O₂, DFT is computationally expensive. PM7 semi-empirical method compresses single-configuration optimization to minutes while maintaining reasonable accuracy, enabling large-scale screening. But "fast computation" is only the starting point — ensuring quality across 160 configurations, tracing each structure's origin, and quickly locating issues among 5,554 output files are the real challenges.</p>`
+    },
+    toc:[
+      {id:"why-pm7",zh:"为什么选择 PM7？",en:"Why PM7?"},
+      {id:"config-design",zh:"160 个构型的系统设计",en:"Systematic Design of 160 Configurations"},
+      {id:"pipeline",zh:"批量计算管线",en:"Batch Computation Pipeline"},
+      {id:"qc",zh:"质量控制：不止于「算完了」",en:"Quality Control: Beyond 'It Computed'"},
+      {id:"lessons",zh:"踩坑与经验",en:"Lessons Learned"},
+    ],
+    body:{
+      zh:`<h2 id="why-pm7">为什么选择 PM7？</h2>
+<p>Terrylene（三萘嵌苯）是一种具有优异光电性质的多环芳烃分子，分子式 C₃₀H₁₆。我们研究的是 O₂ 分子在其骨架上的吸附与嵌入行为，目标是系统筛选所有可能的吸附位点并找到能量最低的结构盆地。</p>
+<p>如果用 DFT（B3LYP/6-31G* 级别）优化一个构型，大约需要 2-4 小时。160 个构型就是 320-640 小时的计算量——这在本科阶段的计算资源下几乎不可行。PM7 半经验方法将这个时间压缩到每个构型 2-5 分钟，总计算量降到 10 小时以内，使得系统筛选成为可能。</p>
+<blockquote><p>半经验方法不是"低配版 DFT"，而是一种不同的权衡：用参数化换取计算速度，在趋势预测和结构筛选层面完全够用，最终的关键结构再用 DFT 验证。</p></blockquote>
+<h2 id="config-design">160 个构型的系统设计</h2>
+<p>构型生成是整个研究中最容易被忽视、但最决定上限的环节。如果初始构型覆盖不全，后续再精密的计算也找不到真正的最小值。</p>
+<p>我们的策略是：先对 Terrylene 骨架做对称性分析（D₂h 点群），识别出所有对称性不等价的吸附位点，然后为每个位点设计 O₂ 的多种取向（平行、垂直、倾斜）和键合模式（物理吸附、化学吸附、端基/侧基）。最终得到 <b>158 个对称性独立的初始位点对</b>，加上 2 个参考构型，共 160 条记录。</p>
+<p>每个构型记录包含：生成脚本版本、初始坐标来源、对称性标记、预期吸附类型。这一步的关键是<b>可追溯</b>——半年后回看任何一个结构，都能说清它是怎么来的。</p>
+<h2 id="pipeline">批量计算管线</h2>
+<p>批量计算的核心是一个 Python 驱动脚本，大致逻辑如下：</p>
+<pre><code>def run_pipeline(configs, method="PM7"):
+    for cfg in configs:
+        # 1. 生成 MOPAC 输入文件
+        inp = write_mop_input(cfg, method)
+        # 2. 提交计算（本地或集群）
+        out = run_mopac(inp)
+        # 3. 解析输出：能量、几何、频率
+        result = parse_mop_output(out)
+        # 4. 质量检查
+        if not passes_qc(result):
+            retry_with_tighter_criteria(cfg)
+        # 5. 记录到 manifest
+        manifest.append(result)
+    return manifest</code></pre>
+<p>实际管线比这复杂得多——需要处理计算失败、结构异常收敛、对称性破缺等情况。但核心思想就是这五步：<b>生成 → 计算 → 解析 → 检查 → 记录</b>。</p>
+<h2 id="qc">质量控制：不止于"算完了"</h2>
+<p><span class="spicy-take">个人观点</span>计算化学中最常见的错误不是"算错了"，而是"算了但没检查"。一个收敛到错误极小值的结构，能量看起来合理，但物理上完全不对。</p>
+<p>我们建立了三层审核机制：</p>
+<ul>
+<li><b>异常几何检查</b>：键长超出化学合理范围（如 C-C > 1.8 Å）、O-O 键长异常、分子平面严重扭曲</li>
+<li><b>对称性重复检测</b>：优化后不同初始构型可能收敛到同一结构，用 Kabsch 算法做结构对齐 + RMSD 判定去重</li>
+<li><b>命名-坐标一致性校验</b>：文件名中的位点标签必须与实际坐标中的吸附位置匹配</li>
+</ul>
+<p>所有产物附带版本化清单（manifest）和 SHA256 哈希。这意味着任何时候都能回答："这个结构是哪个版本的脚本生成的？输入坐标是什么？计算参数是什么？"</p>
+<h2 id="lessons">踩坑与经验</h2>
+<p>两年下来，最大的几个教训：</p>
+<ol>
+<li><b>不要手动管理文件名</b>。160 个构型靠人手命名一定会出错，用脚本生成结构化文件名（如 <code>T01_A_parallel_001.mop</code>）</li>
+<li><b>振动频率计算不是可选的</b>。没有虚频检查，你永远不知道优化到的是极小值还是过渡态</li>
+<li><b>保留中间文件</b>。最初为了省空间删了一些未收敛的输出，后来排查问题时追悔莫及</li>
+<li><b>写文档的最佳时间是做的时候</b>，不是做完之后</li>
+</ol>
+<p>目前已完成 65 个结构盆地的分类、138 模振动频率计算和 20 个约束优化。下一步是 INDO/CIS12 UV-Vis 光谱计算，以及对关键结构做 DFT 验证。</p>`,
+      en:`<h2 id="why-pm7">Why PM7?</h2>
+<p>Terrylene is a polycyclic aromatic hydrocarbon with excellent optoelectronic properties, formula C₃₀H₁₆. We study the adsorption and intercalation of O₂ on its skeleton, aiming to systematically screen all possible adsorption sites and find the lowest-energy structural basins.</p>
+<p>At DFT (B3LYP/6-31G*) level, optimizing one configuration takes ~2-4 hours. 160 configurations means 320-640 hours — infeasible with undergraduate computing resources. PM7 semi-empirical method compresses this to 2-5 minutes per configuration, bringing the total under 10 hours and making systematic screening possible.</p>
+<blockquote><p>Semi-empirical methods are not "DFT lite" — they are a different tradeoff: parameterization for speed, perfectly adequate for trend prediction and structural screening, with key structures later validated by DFT.</p></blockquote>
+<h2 id="config-design">Systematic Design of 160 Configurations</h2>
+<p>Configuration generation is the most overlooked yet most decisive step. If initial configurations don't cover the full space, no amount of precise computation will find the true minimum.</p>
+<p>Our strategy: first analyze Terrylene skeleton symmetry (D₂h point group), identify all symmetry-inequivalent adsorption sites, then design multiple O₂ orientations (parallel, perpendicular, tilted) and bonding modes (physisorption, chemisorption, terminal/side-on) for each site. This yields <b>158 symmetry-independent initial site pairs</b> plus 2 reference configurations — 160 total records.</p>
+<p>Each record includes: generation script version, initial coordinate source, symmetry tag, and expected adsorption type. The key is <b>traceability</b> — six months later, for any structure, we can explain exactly how it was generated.</p>
+<h2 id="pipeline">Batch Computation Pipeline</h2>
+<p>The core of batch computation is a Python driver script:</p>
+<pre><code>def run_pipeline(configs, method="PM7"):
+    for cfg in configs:
+        inp = write_mop_input(cfg, method)
+        out = run_mopac(inp)
+        result = parse_mop_output(out)
+        if not passes_qc(result):
+            retry_with_tighter_criteria(cfg)
+        manifest.append(result)
+    return manifest</code></pre>
+<p>The real pipeline is far more complex — handling failures, anomalous convergence, symmetry breaking — but the core is these five steps: <b>generate → compute → parse → check → record</b>.</p>
+<h2 id="qc">Quality Control: Beyond "It Computed"</h2>
+<p><span class="spicy-take">Hot take</span>The most common error in computational chemistry is not "wrong calculation" but "calculated without checking." A structure converged to a wrong minimum can look energetically reasonable while being physically nonsensical.</p>
+<p>We established a three-layer audit:</p>
+<ul>
+<li><b>Anomalous geometry check</b>: bond lengths outside chemically reasonable ranges (e.g., C-C > 1.8 Å), abnormal O-O bond lengths, severe molecular plane distortion</li>
+<li><b>Symmetry duplicate detection</b>: different initial configs may converge to the same structure; use Kabsch alignment + RMSD for deduplication</li>
+<li><b>Name-coordinate consistency</b>: the site label in the filename must match the actual adsorption position in coordinates</li>
+</ul>
+<p>All artifacts come with versioned manifests and SHA256 hashes. This means we can always answer: "Which script version generated this? What were the input coordinates? What were the calculation parameters?"</p>
+<h2 id="lessons">Lessons Learned</h2>
+<p>After two years, the biggest lessons:</p>
+<ol>
+<li><b>Never manage filenames manually</b>. 160 configs named by hand will contain errors. Use scripts for structured naming (e.g., <code>T01_A_parallel_001.mop</code>)</li>
+<li><b>Vibrational frequency calculations are not optional</b>. Without imaginary frequency checks, you never know if you converged to a minimum or a transition state</li>
+<li><b>Keep intermediate files</b>. I deleted some unconverged outputs to save space and deeply regretted it during debugging</li>
+<li><b>The best time to write documentation is while doing it</b>, not after</li>
+</ol>
+<p>To date: 65 structural basins classified, 138-mode vibrational frequencies computed, 20 constrained optimizations done. Next steps: INDO/CIS12 UV-Vis spectroscopy and DFT validation of key structures.</p>`
+    },
+    refs:[
+      {zh:"Stewart, J. J. P. (2013). Optimization of parameters for semiempirical methods VI: more modifications to the NDDO approximations and re-optimization of parameters. <i>J. Mol. Model.</i>, 19, 1-32.",en:"Stewart, J. J. P. (2013). Optimization of parameters for semiempirical methods VI. <i>J. Mol. Model.</i>, 19, 1-32."},
+      {zh:"Kabsch, W. (1976). A solution for the best rotation to relate two sets of vectors. <i>Acta Cryst.</i>, A32, 922-923.",en:"Kabsch, W. (1976). A solution for the best rotation to relate two sets of vectors. <i>Acta Cryst.</i>, A32, 922-923."},
+    ]
   },
   {
     id:"ai-materials",
-    date:"2026-08-20", readTime:8, tag:{"zh":"思考","en":"Essay"},
-    title:{"zh":"为什么我开始关注 AI 与材料的结合","en":"Why I Started Caring About AI + Materials"},
-    excerpt:{"zh":"从一开始觉得 AI 与自己无关，到在科研中真切感受到数据驱动方法的力量——这是一个材料物理学生的认知转变记录。","en":"From thinking AI was irrelevant to my field, to genuinely feeling the power of data-driven methods in research — a materials physics student's cognitive shift."},
-    body:{zh:`<p>坦白说，大一大二的时候，我觉得 AI 跟材料专业没什么关系。那是计算机系的事，是程序员的事。</p>
-<h2>转折点：数据量上来了</h2>
-<p>真正的转变发生在 Terrylene 项目中。当我们手里有 5,554 个输出文件、179 个优化结构的时候，传统的"一个个看"的方法彻底失效了。我开始写 Python 脚本批量解析输出、提取能量、做 Kabsch 结构对齐——这本质上就是在做数据驱动的材料研究。</p>
-<h2>AI 不是替代，是放大</h2>
-<p>我逐渐意识到，AI for Science 不是要用算法取代化学家的直觉，而是把人类从重复性劳动中解放出来，让我们能处理以前不可能处理的数据规模。机器学习势函数、材料信息学、自动化筛选——这些工具正在改变计算材料的研究范式。</p>
-<h2>现在的我</h2>
-<p>AI 已经成为我科研中不可或缺的一部分。从数据处理管线到结构分类，从文献阅读到代码辅助，它渗透在工作的每个环节。我也在系统学习机器学习基础，希望未来能真正做 AI 辅助的材料发现。</p>
-<blockquote>不是我选择了 AI，是数据量把我推到了 AI 面前。</blockquote>`,
-    en:`<p>Honestly, in my first two years, I thought AI had nothing to do with materials science. That was for CS students, for programmers.</p>
-<h2>The Turning Point: Data Scale</h2>
-<p>The real shift happened in the Terrylene project. When we had 5,554 output files and 179 optimized structures, the traditional "look at them one by one" approach completely failed. I started writing Python scripts to batch-parse outputs, extract energies, and do Kabsch structural alignment — this is essentially data-driven materials research.</p>
-<h2>AI Doesn't Replace, It Amplifies</h2>
-<p>I came to realize that AI for Science is not about algorithms replacing chemist intuition — it's about freeing humans from repetitive labor and enabling us to handle data scales that were previously impossible. ML potentials, materials informatics, automated screening — these tools are transforming computational materials research.</p>
-<h2>Where I Am Now</h2>
-<p>AI has become an indispensable part of my research. From data processing pipelines to structure classification, from literature reading to coding assistance, it permeates every step. I'm also systematically learning ML fundamentals, hoping to do genuine AI-assisted materials discovery in the future.</p>
-<blockquote>I didn't choose AI — the data scale pushed me toward it.</blockquote>`}
+    date:"2026-08-20", readTime:9, tag:{zh:"思考",en:"Essay"},
+    title:{zh:"为什么我开始关注 AI 与材料的结合",en:"Why I Started Caring About AI + Materials"},
+    excerpt:{
+      zh:`<p>坦白说，大一大二的时候，我觉得 AI 跟材料专业没什么关系。那是计算机系的事，是程序员的事。这种心态在材料专业的学生里很常见——我们学的是晶体结构、相图、热力学，AI 听起来像是另一个世界的东西。</p>
+<p>真正的转变发生在 Terrylene 项目中。当我们手里有 5,554 个输出文件、179 个优化结构的时候，传统的"一个个看"的方法彻底失效了。我开始写 Python 脚本批量解析输出、提取能量、做 Kabsch 结构对齐——这本质上就是在做<b>数据驱动的材料研究</b>。</p>`,
+      en:`<p>Honestly, in my first two years, I thought AI had nothing to do with materials science. That was for CS students, for programmers. This mindset is common among materials undergrads — we study crystal structures, phase diagrams, thermodynamics, and AI sounds like something from another world.</p>
+<p>The real shift happened in the Terrylene project. When we had 5,554 output files and 179 optimized structures, the traditional "look at them one by one" approach completely failed. I started writing Python scripts to batch-parse outputs, extract energies, and do Kabsch structural alignment — this is essentially <b>data-driven materials research</b>.</p>`
+    },
+    toc:[
+      {id:"turning",zh:"转折点：数据量上来了",en:"The Turning Point: Data Scale"},
+      {id:"amplify",zh:"AI 不是替代，是放大",en:"AI Doesn't Replace, It Amplifies"},
+      {id:"now",zh:"现在的我",en:"Where I Am Now"},
+    ],
+    body:{
+      zh:`<h2 id="turning">转折点：数据量上来了</h2>
+<p>5,554 个文件是什么概念？如果每个文件花 2 分钟人工检查，需要 185 小时——超过一个月的全职工作。这还只是检查，不包括分析。</p>
+<p>我写的第一个批量解析脚本只有 30 行 Python，但它把 185 小时的工作压缩到了 30 秒。那一刻我真切地感受到：<b>当数据量超过人工处理能力的阈值时，方法就必须改变</b>。</p>
+<p>后来我又做了结构分类（基于能量和几何特征的聚类）、振动模式的自动化分析、UV-Vis 光谱的批量绘制。这些工作没有用到任何"高级 AI"——没有神经网络，没有机器学习——但它们是数据驱动的，是 AI for Science 的基础形态。</p>
+<h2 id="amplify">AI 不是替代，是放大</h2>
+<p><span class="spicy-take">个人观点</span>很多人对 AI for Science 的理解停留在"用 AI 替代科学家"，这是错的。AI for Science 的真正价值是<b>把科学家从重复性劳动中解放出来</b>，让我们能处理以前不可能处理的数据规模。</p>
+<p>具体到计算材料：</p>
+<ul>
+<li><b>机器学习势（ML potentials）</b>：用 DFT 数据训练神经网络势函数，达到接近 DFT 的精度但速度快几个数量级。这使得纳秒级、百万原子级的模拟成为可能</li>
+<li><b>材料信息学</b>：从已有材料数据库中挖掘结构-性质关系，预测新材料。这不是"猜"，而是基于统计学习的外推</li>
+<li><b>自动化筛选</b>：像我们做的 Terrylene 筛选，本质上就是自动化高通量计算的雏形</li>
+</ul>
+<p>这些工具不会替代化学家的化学直觉——它们让化学直觉能在更大的空间里发挥作用。</p>
+<h2 id="now">现在的我</h2>
+<p>AI 已经成为我科研中不可或缺的一部分。从数据处理管线到结构分类，从文献阅读到代码辅助，它渗透在工作的每个环节。</p>
+<p>我也在系统学习机器学习基础——不是为了转码，而是为了能真正理解 AI for Science 的方法论，能批判性地评估一篇用了 ML 的材料论文，能在自己的研究中选择合适的工具而不是盲目跟风。</p>
+<blockquote><p>不是我选择了 AI，是数据量把我推到了 AI 面前。</p></blockquote>`,
+      en:`<h2 id="turning">The Turning Point: Data Scale</h2>
+<p>What does 5,554 files mean? If each takes 2 minutes to inspect manually, that's 185 hours — over a month of full-time work. And that's just inspection, not analysis.</p>
+<p>My first batch parsing script was 30 lines of Python, but it compressed 185 hours into 30 seconds. In that moment I truly felt: <b>when data volume crosses the threshold of human processing capacity, the method must change</b>.</p>
+<p>Later I did structure classification (clustering based on energy and geometric features), automated vibrational mode analysis, and batch UV-Vis spectrum plotting. None of this used "advanced AI" — no neural networks, no machine learning — but it was data-driven, the foundational form of AI for Science.</p>
+<h2 id="amplify">AI Doesn't Replace, It Amplifies</h2>
+<p><span class="spicy-take">Hot take</span>Many people understand AI for Science as "using AI to replace scientists." That's wrong. The real value is <b>freeing scientists from repetitive labor</b>, enabling us to handle data scales previously impossible.</p>
+<p>In computational materials specifically:</p>
+<ul>
+<li><b>ML potentials</b>: Train neural network potentials on DFT data, achieving near-DFT accuracy at orders-of-magnitude faster speed. Enables nanosecond, million-atom simulations</li>
+<li><b>Materials informatics</b>: Mine structure-property relationships from existing databases, predict new materials. Not "guessing" but statistically-grounded extrapolation</li>
+<li><b>Automated screening</b>: Our Terrylene screening is essentially a prototype of automated high-throughput computation</li>
+</ul>
+<p>These tools don't replace chemical intuition — they let chemical intuition operate in a much larger space.</p>
+<h2 id="now">Where I Am Now</h2>
+<p>AI has become indispensable in my research. From data pipelines to structure classification, from literature reading to coding assistance, it permeates every step.</p>
+<p>I'm also systematically learning ML fundamentals — not to switch to CS, but to truly understand the methodology of AI for Science, to critically evaluate a materials paper that uses ML, and to choose appropriate tools in my own research rather than blindly following trends.</p>
+<blockquote><p>I didn't choose AI — the data scale pushed me toward it.</p></blockquote>`
+    },
+    refs:[]
   },
   {
     id:"nusri-experience",
-    date:"2026-09-01", readTime:6, tag:{"zh":"学习","en":"Learning"},
-    title:{"zh":"NUSRI 重庆研究院：高强度课程的初体验","en":"NUSRI Chongqing: First Impressions of Intensive Coursework"},
-    excerpt:{"zh":"进入新加坡国立大学 3+1 项目后的第一个月，全英文授课、高密度知识输入、研究导向的训练模式——记录真实感受与适应过程。","en":"First month in the NUS 3+1 program: English-medium instruction, high-density knowledge input, research-oriented training — honest reflections and the adaptation process."},
-    body:{zh:`<p>2026 年 8 月，我进入新加坡国立大学重庆研究院（NUSRI-CQ），开始 3+1 项目的大四学年。</p>
-<h2>课程强度：远超预期</h2>
-<p>第一感受是课程强度。全英文授课、大量阅读材料、课堂讨论与项目并行。与东北大学的节奏相比，这里更强调自主学习与批判性思考，而不是被动接收。</p>
-<h2>研究导向的训练</h2>
-<p>NUSRI 的培养方案明显偏向研究训练。课程项目往往与真实科研问题挂钩，鼓励我们从文献中找问题、用计算工具解决问题。这与我之前做 Terrylene 项目的经验形成了很好的呼应。</p>
-<h2>适应与成长</h2>
-<p>最初的不适应是真实的——语言、节奏、思维方式都需要调整。但一个月下来，我开始享受这种高强度的学习状态。它迫使我更高效地管理时间，更精准地提取信息。</p>`,
-    en:`<p>In August 2026, I joined the National University of Singapore Research Institute in Chongqing (NUSRI-CQ) for my senior year in the 3+1 program.</p>
-<h2>Course Intensity: Beyond Expectations</h2>
-<p>The first impression was intensity. English-medium instruction, extensive reading materials, classroom discussions and projects running in parallel. Compared to the pace at Northeastern University, this place emphasizes self-directed learning and critical thinking over passive reception.</p>
-<h2>Research-Oriented Training</h2>
-<p>NUSRI's curriculum is clearly research-oriented. Course projects are often tied to real research problems, encouraging us to find questions from literature and solve them with computational tools. This resonates well with my Terrylene project experience.</p>
-<h2>Adaptation and Growth</h2>
-<p>The initial discomfort was real — language, pace, and thinking all required adjustment. But after a month, I started enjoying this high-intensity learning state. It forces me to manage time more efficiently and extract information more precisely.</p>`}
+    date:"2026-09-01", readTime:7, tag:{zh:"学习",en:"Learning"},
+    title:{zh:"NUSRI 重庆研究院：高强度课程的初体验",en:"NUSRI Chongqing: First Impressions of Intensive Coursework"},
+    excerpt:{
+      zh:`<p>2026 年 8 月，我进入新加坡国立大学重庆研究院（NUSRI-CQ），开始 3+1 项目的大四学年。这是我第一次在全英文、研究导向的环境中系统学习，冲击比预想的大。</p>
+<p>第一感受是课程强度。全英文授课、大量阅读材料、课堂讨论与项目并行。与东北大学的节奏相比，这里更强调<b>自主学习与批判性思考</b>，而不是被动接收。教授不会把知识喂到你嘴里——他会告诉你该读什么，然后在课堂上检验你是否真的理解了。</p>`,
+      en:`<p>In August 2026, I joined NUS Research Institute in Chongqing (NUSRI-CQ) for my senior year in the 3+1 program. This was my first time studying systematically in an English-medium, research-oriented environment, and the impact was bigger than expected.</p>
+<p>The first impression was intensity. English-medium instruction, extensive reading materials, classroom discussions and projects running in parallel. Compared to the pace at Northeastern University, this place emphasizes <b>self-directed learning and critical thinking</b> over passive reception. Professors don't feed you knowledge — they tell you what to read, then test whether you actually understood it in class.</p>`
+    },
+    toc:[
+      {id:"intensity",zh:"课程强度：远超预期",en:"Course Intensity: Beyond Expectations"},
+      {id:"research",zh:"研究导向的训练",en:"Research-Oriented Training"},
+      {id:"adapt",zh:"适应与成长",en:"Adaptation and Growth"},
+    ],
+    body:{
+      zh:`<h2 id="intensity">课程强度：远超预期</h2>
+<p>NUSRI 的课程不是"听课+考试"模式，而是"阅读+讨论+项目"模式。每门课每周的阅读量可能是 2-3 篇论文或章节，课堂上教授会随机点名提问，要求你用自己的话解释核心概念。</p>
+<p>这对英语非母语的学生来说是双重挑战：既要理解专业内容，又要用英语表达。最初的两周我经常在课后花 2-3 倍时间复习课堂内容。</p>
+<p>但这种模式的好处也很明显：<b>你不是在"学知识"，而是在"练能力"</b>。一个月后，我发现自己读英文论文的速度明显快了，课堂上也能更自如地提问和讨论。</p>
+<h2 id="research">研究导向的训练</h2>
+<p>NUSRI 的培养方案明显偏向研究训练。课程项目往往与真实科研问题挂钩，鼓励我们从文献中找问题、用计算工具解决问题。</p>
+<p>比如有一门课的项目是复现一篇近期论文的计算结果。这不是照着做一遍——教授要求我们找出原文方法的局限性，并提出改进方案。这种训练方式与我之前做 Terrylene 项目的经验形成了很好的呼应：<b>科研不是执行，是质疑和改进</b>。</p>
+<h2 id="adapt">适应与成长</h2>
+<p>最初的不适应是真实的——语言、节奏、思维方式都需要调整。但一个月下来，我开始享受这种高强度的学习状态。</p>
+<p>它迫使我更高效地管理时间，更精准地提取信息，更勇敢地表达不懂的东西。在国内的课堂上，"不懂装懂"是常态；在这里，教授会明确告诉你："如果有 30% 的内容没听懂，那是正常的，课后问。"</p>
+<blockquote><p>高强度不是目的，是手段——它逼你跳出舒适区，用更快的速度成长。</p></blockquote>`,
+      en:`<h2 id="intensity">Course Intensity: Beyond Expectations</h2>
+<p>NUSRI courses don't follow the "lecture + exam" model — they use "reading + discussion + project." Each course may assign 2-3 papers or chapters per week, and professors randomly call on students in class, asking you to explain core concepts in your own words.</p>
+<p>This is a double challenge for non-native English speakers: understanding专业 content and expressing it in English. In the first two weeks, I often spent 2-3x time reviewing after class.</p>
+<p>But the benefit is clear: <b>you're not "learning knowledge," you're "training ability."</b> After a month, I noticed my English paper reading speed improved significantly, and I could ask and discuss more freely in class.</p>
+<h2 id="research">Research-Oriented Training</h2>
+<p>NUSRI's curriculum is clearly research-oriented. Course projects are often tied to real research problems, encouraging us to find questions from literature and solve them with computational tools.</p>
+<p>For example, one course project was to reproduce the computational results of a recent paper. Not just follow along — the professor asked us to identify limitations of the original method and propose improvements. This resonates with my Terrylene project experience: <b>research is not execution, it's questioning and improving</b>.</p>
+<h2 id="adapt">Adaptation and Growth</h2>
+<p>The initial discomfort was real — language, pace, and thinking all required adjustment. But after a month, I started enjoying this high-intensity learning state.</p>
+<p>It forces me to manage time more efficiently, extract information more precisely, and bravely express what I don't understand. In Chinese classrooms, "pretending to understand" is the norm; here, professors explicitly say: "If 30% goes over your head, that's normal. Ask after class."</p>
+<blockquote><p>High intensity is not the goal, it's the means — it forces you out of your comfort zone to grow faster.</p></blockquote>`
+    },
+    refs:[]
   },
   {
     id:"weibo-leadership",
-    date:"2026-06-10", readTime:5, tag:{"zh":"成长","en":"Growth"},
-    title:{"zh":"运营 125 万粉丝的官方微博：一个材料学生的意外收获","en":"Running a 1.25M-Follower Official Weibo: A Materials Student's Unexpected Gain"},
-    excerpt:{"zh":"作为东北大学官方微博运营团队副主席，管理 50 余人的学生媒体团队。这段经历教会我的，远比运营技巧更多。","en":"As Vice Chair of Northeastern University's official Weibo operations team, managing a 50+ member student media team. This experience taught me far more than operations skills."},
-    body:{zh:`<p>很多人问我：一个学材料物理的，为什么去做微博运营？</p>
-<h2>意外的起点</h2>
-<p>大一时偶然加入团队，从最基础的排版做起。没想到一做就是三年，从普通成员做到副主席，负责 125 万粉丝账号的日常运营和 50 余人团队的管理。</p>
-<h2>运营背后的硬技能</h2>
-<p>125 万粉丝的账号不是随便发内容的。数据复盘、选题策划、危机公关、跨部门协作——这些都是实打实的项目管理能力。我甚至把科研中的数据思维用到了内容运营上：A/B 测试标题、分析传播路径、量化内容效果。</p>
-<h2>对科研的反哺</h2>
-<p>这段经历对科研的帮助是意外的。团队管理经验让我在 Terrylene 项目中能更好地协调分工；内容写作训练让我的学术写作更清晰；数据复盘习惯让我对计算结果的分析更系统。</p>
-<blockquote>看似不相关的经历，总会在某个时刻串联起来。</blockquote>`,
-    en:`<p>People often ask me: why would a materials physics student do Weibo operations?</p>
-<h2>An Unexpected Start</h2>
-<p>I joined the team by chance in my freshman year, starting with basic layout work. I didn't expect to stay for three years, rising from member to Vice Chair, responsible for the daily operations of a 1.25M-follower account and managing a 50+ member team.</p>
-<h2>Hard Skills Behind Operations</h2>
-<p>A 1.25M-follower account is not about posting randomly. Data review, content planning, crisis management, cross-department collaboration — these are real project management skills. I even applied research data thinking to content operations: A/B testing headlines, analyzing propagation paths, quantifying content performance.</p>
-<h2>Feedback to Research</h2>
-<p>The benefit to research was unexpected. Team management experience helped me coordinate division of labor in the Terrylene project; content writing training made my academic writing clearer; data review habits made my analysis of computational results more systematic.</p>
-<blockquote>Seemingly unrelated experiences always connect at some point.</blockquote>`}
+    date:"2026-06-10", readTime:6, tag:{zh:"成长",en:"Growth"},
+    title:{zh:"运营 125 万粉丝的官方微博：一个材料学生的意外收获",en:"Running a 1.25M-Follower Weibo: A Materials Student's Unexpected Gain"},
+    excerpt:{
+      zh:`<p>很多人问我：一个学材料物理的，为什么去做微博运营？我的回答通常是：偶然加入，认真做了，然后发现它教会我的东西远比运营技巧多。</p>
+<p>大一时偶然加入东北大学官方微博运营团队，从最基础的排版做起。没想到一做就是三年，从普通成员做到副主席，负责 125 万粉丝账号的日常运营和 50 余人团队的管理。这段经历对我科研的帮助，是我当初完全没有预料到的。</p>`,
+      en:`<p>People often ask me: why would a materials physics student do Weibo operations? My answer: joined by chance, took it seriously, then discovered it taught me far more than operations skills.</p>
+<p>I joined Northeastern University's official Weibo team by chance in freshman year, starting with basic layout work. I didn't expect to stay for three years, rising to Vice Chair, managing the daily operations of a 1.25M-follower account and a 50+ member team. How this experience helped my research was completely unexpected.</p>`
+    },
+    toc:[
+      {id:"skills",zh:"运营背后的硬技能",en:"Hard Skills Behind Operations"},
+      {id:"feedback",zh:"对科研的反哺",en:"Feedback to Research"},
+    ],
+    body:{
+      zh:`<h2 id="skills">运营背后的硬技能</h2>
+<p>125 万粉丝的账号不是随便发内容的。每一条微博都需要考虑：选题是否贴合受众？标题是否有吸引力？配图是否合适？发布时间是否在流量高峰？</p>
+<p>我甚至把科研中的数据思维用到了内容运营上：</p>
+<ul>
+<li><b>A/B 测试标题</b>：同一条内容用两个标题发布，对比阅读量和互动率</li>
+<li><b>分析传播路径</b>：追踪一条微博从发布到裂变的完整路径，找出关键传播节点</li>
+<li><b>量化内容效果</b>：建立阅读量、互动率、涨粉数的指标体系，每周复盘</li>
+</ul>
+<p>这些方法本质上和科研中的"控制变量+数据分析"是一样的。</p>
+<h2 id="feedback">对科研的反哺</h2>
+<p>这段经历对科研的帮助是意外的，但实实在在：</p>
+<ol>
+<li><b>团队管理</b>：50 余人的团队管理经验，让我在 Terrylene 项目中能更好地协调分工、设定里程碑、处理冲突</li>
+<li><b>写作能力</b>：三年的内容写作训练，让我的学术写作更清晰、更有结构感</li>
+<li><b>数据复盘习惯</b>：运营中养成的"用数据说话"习惯，让我对计算结果的分析更系统、更少主观臆断</li>
+<li><b>抗压能力</b>：125 万粉丝意味着任何错误都会被放大，这练就了我在压力下保持冷静的能力</li>
+</ol>
+<blockquote><p>看似不相关的经历，总会在某个时刻串联起来。</p></blockquote>`,
+      en:`<h2 id="skills">Hard Skills Behind Operations</h2>
+<p>A 1.25M-follower account is not about posting randomly. Every post requires consideration: does the topic fit the audience? Is the title engaging? Are images appropriate? Is the posting time during traffic peaks?</p>
+<p>I even applied research data thinking to content operations:</p>
+<ul>
+<li><b>A/B test headlines</b>: Same content with two titles, compare reads and engagement</li>
+<li><b>Analyze propagation paths</b>: Trace a post from publication to viral spread, identify key nodes</li>
+<li><b>Quantify content performance</b>: Build metrics for reads, engagement rate, follower growth, review weekly</li>
+</ul>
+<p>These methods are essentially the same as "controlled variables + data analysis" in research.</p>
+<h2 id="feedback">Feedback to Research</h2>
+<p>The benefit to research was unexpected but real:</p>
+<ol>
+<li><b>Team management</b>: Experience managing 50+ people helped me coordinate division of labor, set milestones, and handle conflicts in the Terrylene project</li>
+<li><b>Writing ability</b>: Three years of content writing training made my academic writing clearer and more structured</li>
+<li><b>Data review habits</b>: The "let data speak" habit from operations makes my analysis of computational results more systematic and less subjective</li>
+<li><b>Stress resilience</b>: 1.25M followers means every mistake is amplified — this trained me to stay calm under pressure</li>
+</ol>
+<blockquote><p>Seemingly unrelated experiences always connect at some point.</p></blockquote>`
+    },
+    refs:[]
   }
 ];
+
 const STORIES = [
   {
     id:"why-ai",
-    title:{"zh":"为什么选择智能投顾？——一个材料学生的跨界思考","en":"Why Robo-Advisory? — A Materials Student's Cross-Disciplinary Reflection"},
     date:"2026-09",
-    body:{zh:`<p>这个问题我被问过很多次。一个学材料物理的，为什么会关注智能投顾？</p>
+    title:{zh:"为什么选择智能投顾？——一个材料学生的跨界思考",en:"Why Robo-Advisory? — A Materials Student's Cross-Disciplinary Reflection"},
+    body:{
+      zh:`<p>这个问题我被问过很多次。一个学材料物理的，为什么会关注智能投顾？</p>
 <h2>最初：并不感兴趣</h2>
 <p>坦白说，一开始我对智能投顾并没有特别的兴趣。在我的认知里，那是金融工程和计算机专业的领域，与材料物理相距甚远。</p>
 <h2>转变：数据与模型的共通之处</h2>
-<p>真正让我改观的，是在做计算材料研究的过程中。我发现，无论是材料结构预测还是投资组合优化，本质上都是在高维空间中寻找最优解——都需要数据驱动的模型、都需要处理不确定性、都需要可解释的决策逻辑。</p>
+<p>真正让我改观的，是在做计算材料研究的过程中。我发现，无论是材料结构预测还是投资组合优化，本质上都是在<b>高维空间中寻找最优解</b>——都需要数据驱动的模型、都需要处理不确定性、都需要可解释的决策逻辑。</p>
 <p>我在 Terrylene 项目中搭建的批量计算管线、数据清洗流程、结构分类方法，与量化投研中的数据管线有着惊人的相似性。Python、统计分析、机器学习——这些工具是跨领域通用的。</p>
 <h2>现在：AI 已成为工作的核心</h2>
-<p>如今，AI 已经成为我工作中非常重要的一部分。从科研中的数据处理与结构预测，到对智能投顾等金融科技应用的关注，我越来越相信：跨领域的思维迁移才是这个时代最有价值的能力。</p>
+<p>如今，AI 已经成为我工作中非常重要的一部分。从科研中的数据处理与结构预测，到对智能投顾等金融科技应用的关注，我越来越相信：<b>跨领域的思维迁移才是这个时代最有价值的能力</b>。</p>
 <p>材料科学教会我如何在复杂的物理世界中建立模型；而 AI 与数据科学教会我如何让模型从数据中学习。两者的结合，正是我想继续探索的方向。</p>
-<blockquote>不是我选择了智能投顾，是数据思维把我带到了这里。</blockquote>`,
-    en:`<p>I've been asked this many times. Why would a materials physics student care about robo-advisory?</p>
+<blockquote><p>不是我选择了智能投顾，是数据思维把我带到了这里。</p></blockquote>`,
+      en:`<p>I've been asked this many times. Why would a materials physics student care about robo-advisory?</p>
 <h2>At First: Not Particularly Interested</h2>
 <p>Honestly, I wasn't particularly interested in robo-advisory at first. In my mind, that was the domain of financial engineering and CS majors — far removed from materials physics.</p>
 <h2>The Shift: Commonalities of Data and Models</h2>
-<p>What changed my mind was doing computational materials research. I realized that whether it's materials structure prediction or portfolio optimization, both are essentially about finding optimal solutions in high-dimensional spaces — both need data-driven models, both deal with uncertainty, both require interpretable decision logic.</p>
+<p>What changed my mind was doing computational materials research. I realized that whether it's materials structure prediction or portfolio optimization, both are essentially about <b>finding optimal solutions in high-dimensional spaces</b> — both need data-driven models, both deal with uncertainty, both require interpretable decision logic.</p>
 <p>The batch computation pipeline, data cleaning workflow, and structure classification methods I built in the Terrylene project bear striking resemblance to data pipelines in quantitative investment research. Python, statistical analysis, machine learning — these tools are universally transferable.</p>
 <h2>Now: AI Is Central to My Work</h2>
-<p>Today, AI has become a very important part of my work. From data processing and structure prediction in research, to following fintech applications like robo-advisory, I increasingly believe that cross-disciplinary thinking is the most valuable capability in this era.</p>
+<p>Today, AI has become a very important part of my work. From data processing and structure prediction in research, to following fintech applications like robo-advisory, I increasingly believe that <b>cross-disciplinary thinking is the most valuable capability in this era</b>.</p>
 <p>Materials science taught me how to build models in a complex physical world; AI and data science taught me how to make models learn from data. The intersection of the two is exactly where I want to continue exploring.</p>
-<blockquote>I didn't choose robo-advisory — data-driven thinking brought me here.</blockquote>`}
+<blockquote><p>I didn't choose robo-advisory — data-driven thinking brought me here.</p></blockquote>`
+    }
   },
   {
     id:"from-ji-an",
-    title:{"zh":"从吉安到沈阳：一个县城学生的 985 之路","en":"From Ji'an to Shenyang: A County Student's Path to a 985 University"},
     date:"2026-07",
-    body:{zh:`<p>我出生在江西省吉安市的一个普通家庭。2023 年夏天，我拿着东北大学的录取通知书，第一次坐了 2000 多公里的火车，从南方小城来到东北。</p>
+    title:{zh:"从吉安到沈阳：一个县城学生的 985 之路",en:"From Ji'an to Shenyang: A County Student's Path to a 985 University"},
+    body:{
+      zh:`<p>我出生在江西省吉安市的一个普通家庭。2023 年夏天，我拿着东北大学的录取通知书，第一次坐了 2000 多公里的火车，从南方小城来到东北。</p>
 <h2>高中：在有限资源中找方法</h2>
-<p>县城高中的教育资源与大城市有差距，但这并不意味着没有出路。我很早就意识到，方法比努力更重要——把模糊的"努力感"转化为可量化的"能力值"，用数据复盘自己的学习。</p>
+<p>县城高中的教育资源与大城市有差距，但这并不意味着没有出路。我很早就意识到，<b>方法比努力更重要</b>——把模糊的"努力感"转化为可量化的"能力值"，用数据复盘自己的学习。</p>
 <p>这种思维方式后来深刻影响了我的科研和工作：做任何事都先想"怎么衡量效果"，而不是"怎么更努力"。</p>
 <h2>大学：打开新世界</h2>
 <p>进入东北大学后，我像海绵一样吸收一切：科研、竞赛、学生工作、社会实践。三年里拿了 8 项国家级和省级奖项，做了两个科研项目，运营了 125 万粉丝的微博账号，去了四川凉山做调研，去了爱尔兰参加暑期学校。</p>
 <p>这些经历看起来分散，但有一条主线：我始终在寻找"用数据和方法解决问题"的场景。</p>
 <h2>家庭：最坚实的后盾</h2>
 <p>我的家庭并不富裕，但父母始终支持我的每一个选择。他们不懂什么是计算材料，什么是 PM7，但他们知道"读书是好事"。这份朴素的支持，是我走到今天最根本的动力。</p>
-<blockquote>麻绳专挑细处断，但细处也能长出韧劲。</blockquote>`,
-    en:`<p>I was born in an ordinary family in Ji'an, Jiangxi Province. In the summer of 2023, holding my admission letter to Northeastern University, I took my first 2000+ kilometer train ride from a small southern city to Northeast China.</p>
+<blockquote><p>麻绳专挑细处断，但细处也能长出韧劲。</p></blockquote>`,
+      en:`<p>I was born in an ordinary family in Ji'an, Jiangxi Province. In the summer of 2023, holding my admission letter to Northeastern University, I took my first 2000+ kilometer train ride from a small southern city to Northeast China.</p>
 <h2>High School: Finding Methods in Limited Resources</h2>
-<p>Educational resources in county high schools lag behind big cities, but that doesn't mean there's no way out. I realized early that method matters more than effort — converting vague "feelings of hard work" into quantifiable "ability scores," reviewing my learning with data.</p>
+<p>Educational resources in county high schools lag behind big cities, but that doesn't mean there's no way out. I realized early that <b>method matters more than effort</b> — converting vague "feelings of hard work" into quantifiable "ability scores," reviewing my learning with data.</p>
 <p>This mindset later deeply influenced my research and work: for anything, first think "how to measure effectiveness" rather than "how to work harder."</p>
 <h2>University: Opening a New World</h2>
 <p>At Northeastern University, I absorbed everything like a sponge: research, competitions, student leadership, social practice. In three years I won 8 national and provincial awards, did two research projects, ran a 1.25M-follower Weibo account, did field research in Liangshan, Sichuan, and attended a summer school in Ireland.</p>
 <p>These experiences seem scattered, but there's a common thread: I've always sought scenarios where "data and methods solve problems."</p>
 <h2>Family: The Strongest Backing</h2>
 <p>My family is not wealthy, but my parents have always supported every choice I make. They don't know what computational materials is, what PM7 is, but they know "studying is a good thing." This simple support is the most fundamental driving force behind where I am today.</p>
-<blockquote>Hemp rope always breaks at the thinnest point — but the thinnest point can also grow resilience.</blockquote>`}
+<blockquote><p>Hemp rope always breaks at the thinnest point — but the thinnest point can also grow resilience.</p></blockquote>`
+    }
   }
 ];
+
+const FAQ = [
+  {
+    q:{zh:"你是谁？",en:"Who are you?"},
+    a:{zh:`<p>我是刘东雄（Dongxiong Liu），2005 年生于江西吉安。东北大学材料物理专业本科生（2023-2027），目前在新加坡国立大学重庆研究院（NUSRI-CQ）进行 3+1 项目的大四学年。</p><p>研究方向是计算材料科学，具体做 Terrylene-O₂ 体系的半经验量子化学系统筛选。业余时间运营东北大学官方微博（125 万粉丝），是团队副主席。</p>`,
+       en:`<p>I'm Dongxiong Liu, born in 2005 in Ji'an, Jiangxi. Undergraduate in Materials Physics at Northeastern University (2023-2027), currently in my senior year at NUS Research Institute Chongqing (NUSRI-CQ) through the 3+1 program.</p><p>My research is in computational materials science, specifically semi-empirical quantum chemistry screening of Terrylene-O₂ systems. Outside research, I'm Vice Chair of Northeastern University's official Weibo operations team (1.25M followers).</p>`}
+  },
+  {
+    q:{zh:"这个网站是做什么的？",en:"What is this site for?"},
+    a:{zh:`<p>这是我的个人学术博客，灵感来自 Lilian Weng 的 Lil'Log。我在这里记录研究笔记、学习感悟、个人故事——相当于一个公开的学习日志。</p><p>与社交媒体不同，这里的内容是经过深思的、可追溯的、会持续更新的。我希望它既能展示我的学术能力，也能记录一个本科生的成长轨迹。</p>`,
+       en:`<p>This is my personal academic blog, inspired by Lilian Weng's Lil'Log. I document research notes, learning reflections, and personal stories here — essentially a public learning journal.</p><p>Unlike social media, the content here is thoughtful, traceable, and continuously updated. I hope it showcases my academic ability while recording an undergraduate's growth trajectory.</p>`}
+  },
+  {
+    q:{zh:"为什么叫 DX3906？",en:"Why DX3906?"},
+    a:{zh:`<p>DX3906 是《三体》中一颗恒星的编号，也是我的个人品牌标识。"DX" 是"东雄"的拼音首字母，3906 是恒星编号。</p><p>我喜欢这个意象：一颗遥远但稳定燃烧的恒星，默默发出自己的光。GitHub 账号 Dongxiong67 中的 67 则来自我的生日（7月）。</p>`,
+       en:`<p>DX3906 is a star designation from "The Three-Body Problem," and also my personal brand identifier. "DX" are the pinyin initials of "Dongxiong," and 3906 is the star number.</p><p>I like the imagery: a distant but steadily burning star, quietly emitting its own light. The 67 in my GitHub handle Dongxiong67 comes from my birth month (July).</p>`}
+  },
+  {
+    q:{zh:"你的研究具体在做什么？",en:"What exactly is your research about?"},
+    a:{zh:`<p>目前主要做 Terrylene（三萘嵌苯）-O₂ 体系的计算筛选。Terrylene 是一种有优异光电性质的多环芳烃，我们用 PM7 半经验方法系统筛选 O₂ 在其骨架上的所有吸附构型，找到能量最低的结构盆地，并分析其振动光谱和电子光谱。</p><p>已完成 179 个结构优化、138 模振动频率计算、65 个结构盆地分类。这是一个本科生能接触到的最接近"真实科研"的项目——从问题提出、方法选择、批量计算到数据分析，全流程自主完成。</p>`,
+       en:`<p>Currently working on computational screening of Terrylene-O₂ systems. Terrylene is a polycyclic aromatic hydrocarbon with excellent optoelectronic properties. We use PM7 semi-empirical methods to systematically screen all O₂ adsorption configurations on its skeleton, find the lowest-energy structural basins, and analyze vibrational and electronic spectra.</p><p>Completed: 179 structure optimizations, 138-mode vibrational frequencies, 65 structural basins classified. This is as close to "real research" as an undergrad can get — from problem formulation, method selection, batch computation to data analysis, done independently.</p>`}
+  },
+  {
+    q:{zh:"一个材料学生为什么关注 AI 和金融科技？",en:"Why does a materials student care about AI and fintech?"},
+    a:{zh:`<p>因为我发现数据驱动的方法论是跨领域通用的。做计算材料时，我处理 5,554 个输出文件的方式，和量化分析师处理金融数据的方式本质上是一样的——批量解析、特征提取、统计分析、可视化。</p><p>AI 是工具，不是领域。掌握了数据思维和编程能力，就能在不同领域之间迁移。我对智能投顾的关注，正是这种迁移思维的体现。</p>`,
+       en:`<p>Because I discovered that data-driven methodology is universally transferable. In computational materials, the way I process 5,554 output files is essentially the same as how quants process financial data — batch parsing, feature extraction, statistical analysis, visualization.</p><p>AI is a tool, not a field. With data thinking and coding ability, you can migrate across domains. My interest in robo-advisory is exactly this migration thinking in action.</p>`}
+  },
+  {
+    q:{zh:"怎么联系你？",en:"How can I contact you?"},
+    a:{zh:`<p>邮箱：liudongxiong1@gmail.com（学术联系优先）或 2443550272@qq.com</p><p>GitHub：github.com/Dongxiong67</p><p>欢迎交流计算材料、AI for Science、或任何有趣的想法。</p>`,
+       en:`<p>Email: liudongxiong1@gmail.com (academic) or 2443550272@qq.com</p><p>GitHub: github.com/Dongxiong67</p><p>Happy to discuss computational materials, AI for Science, or any interesting ideas.</p>`}
+  }
+];
+
 let currentLang = localStorage.getItem('dx3906-lang') || 'zh';
 let currentPage = 'home';
 let currentPost = null;
+
 function toggleTheme(){
   const html = document.documentElement;
   const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
@@ -524,6 +735,7 @@ function updateThemeIcons(){
 }
 const savedTheme = localStorage.getItem('dx3906-theme');
 if(savedTheme){ document.documentElement.setAttribute('data-theme', savedTheme); }
+
 function toggleLang(){
   currentLang = currentLang === 'zh' ? 'en' : 'zh';
   localStorage.setItem('dx3906-lang', currentLang);
@@ -543,10 +755,8 @@ function parseHash(){
   const h = location.hash.slice(1);
   if(!h) return {page:'home',post:null};
   const parts = h.split('/');
-  const validPages = ['home','about','research','notes','cv','stories'];
-  if(validPages.includes(parts[0])){
-    return {page:parts[0], post:parts[1]||null};
-  }
+  const valid = ['home','notes','research','cv','stories','faq'];
+  if(valid.includes(parts[0])) return {page:parts[0], post:parts[1]||null};
   return {page:'home',post:null};
 }
 window.addEventListener('hashchange',()=>{
@@ -554,15 +764,13 @@ window.addEventListener('hashchange',()=>{
   currentPage = page; currentPost = post;
   render(); window.scrollTo({top:0,behavior:'instant'});
 });
-function t(key){ return I18N[currentLang][key] || key; }
-function postTitle(p){ return p.title[currentLang]; }
-function postExcerpt(p){ return p.excerpt[currentLang]; }
-function postBody(p){ return p.body[currentLang]; }
+function t(k){ return I18N[currentLang][k] || k; }
 function fmtDate(d){
   if(currentLang==='zh') return d.replace(/-/g,'.');
   const dt = new Date(d);
   return dt.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
 }
+
 function render(){
   document.querySelectorAll('.nav-links a').forEach(a=>{
     a.classList.toggle('active', a.getAttribute('href') === '#'+currentPage);
@@ -570,324 +778,268 @@ function render(){
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     el.textContent = t(el.getAttribute('data-i18n'));
   });
-  const app = document.getElementById('app');
-  app.innerHTML = renderPage();
+  document.getElementById('app').innerHTML = renderPage();
 }
+
 function renderPage(){
   switch(currentPage){
-    case 'about': return renderAbout();
     case 'research': return renderResearch();
     case 'notes': return currentPost ? renderPostDetail() : renderNotesList();
     case 'cv': return renderCV();
     case 'stories': return currentPost ? renderStoryDetail() : renderStoriesList();
+    case 'faq': return renderFAQ();
     default: return renderHome();
   }
 }
+
 function renderHome(){
   const latest = POSTS.slice(0,3);
   const postsHtml = latest.map(p=>`
-    <div class="post-item" onclick="navigate('notes','${p.id}')">
-      <h3>${postTitle(p)}</h3>
-      <p class="excerpt">${postExcerpt(p)}</p>
-      <div class="meta">
-        <span>${fmtDate(p.date)}</span>
+    <article class="post-item">
+      <h2><a href="#notes/${p.id}" onclick="navigate('notes','${p.id}')">${p.title[currentLang]}</a></h2>
+      <div class="post-meta">
+        <span>Date: ${fmtDate(p.date)}</span>
         <span>${p.readTime} ${t('home.minRead')}</span>
-        <span class="tag-pill">${p.tag[currentLang]}</span>
+        <span class="tag">${p.tag[currentLang]}</span>
       </div>
-    </div>`).join('');
+      <div class="post-excerpt">${p.excerpt[currentLang]}</div>
+      <a class="read-more" href="#notes/${p.id}" onclick="navigate('notes','${p.id}')">${t('home.readMore')}</a>
+    </article>`).join('');
   return `
   <div class="page active">
-    <section class="hero container">
-      <div class="hero-meta"><span class="dot"></span>${t('home.heroTag')}</div>
-      <h1>${t('home.heroTitle1')}<span class="gold">${t('home.heroTitle2')}</span>${t('home.heroTitle3')}</h1>
-      <p class="subtitle">${t('home.subtitle')}</p>
-      <div class="tags">
-        <span class="tag">Computational Materials</span>
-        <span class="tag">MOPAC / PM7</span>
-        <span class="tag">AI for Science</span>
-        <span class="tag">Python</span>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#about" onclick="navigate('about')">${t('nav.about')} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="#cv" onclick="navigate('cv')">${t('nav.cv')}</a>
+    <section class="welcome container">
+      <h1>${t('home.welcome')}</h1>
+      <p class="intro">${t('home.intro1')}</p>
+      <p class="intro">${t('home.intro2')}</p>
+      <p class="intro">${t('home.intro3')}</p>
+      <div class="meta-line">
+        <span>Northeastern University · NUSRI-CQ</span>
+        <a href="https://github.com/Dongxiong67" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:liudongxiong1@gmail.com">Email</a>
       </div>
     </section>
-    <section class="section container">
-      <div class="section-title"><span class="num">01</span>${t('home.notesTitle')}</div>
-      <p class="section-desc">${t('home.notesDesc')}</p>
-      <div class="post-list">${postsHtml}</div>
-      <div style="margin-top:24px"><a href="#notes" onclick="navigate('notes')" style="font-family:var(--mono);font-size:13px">${t('home.viewAll')} →</a></div>
-    </section>
-    <section class="section container">
-      <div class="section-title"><span class="num">02</span>${t('home.researchTitle')}</div>
-      <p class="section-desc">${t('home.researchDesc')}</p>
-      <div class="card-grid">
-        <div class="card">
-          <h4>Terrylene-O₂ Screening</h4>
-          <div class="card-meta">2024 — Present · Team Leader</div>
-          <p>${currentLang==='zh'?'PM7 半经验量子化学系统筛选，179 个结构，5,554 个输出文件，可复现计算管线。':'Systematic PM7 semi-empirical screening, 179 structures, 5,554 output files, reproducible pipeline.'}</p>
-        </div>
-        <div class="card">
-          <h4>${currentLang==='zh'?'药物晶体多晶型':'Drug Crystal Polymorphism'}</h4>
-          <div class="card-meta">2023 — 2025 · Member</div>
-          <p>${currentLang==='zh'?'1-甲基乙内酰脲压力诱导同质多晶转变，高压实验与 XRD 分析。':'Pressure-induced polymorphism of 1-methylhydantoin, high-pressure experiments and XRD analysis.'}</p>
-        </div>
-        <div class="card">
-          <h4>${currentLang==='zh'?'多模态视觉识别':'Multimodal Visual Recognition'}</h4>
-          <div class="card-meta">Spring 2026 · Team Lead</div>
-          <p>${currentLang==='zh'?'OCR 与视觉语言方法对比，五模块管线识别教育文档中的真实学习证据。':'OCR vs vision-language comparison, five-module pipeline for genuine learning evidence in educational documents.'}</p>
-        </div>
-      </div>
+    <section class="post-list-section container">
+      <div class="section-label">${t('home.recent')}</div>
+      ${postsHtml}
     </section>
   </div>`;
 }
-function renderAbout(){
-  const eduZh = `
-    <p><b>东北大学</b>（985工程）· 材料科学与工程学院 · 材料物理专业</p>
-    <p style="color:var(--muted);font-size:13px">2023.08 — 2027.06（预计）· GPA 3.68/5.0 · 算术均分 87.99 · CET-6 503</p>
-    <p style="margin-top:10px"><b>新加坡国立大学重庆研究院（NUSRI-CQ）</b> · MSE 3+1 项目</p>
-    <p style="color:var(--muted);font-size:13px">2026.08 — 2027.06（预计）· 计算材料与材料建模方向</p>`;
-  const eduEn = `
-    <p><b>Northeastern University</b> (Project 985) · School of Materials Science and Engineering · B.S. Materials Physics</p>
-    <p style="color:var(--muted);font-size:13px">Aug 2023 — Jun 2027 (Expected) · GPA 3.68/5.0 · Avg 87.82/100 · CET-6 503</p>
-    <p style="margin-top:10px"><b>NUS Research Institute, Chongqing (NUSRI-CQ)</b> · MSE 3+1 Programme</p>
-    <p style="color:var(--muted);font-size:13px">Aug 2026 — Jun 2027 (Expected) · Computational materials & modelling</p>`;
-  const skills = currentLang==='zh'
-    ? `<li>半经验量子化学：MOPAC / PM7</li><li>DFT / DFTB+ / xTB</li><li>Python 数据处理与管线</li><li>Origin 数据可视化</li><li>ASE / PySCF</li><li>机器学习基础（ML potentials）</li>`
-    : `<li>Semi-empirical QC: MOPAC / PM7</li><li>DFT / DFTB+ / xTB</li><li>Python data pipelines</li><li>Origin visualization</li><li>ASE / PySCF</li><li>ML fundamentals (ML potentials)</li>`;
-  const interests = currentLang==='zh'
-    ? `<li>计算材料科学</li><li>材料信息学与 AI 辅助发现</li><li>可复现计算工作流</li><li>量子化学方法开发</li>`
-    : `<li>Computational materials science</li><li>Materials informatics & AI-assisted discovery</li><li>Reproducible computational workflows</li><li>Quantum chemistry methods</li>`;
-  return `
-  <div class="page active">
-    <section class="container" style="padding-top:56px">
-      <div class="profile-header">
-        <img class="avatar" src="https://github.com/Dongxiong67.png" alt="Dongxiong Liu" onerror="this.style.display='none'">
-        <div class="info">
-          <h1>${currentLang==='zh'?'刘东雄':'Dongxiong Liu'}</h1>
-          <p class="role">${currentLang==='zh'?'东北大学 · 材料物理本科生 · NUS 3+1':'Northeastern University · B.S. Materials Physics · NUS 3+1'}</p>
-          <div class="contact">
-            <span>Shenyang, China</span>
-            <span>liudongxiong1@gmail.com</span>
-            <span><a href="https://github.com/Dongxiong67" target="_blank">GitHub</a></span>
-          </div>
-        </div>
-      </div>
-      <div class="info-grid">
-        <div class="info-block">
-          <h3>${t('about.edu')}</h3>
-          ${currentLang==='zh'?eduZh:eduEn}
-        </div>
-        <div class="info-block">
-          <h3>${t('about.skills')}</h3>
-          <ul>${skills}</ul>
-        </div>
-      </div>
-      <div class="info-block" style="margin-bottom:32px">
-        <h3>${t('about.interests')}</h3>
-        <ul>${interests}</ul>
-      </div>
-      <div class="info-block">
-        <h3>${t('about.bioTitle')}</h3>
-        <p style="font-size:14.5px;line-height:1.9;color:var(--text-soft)">${currentLang==='zh'
-          ?'我是刘东雄，2005 年生于江西吉安。目前是东北大学材料物理专业大三学生，即将进入新加坡国立大学 3+1 项目完成大四学业。我的研究聚焦于计算材料科学，特别是用半经验量子化学方法进行分子体系的系统筛选与可复现工作流搭建。':'I am Dongxiong Liu, born in 2005 in Ji\'an, Jiangxi. I am currently a junior in Materials Physics at Northeastern University, entering the NUS 3+1 program for my senior year. My research focuses on computational materials science, especially systematic screening of molecular systems with semi-empirical quantum chemistry and building reproducible workflows.'}</p>
-        <p style="font-size:14.5px;line-height:1.9;color:var(--text-soft);margin-top:12px">${currentLang==='zh'
-          ?'除了科研，我还运营着东北大学官方微博（125 万粉丝），去过四川凉山做社会实践，在爱尔兰都柏林圣三一学院参加过暑期学校。我相信跨领域的经历会相互滋养，最终汇聚成独特的研究视角。':'Beyond research, I run Northeastern University\'s official Weibo (1.25M followers), did field research in Liangshan, Sichuan, and attended a summer school at Trinity College Dublin, Ireland. I believe cross-disciplinary experiences nourish each other and converge into a unique research perspective.'}</p>
-      </div>
-    </section>
-  </div>`;
-}
-function renderResearch(){
-  return `
-  <div class="page active">
-    <section class="container" style="padding-top:56px">
-      <div class="section-title"><span class="num">01</span>${t('research.title')}</div>
-      <p class="section-desc">${currentLang==='zh'?'计算材料科学与 AI for Science 方向的科研项目':'Research projects in computational materials science and AI for Science'}</p>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-date">2024.09 — Present</div>
-          <h4>${currentLang==='zh'?'基于 MOPAC 的三萘嵌苯双氧吸附模拟计算（队长）':'Systematic Computational Screening of Terrylene-O₂ Structures (Team Leader)'}</h4>
-          <div class="tl-sub">${currentLang==='zh'?'半经验量子化学 · 计算材料':'Semi-empirical QC · Computational Materials'}</div>
-          <p>${currentLang==='zh'
-            ?'设计 C30H16-O2 构型系统筛选研究，构建 160 条可追溯构型记录（158 个对称性独立初始位点对），分类出 65 个结构盆地。完成 PM7 几何优化与 138 模振动频率计算，20 个约束优化。恢复 FORCE/PULAY 应力并完成 19 个补充结构的 INDO/CIS12 UV-Vis 计算。建立基于 SHA256 的版本化质量控制流程。'
-            :'Designed systematic screening of C30H16-O2 configurations, constructing 160 traceable records (158 symmetry-independent initial site pairs), classifying 65 structural basins. Completed PM7 geometry optimizations and 138-mode vibrational frequency calculations, 20 constrained optimizations. Recovered FORCE/PULAY stresses and completed INDO/CIS12 UV-Vis for 19 supplementary structures. Established SHA256-based versioned QC workflow.'}</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">2023.11 — 2025.03</div>
-          <h4>${currentLang==='zh'?'药物晶体 1-甲基乙内酰脲压力诱导同质多晶转变研究（队员）':'Pressure-Induced Polymorphism of 1-Methylhydantoin (Member)'}</h4>
-          <div class="tl-sub">${currentLang==='zh'?'高压实验 · XRD 分析 · 材料物理相变':'High-pressure experiment · XRD analysis · Materials phase transition'}</div>
-          <p>${currentLang==='zh'
-            ?'参与药物晶体压力诱导多晶型转变机制研究，负责高压实验数据规范采集、Origin 整理与 XRD 图谱分析。结合材料物理相变理论协助课题报告撰写，项目以良好等级结题。'
-            :'Participated in pressure-induced polymorphism study of a pharmaceutical crystal. Responsible for high-pressure experimental data collection, Origin processing, and XRD pattern analysis. Assisted report writing with phase transition theory; project concluded with "Good" rating.'}</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Spring 2026</div>
-          <h4>${currentLang==='zh'?'教育文档多模态提示引导视觉识别（队长 & 展示）':'Multimodal Prompt-Guided Visual Recognition for Educational Documents (Team Lead)'}</h4>
-          <div class="tl-sub">${currentLang==='zh'?'课程项目 · OCR · 视觉语言模型':'Course Project · OCR · Vision-Language'}</div>
-          <p>${currentLang==='zh'
-            ?'带领团队对比 OCR 与视觉语言方法在 CET-4/6 学习记录中识别真实学习证据的效果。设计五模块管线：多模态布局识别、特征映射、结构化提示、合规检查、用户反馈分析。'
-            :'Led a team comparing OCR and vision-language approaches for recognizing genuine learning evidence in CET-4/6 study records. Designed a five-module pipeline: multimodal layout recognition, feature mapping, structured prompting, compliance checking, and user-feedback analysis.'}</p>
-        </div>
-      </div>
-      <div style="margin-top:40px">
-        <div class="section-title" style="font-size:18px"><span class="num">02</span>${currentLang==='zh'?'国际学术经历':'International Academic Experience'}</div>
-        <div class="card" style="margin-top:16px">
-          <h4>STAM Summer School · Trinity College Dublin, Ireland</h4>
-          <div class="card-meta">Aug 26 — 27, 2026 · Advanced Manufacturing and Materials Science</div>
-          <p>${currentLang==='zh'
-            ?'参与全英文科研写作、粉末 3D 打印、金属增材制造、材料制备与表征的密集培训。参观 CRANN 与 AMBER 研究中心，参与微纳制造、柔性电子、先进生物材料相关实验室活动。'
-            :'Intensive English-medium training in scientific writing, powder-based 3D printing, metal additive manufacturing, materials preparation and characterization. Visited CRANN and AMBER research centres, participated in lab activities on micro/nano manufacturing, flexible electronics, and advanced biomaterials.'}</p>
-        </div>
-      </div>
-    </section>
-  </div>`;
-}
+
 function renderNotesList(){
   const html = POSTS.map(p=>`
-    <div class="post-item" onclick="navigate('notes','${p.id}')">
-      <h3>${postTitle(p)}</h3>
-      <p class="excerpt">${postExcerpt(p)}</p>
-      <div class="meta">
-        <span>${fmtDate(p.date)}</span>
+    <article class="post-item">
+      <h2><a href="#notes/${p.id}" onclick="navigate('notes','${p.id}')">${p.title[currentLang]}</a></h2>
+      <div class="post-meta">
+        <span>Date: ${fmtDate(p.date)}</span>
         <span>${p.readTime} ${t('home.minRead')}</span>
-        <span class="tag-pill">${p.tag[currentLang]}</span>
+        <span class="tag">${p.tag[currentLang]}</span>
       </div>
-    </div>`).join('');
+      <div class="post-excerpt">${p.excerpt[currentLang]}</div>
+      <a class="read-more" href="#notes/${p.id}" onclick="navigate('notes','${p.id}')">${t('home.readMore')}</a>
+    </article>`).join('');
   return `
   <div class="page active">
-    <section class="container" style="padding-top:56px">
-      <div class="section-title"><span class="num">01</span>${t('notes.title')}</div>
-      <p class="section-desc">${t('notes.desc')}</p>
-      <div class="post-list">${html}</div>
+    <section class="page-section container">
+      <h1>${t('notes.title')}</h1>
+      <p class="page-desc">${t('notes.desc')}</p>
+      ${html}
     </section>
   </div>`;
 }
+
 function renderPostDetail(){
   const p = POSTS.find(x=>x.id===currentPost);
   if(!p) return renderNotesList();
+  const tocHtml = p.toc ? `
+    <div class="toc">
+      <div class="toc-title">${t('toc.title')}</div>
+      <ul>${p.toc.map(item=>`<li><a href="#${item.id}">${item[currentLang]}</a></li>`).join('')}</ul>
+    </div>` : '';
+  const refsHtml = (p.refs && p.refs.length>0) ? `
+    <div class="references">
+      <h3>${t('refs.title')}</h3>
+      <ol>${p.refs.map(r=>`<li>${r[currentLang]}</li>`).join('')}</ol>
+    </div>` : '';
   return `
   <div class="page active">
     <article class="post-detail container">
-      <a class="back-link" onclick="navigate('notes')">← ${t('back')}</a>
-      <h1>${postTitle(p)}</h1>
+      <a class="back-link" onclick="navigate('notes')">${t('back')}</a>
+      <h1>${p.title[currentLang]}</h1>
       <div class="post-meta">
-        <span>${fmtDate(p.date)}</span>
+        <span>Date: ${fmtDate(p.date)}</span>
         <span>${p.readTime} ${t('home.minRead')}</span>
-        <span style="color:var(--gold)">${p.tag[currentLang]}</span>
+        <span class="tag">${p.tag[currentLang]}</span>
       </div>
-      <div class="post-body">${postBody(p)}</div>
+      ${tocHtml}
+      <div class="post-body">${p.body[currentLang]}</div>
+      ${refsHtml}
     </article>
   </div>`;
 }
+
+function renderResearch(){
+  return `
+  <div class="page active">
+    <section class="page-section container">
+      <h1>${t('research.title')}</h1>
+      <p class="page-desc">${t('research.desc')}</p>
+      <h2>${currentLang==='zh'?'进行中':'Ongoing'}</h2>
+      <div class="cv-item">
+        <div class="cv-date">2024.09 — Present</div>
+        <h3>${currentLang==='zh'?'基于 MOPAC 的三萘嵌苯双氧吸附模拟计算（队长）':'Systematic Computational Screening of Terrylene-O₂ (Team Leader)'}</h3>
+        <div class="cv-sub">${currentLang==='zh'?'半经验量子化学 · 计算材料 · PM7':'Semi-empirical QC · Computational Materials · PM7'}</div>
+        <p>${currentLang==='zh'
+          ?'设计 C₃₀H₁₆-O₂ 构型系统筛选研究，构建 160 条可追溯构型记录（158 个对称性独立初始位点对），分类出 65 个结构盆地。完成 PM7 几何优化与 138 模振动频率计算，20 个约束优化。恢复 FORCE/PULAY 应力并完成 19 个补充结构的 INDO/CIS12 UV-Vis 计算。建立基于 SHA256 的版本化质量控制流程。'
+          :'Designed systematic screening of C₃₀H₁₆-O₂, constructing 160 traceable records (158 symmetry-independent site pairs), classifying 65 basins. Completed PM7 optimizations, 138-mode frequencies, 20 constrained optimizations. Recovered FORCE/PULAY stresses and INDO/CIS12 UV-Vis for 19 structures. Established SHA256 versioned QC.'}</p>
+      </div>
+      <h2>${currentLang==='zh'?'已完成':'Completed'}</h2>
+      <div class="cv-item">
+        <div class="cv-date">2023.11 — 2025.03</div>
+        <h3>${currentLang==='zh'?'药物晶体 1-甲基乙内酰脲压力诱导同质多晶转变（队员）':'Pressure-Induced Polymorphism of 1-Methylhydantoin (Member)'}</h3>
+        <div class="cv-sub">${currentLang==='zh'?'高压实验 · XRD 分析 · 材料相变':'High-pressure experiment · XRD analysis · Phase transition'}</div>
+        <p>${currentLang==='zh'
+          ?'参与药物晶体压力诱导多晶型转变机制研究，负责高压实验数据规范采集、Origin 整理与 XRD 图谱分析。结合材料物理相变理论协助课题报告撰写，项目以良好等级结题。'
+          :'Participated in pressure-induced polymorphism study. Responsible for high-pressure data collection, Origin processing, XRD analysis. Assisted report writing; project concluded with "Good" rating.'}</p>
+      </div>
+      <div class="cv-item">
+        <div class="cv-date">Spring 2026</div>
+        <h3>${currentLang==='zh'?'教育文档多模态提示引导视觉识别（队长）':'Multimodal Prompt-Guided Visual Recognition for Educational Documents (Team Lead)'}</h3>
+        <div class="cv-sub">${currentLang==='zh'?'课程项目 · OCR · 视觉语言模型':'Course Project · OCR · Vision-Language'}</div>
+        <p>${currentLang==='zh'
+          ?'带领团队对比 OCR 与视觉语言方法在 CET-4/6 学习记录中识别真实学习证据的效果。设计五模块管线：多模态布局识别、特征映射、结构化提示、合规检查、用户反馈分析。'
+          :'Led comparison of OCR vs vision-language approaches for recognizing genuine learning evidence in CET-4/6 records. Designed five-module pipeline: layout recognition, feature mapping, structured prompting, compliance checking, feedback analysis.'}</p>
+      </div>
+      <h2>${currentLang==='zh'?'国际学术经历':'International Experience'}</h2>
+      <div class="cv-item">
+        <div class="cv-date">Aug 26 — 27, 2026</div>
+        <h3>STAM Summer School · Trinity College Dublin, Ireland</h3>
+        <p>${currentLang==='zh'
+          ?'全英文科研写作、粉末 3D 打印、金属增材制造、材料制备与表征的密集培训。参观 CRANN 与 AMBER 研究中心，参与微纳制造、柔性电子、先进生物材料实验室活动。'
+          :'Intensive English-medium training in scientific writing, powder 3D printing, metal additive manufacturing, materials preparation and characterization. Visited CRANN and AMBER centres; participated in micro/nano manufacturing, flexible electronics, biomaterials labs.'}</p>
+      </div>
+    </section>
+  </div>`;
+}
+
 function renderCV(){
   const awards = [
     {year:"2026.04",zh:"第28届全国大学生英语竞赛 全国三等奖",en:"National English Competition — National Third Prize",level:"National"},
     {year:"2025.11",zh:"第17届全国大学生数学竞赛 省级一等奖",en:"Chinese Mathematics Competition — Provincial First Prize",level:"Provincial"},
-    {year:"2025.10",zh:"第34届全国大学生数学建模竞赛 省级三等奖",en:"Contemporary Undergraduate Mathematical Contest — Provincial Third Prize",level:"Provincial"},
-    {year:"2025.09",zh:"第12届辽宁省大学生创新年会 省级二等奖",en:"Liaoning College Student Innovation Annual Conf. — Provincial Second Prize",level:"Provincial"},
+    {year:"2025.10",zh:"第34届全国大学生数学建模竞赛 省级三等奖",en:"Mathematical Contest in Modeling — Provincial Third Prize",level:"Provincial"},
+    {year:"2025.09",zh:"第12届辽宁省大学生创新年会 省级二等奖",en:"Liaoning Innovation Annual Conf. — Provincial Second Prize",level:"Provincial"},
     {year:"2025.08",zh:"第27届中国机器人及人工智能大赛 全国三等奖",en:"China Robotics & AI Competition — National Third Prize",level:"National"},
     {year:"2025.07",zh:"第13届全国高校数字艺术设计大赛 全国三等奖",en:"National Digital Art & Design Competition — National Third Prize",level:"National"},
     {year:"2024.07",zh:"第14届全国周培源大学生力学竞赛 国家级优秀奖",en:"Zhou Peiyuan Mechanics Competition — National Honorable Mention",level:"National"},
-    {year:"—",zh:"国家励志奖学金 · 东北大学优秀学生奖学金 · 优秀团干部",en:"National Encouragement Scholarship · Outstanding Student Scholarship · Outstanding Youth Cadre",level:"University"},
+    {year:"—",zh:"国家励志奖学金 · 优秀学生奖学金 · 优秀团干部",en:"National Encouragement Scholarship · Outstanding Student Scholarship · Outstanding Youth Cadre",level:"University"},
   ];
   const awardHtml = awards.map(a=>`
-    <div class="award-item">
+    <div class="award-row">
       <span class="award-year">${a.year}</span>
       <span class="award-name">${currentLang==='zh'?a.zh:a.en}</span>
       <span class="award-level">${a.level}</span>
     </div>`).join('');
   return `
   <div class="page active">
-    <section class="container" style="padding-top:56px">
-      <div class="section-title"><span class="num">01</span>${t('cv.title')}</div>
-      <p class="section-desc">${currentLang==='zh'?'完整学术简历 · 最后更新 2026.08':'Full academic CV · Last updated Aug 2026'}</p>
-      <div style="margin-bottom:32px">
-        <a class="btn btn-ghost" href="mailto:liudongxiong1@gmail.com">${t('cv.download')} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></a>
+    <section class="page-section container">
+      <h1>${t('cv.title')}</h1>
+      <p class="page-desc">${t('cv.desc')}</p>
+      <h2>${t('cv.education')}</h2>
+      <div class="cv-item">
+        <div class="cv-date">2026.08 — 2027.06</div>
+        <h3>${currentLang==='zh'?'新加坡国立大学重庆研究院（NUSRI-CQ）':'NUS Research Institute, Chongqing (NUSRI-CQ)'}</h3>
+        <div class="cv-sub">${currentLang==='zh'?'MSE 3+1 项目 · 计算材料方向':'MSE 3+1 Programme · Computational Materials'}</div>
       </div>
-      <h3 style="font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px">${t('cv.education')}</h3>
-      <div class="timeline" style="margin-bottom:40px">
-        <div class="tl-item">
-          <div class="tl-date">2026.08 — 2027.06</div>
-          <h4>${currentLang==='zh'?'新加坡国立大学重庆研究院（NUSRI-CQ）':'NUS Research Institute, Chongqing (NUSRI-CQ)'}</h4>
-          <div class="tl-sub">${currentLang==='zh'?'MSE 3+1 项目 · 计算材料方向':'MSE 3+1 Programme · Computational Materials'}</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">2023.08 — 2027.06</div>
-          <h4>${currentLang==='zh'?'东北大学（985）· 材料物理 · 学士':'Northeastern University (985) · B.S. Materials Physics'}</h4>
-          <div class="tl-sub">GPA 3.68/5.0 · ${currentLang==='zh'?'算术均分 87.99':'Avg 87.82/100'} · CET-6 503</div>
-          <p>${currentLang==='zh'?'核心课程：现代材料制备技术(97)、固液与纳米粒子(96)、线性代数(95)、计算机在材料科学应用(95)、材料组织结构与成分分析(95)、固体物理(89)':'Selected coursework: Modern Materials Preparation (97), Clusters & Nanoparticles (96), Linear Algebra (95), Computers in Materials Science (95), Materials Microstructure & Composition Analysis (95), Solid State Physics (89)'}</p>
-        </div>
+      <div class="cv-item">
+        <div class="cv-date">2023.08 — 2027.06</div>
+        <h3>${currentLang==='zh'?'东北大学（985）· 材料物理 · 学士':'Northeastern University (985) · B.S. Materials Physics'}</h3>
+        <div class="cv-sub">GPA 3.68/5.0 · ${currentLang==='zh'?'算术均分 87.99':'Avg 87.82/100'} · CET-6 503</div>
+        <p>${currentLang==='zh'?'核心课程：现代材料制备技术(97)、固液与纳米粒子(96)、线性代数(95)、计算机在材料科学应用(95)、材料组织结构与成分分析(95)、固体物理(89)':'Selected coursework: Modern Materials Preparation (97), Clusters & Nanoparticles (96), Linear Algebra (95), Computers in Materials Science (95), Microstructure & Composition Analysis (95), Solid State Physics (89)'}</p>
       </div>
-      <h3 style="font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px">${t('cv.research')}</h3>
-      <div class="timeline" style="margin-bottom:40px">
-        <div class="tl-item">
-          <div class="tl-date">2024.09 — Present</div>
-          <h4>${currentLang==='zh'?'Terrylene-O₂ 系统计算筛选（队长）':'Terrylene-O₂ Systematic Computational Screening (Team Leader)'}</h4>
-          <p>${currentLang==='zh'?'160 构型 · PM7 优化 · 138 模振动频率 · SHA256 质量控制 · 65 结构盆地':'160 configurations · PM7 optimization · 138-mode frequencies · SHA256 QC · 65 basins'}</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">2023.11 — 2025.03</div>
-          <h4>${currentLang==='zh'?'药物晶体压力诱导多晶型转变（队员）':'Drug Crystal Pressure-Induced Polymorphism (Member)'}</h4>
-          <p>${currentLang==='zh'?'高压实验 · XRD 分析 · 良好等级结题':'High-pressure experiment · XRD analysis · Graduated "Good"'}</p>
-        </div>
+      <h2>${t('cv.research')}</h2>
+      <div class="cv-item">
+        <div class="cv-date">2024.09 — Present</div>
+        <h3>${currentLang==='zh'?'Terrylene-O₂ 系统计算筛选（队长）':'Terrylene-O₂ Systematic Screening (Team Leader)'}</h3>
+        <p>${currentLang==='zh'?'160 构型 · PM7 优化 · 138 模振动频率 · SHA256 质量控制 · 65 结构盆地 · 5,554 输出文件':'160 configs · PM7 optimization · 138-mode frequencies · SHA256 QC · 65 basins · 5,554 output files'}</p>
       </div>
-      <h3 style="font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px">${t('cv.awards')}</h3>
-      <div class="award-list" style="margin-bottom:40px">${awardHtml}</div>
-      <h3 style="font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px">${t('cv.activities')}</h3>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-date">2023.09 — Present</div>
-          <h4>${currentLang==='zh'?'东北大学官方微博运营团队 副主席':'Vice Chair, Official Weibo Operations Team, NEU'}</h4>
-          <p>${currentLang==='zh'?'125 万粉丝账号日常运营 · 50 余人学生媒体团队管理':'Daily operations of 1.25M-follower account · Management of 50+ member student media team'}</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">2024.07 — 2024.08</div>
-          <h4>${currentLang==='zh'?'四川凉山社会实践与实地调研':'Social Practice & Field Research, Liangshan, Sichuan'}</h4>
-          <p>${currentLang==='zh'?'跨越 2000 公里，走访 5 个村镇，教育帮扶与情况走访':'Crossed 2000km, visited 5 villages/towns, education outreach and field visits'}</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">2023.09 — 2026.02</div>
-          <h4>${currentLang==='zh'?'江西吉安"庐陵英才"返家乡社会实践':'"Luling Talents" Hometown Social Practice, Ji\'an, Jiangxi'}</h4>
-          <p>${currentLang==='zh'?'连续 3 年 · 6 场方法分享 · 志愿填报与科普宣传 · 公众号运营':'3 consecutive years · 6 method-sharing sessions · College application guidance · WeChat operations'}</p>
-        </div>
+      <div class="cv-item">
+        <div class="cv-date">2023.11 — 2025.03</div>
+        <h3>${currentLang==='zh'?'药物晶体压力诱导多晶型转变（队员）':'Drug Crystal Pressure-Induced Polymorphism (Member)'}</h3>
+        <p>${currentLang==='zh'?'高压实验 · XRD 分析 · 良好等级结题':'High-pressure experiment · XRD analysis · Graduated "Good"'}</p>
+      </div>
+      <h2>${t('cv.awards')}</h2>
+      ${awardHtml}
+      <h2>${t('cv.activities')}</h2>
+      <div class="cv-item">
+        <div class="cv-date">2023.09 — Present</div>
+        <h3>${currentLang==='zh'?'东北大学官方微博运营团队 副主席':'Vice Chair, Official Weibo Operations Team, NEU'}</h3>
+        <p>${currentLang==='zh'?'125 万粉丝账号日常运营 · 50 余人学生媒体团队管理 · 内容策划与数据复盘':'Daily operations of 1.25M-follower account · Management of 50+ member team · Content strategy & data review'}</p>
+      </div>
+      <div class="cv-item">
+        <div class="cv-date">2024.07 — 2024.08</div>
+        <h3>${currentLang==='zh'?'四川凉山社会实践与实地调研':'Social Practice & Field Research, Liangshan, Sichuan'}</h3>
+        <p>${currentLang==='zh'?'跨越 2000 公里，走访 5 个村镇，教育帮扶与情况走访':'Crossed 2000km, visited 5 villages/towns, education outreach and field visits'}</p>
+      </div>
+      <div class="cv-item">
+        <div class="cv-date">2023.09 — 2026.02</div>
+        <h3>${currentLang==='zh'?'江西吉安"庐陵英才"返家乡社会实践':'"Luling Talents" Hometown Practice, Ji\'an, Jiangxi'}</h3>
+        <p>${currentLang==='zh'?'连续 3 年 · 6 场方法分享 · 志愿填报指导 · 公众号运营':'3 consecutive years · 6 method-sharing sessions · College application guidance · WeChat operations'}</p>
       </div>
     </section>
   </div>`;
 }
+
 function renderStoriesList(){
   const html = STORIES.map(s=>`
-    <div class="post-item" onclick="navigate('stories','${s.id}')">
-      <h3>${s.title[currentLang]}</h3>
-      <div class="meta">
-        <span>${fmtDate(s.date)}</span>
-        <span class="tag-pill">${currentLang==='zh'?'个人陈述':'Personal Essay'}</span>
+    <article class="post-item">
+      <h2><a href="#stories/${s.id}" onclick="navigate('stories','${s.id}')">${s.title[currentLang]}</a></h2>
+      <div class="post-meta">
+        <span>Date: ${fmtDate(s.date)}</span>
+        <span class="tag">${currentLang==='zh'?'个人陈述':'Personal Essay'}</span>
       </div>
-    </div>`).join('');
+    </article>`).join('');
   return `
   <div class="page active">
-    <section class="container" style="padding-top:56px">
-      <div class="section-title"><span class="num">01</span>${t('stories.title')}</div>
-      <p class="section-desc">${t('stories.desc')}</p>
-      <div class="post-list">${html}</div>
+    <section class="page-section container">
+      <h1>${t('stories.title')}</h1>
+      <p class="page-desc">${t('stories.desc')}</p>
+      ${html}
     </section>
   </div>`;
 }
+
 function renderStoryDetail(){
   const s = STORIES.find(x=>x.id===currentPost);
   if(!s) return renderStoriesList();
   return `
   <div class="page active">
     <article class="post-detail container">
-      <a class="back-link" onclick="navigate('stories')">← ${t('back')}</a>
+      <a class="back-link" onclick="navigate('stories')">${t('back')}</a>
       <h1>${s.title[currentLang]}</h1>
       <div class="post-meta">
-        <span>${fmtDate(s.date)}</span>
-        <span style="color:var(--gold)">${currentLang==='zh'?'个人陈述':'Personal Essay'}</span>
+        <span>Date: ${fmtDate(s.date)}</span>
+        <span class="tag">${currentLang==='zh'?'个人陈述':'Personal Essay'}</span>
       </div>
       <div class="post-body">${s.body[currentLang]}</div>
     </article>
   </div>`;
 }
+
+function renderFAQ(){
+  const html = FAQ.map(f=>`
+    <div class="faq-item">
+      <div class="q">${f.q[currentLang]}</div>
+      <div class="a">${f.a[currentLang]}</div>
+    </div>`).join('');
+  return `
+  <div class="page active">
+    <section class="page-section container">
+      <h1>${t('faq.title')}</h1>
+      <p class="page-desc">${t('faq.desc')}</p>
+      ${html}
+    </section>
+  </div>`;
+}
+
 document.getElementById('langBtn').textContent = currentLang === 'zh' ? 'EN' : '中';
 document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
 const initRoute = parseHash();
