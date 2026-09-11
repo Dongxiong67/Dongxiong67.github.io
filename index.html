@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://miaoda.feishu.cn">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
+@import url('https://miaoda.feishu.cn/fonts/css2?family=Inter:wght@400;500;600;700&display=swap');
 :root{
   --serif:"Noto Serif SC",Georgia,"Songti SC","SimSun",serif;
   --sans:"Noto Sans SC","Microsoft YaHei","PingFang SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -19,7 +20,7 @@ html[data-theme="light"]{
   --text:#1f2328;--text-soft:#525960;--muted:#8b949e;
   --line:#d1d9e0;--line-soft:#e6ebf0;
   --link:#0969da;--link-hover:#0550ae;
-  --accent:#0969da;--gold:#9a6700;
+  --accent:#165DFF;--gold:#9a6700;
   --shadow:0 1px 3px rgba(27,31,36,.05),0 1px 2px rgba(27,31,36,.03);
   --glow:radial-gradient(1200px 500px at 70% -10%,rgba(9,105,218,.06),transparent 60%);
 }
@@ -28,7 +29,7 @@ html[data-theme="dark"]{
   --text:#e6edf3;--text-soft:#9da7b3;--muted:#768390;
   --line:#30363d;--line-soft:#21262d;
   --link:#4493f8;--link-hover:#79b8ff;
-  --accent:#4493f8;--gold:#d4a72c;
+  --accent:#4d7cff;--gold:#d4a72c;
   --shadow:0 1px 3px rgba(0,0,0,.4);
   --glow:radial-gradient(1200px 500px at 70% -10%,rgba(68,147,248,.08),transparent 60%);
 }
@@ -57,7 +58,7 @@ hr{border:none;border-top:1px solid var(--line-soft);margin:32px 0}
 
 /* ===== Nav ===== */
 nav{
-  position:sticky;top:0;z-index:100;
+  position:fixed;top:0;left:0;right:0;z-index:100;
   background:color-mix(in srgb,var(--bg) 82%,transparent);
   backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
   border-bottom:1px solid var(--line-soft);
@@ -95,7 +96,7 @@ nav{
 .icon-btn svg{width:16px;height:16px}
 
 /* ===== Layout ===== */
-.container{max-width:720px;margin:0 auto;padding:0 24px}
+.container{max-width:720px;margin:0 auto;padding:76px 24px 48px}
 .page{display:none;animation:fadeIn .45s cubic-bezier(.22,.61,.36,1)}
 .page.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -363,7 +364,10 @@ footer{
 }
 
 /* ===== new hero ===== */
-.hero-new{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;padding:48px 0 24px}
+.hero-new{padding:48px 0 24px;display:flex;flex-direction:column;gap:28px}
+.hero-header{display:block}
+.hero-body{display:grid;grid-template-columns:1.15fr 1fr;gap:36px;align-items:start}
+@media(max-width:780px){.hero-body{grid-template-columns:1fr;gap:20px}}
 .hero-portrait-row{display:flex;gap:24px;align-items:center;margin-bottom:20px}
 .hero-portrait{width:120px;height:150px;object-fit:cover;border-radius:12px;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.08)}
 .hero-titles h1{font-size:28px;font-weight:700;margin:0 0 6px;letter-spacing:-.5px}
@@ -396,6 +400,18 @@ footer{
 .real-cover{padding:0;overflow:hidden}
 .real-cover img{width:100%;height:100%;object-fit:cover}
 
+.hero-img-rich{display:flex;flex-direction:column;gap:8px}
+.hero-rich-big{width:100%;border-radius:8px;border:1px solid #e5e7eb;display:block;transition:transform .2s,box-shadow .2s}
+.hero-rich-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.hero-rich-sm{width:100%;height:135px;object-fit:cover;border-radius:6px;border:1px solid #e5e7eb;display:block;transition:transform .2s,box-shadow .2s}
+.hero-rich-row2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.hero-rich-sm2{width:100%;height:115px;object-fit:cover;border-radius:6px;border:1px solid #e5e7eb;display:block;transition:transform .2s,box-shadow .2s}
+.hero-cap-mid{height:260px;object-fit:cover;object-position:top}
+.hero-rich-big:hover,.hero-rich-sm:hover,.hero-rich-sm2:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.hero-figure{margin-top:0}
+
+.hero-figure figcaption{font-family:Inter,ui-sans-serif,system-ui;font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+@media(max-width:780px){.hero-rich-row{grid-template-columns:1fr 1fr 1fr}.hero-rich-sm{height:75px}.hero-rich-sm2{height:65px}}
 .hero-img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
 .hero-grid-img{width:100%;border-radius:10px;border:1px solid var(--border);background:#fff;padding:6px;transition:transform .2s,box-shadow .2s}
 .hero-grid-img:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
@@ -787,15 +803,18 @@ const STORIES = [
     date:"2026-07",
     title:{zh:"从吉安到沈阳：一个县城学生的 985 之路",en:"From Ji'an to Shenyang: A County Student's Path to a 985 University"},
     body:{
-      zh:`<p>我出生在江西省吉安市的一个普通家庭。2023 年夏天，我拿着东北大学的录取通知书，第一次坐了 2000 多公里的火车，从南方小城来到东北。</p>
-<h2>高中：在有限资源中找方法</h2>
-<p>县城高中的教育资源与大城市有差距，但这并不意味着没有出路。我很早就意识到，<b>方法比努力更重要</b>——把模糊的"努力感"转化为可量化的"能力值"，用数据复盘自己的学习。</p>
-<p>这种思维方式后来深刻影响了我的科研和工作：做任何事都先想"怎么衡量效果"，而不是"怎么更努力"。</p>
-<h2>大学：打开新世界</h2>
-<p>进入东北大学后，我像海绵一样吸收一切：科研、竞赛、学生工作、社会实践。三年里拿了 8 项国家级和省级奖项，做了两个科研项目，运营了 125 万粉丝的微博账号，去了四川凉山做调研，去了爱尔兰参加暑期学校。</p>
-<p>这些经历看起来分散，但有一条主线：我始终在寻找"用数据和方法解决问题"的场景。</p>
-<h2>家庭：最坚实的后盾</h2>
-<p>我的家庭并不富裕，但父母始终支持我的每一个选择。他们不懂什么是计算材料，什么是 PM7，但他们知道"读书是好事"。这份朴素的支持，是我走到今天最根本的动力。</p>
+      zh:`<p>我出生在江西省吉安市永丰县的一个普通家庭。2023 年夏天，我拿着东北大学的录取通知书，第一次坐了 2000 多公里的火车，从南方小城来到东北。这篇文章的原始版本是一篇两万字的长文，记录了我从农村做题家到 985 的完整路径。</p>
+<h2>高中：前两年竞赛，后八个月提分 100 分</h2>
+<p>前两年我主攻数学竞赛，拿了 6 个省级国奖、10 个校级市奖。但竞赛没有拿到保送名额，最后八个月回到高考轨道，从约 490 分冲到 616 分上岸 985。这八个月里，我做的最重要的事不是刷题，而是<b>建立一套可复盘的学习系统</b>：把每天的时间切成 30 分钟块，记录每块做了什么、掌握了什么、哪里卡住；周末用一张 A4 纸复盘本周哪些方法有效、哪些是自我感动。</p>
+<p>县城高中的教育资源与大城市有差距，但这并不意味着没有出路。我很早就意识到，<b>方法比努力更重要</b>——把模糊的"努力感"转化为可量化的"能力值"，用数据复盘自己的学习。这套方法后来被我原封不动地搬到了大学：做任何事都先想"怎么衡量效果"，而不是"怎么更努力"。</p>
+<h2>大学：像海绵一样吸收，但有一条主线</h2>
+<p>进入东北大学后，我像海绵一样吸收一切：科研、竞赛、学生工作、社会实践。三年里拿了 8 项国家级和省级奖项，做了两个科研项目，运营了 125 万粉丝的官方微博账号（任副主席），去了四川凉山做实地调研，连续三年回家乡做分享，2026 年夏天去了爱尔兰 TCD 参加暑期学校。</p>
+<p>这些经历看起来分散，但有一条主线：<b>我始终在寻找"用数据和方法解决问题"的场景</b>——无论是运营微博看阅读数据、在凉山记录走访笔记，还是在实验室批量解析 5,554 个计算输出文件。</p>
+<h2>家庭：最朴素的支持</h2>
+<p>我的家庭并不富裕，但父母始终支持我的每一个选择。他们不懂什么是计算材料、什么是 PM7、什么是 ML 势，但他们知道"读书是好事"。我妈在工厂上班，我爸做小生意，他们从不给我压力要我赚多少钱，只说"你想读就读"。这份朴素的支持，是我走到今天最根本的动力。</p>
+<h2>回到永丰：一场"漫长的自证预言"</h2>
+<p>2024 年 2 月，我回到永丰中学，站在当年坐过的教室里，给高三学弟学妹做了一场分享。PPT 的标题是"关于我：一场漫长的自证预言"——从农村做题家到 985，从竞赛失利到八个月逆袭，从材料物理本科生到 NUSRI-CQ。我想告诉他们：<b>你不需要一开始就知道答案，但你需要一个可以不断迭代的方法</b>。</p>
+<figure><img src="assets/school-cover.jpg" style="width:100%;border-radius:10px" alt="永丰中学返校分享"></figure>
 <blockquote><p>麻绳专挑细处断，但细处也能长出韧劲。</p></blockquote>`,
       en:`<p>I was born in an ordinary family in Ji'an, Jiangxi Province. In the summer of 2023, holding my admission letter to Northeastern University, I took my first 2000+ kilometer train ride from a small southern city to Northeast China.</p>
 <h2>High School: Finding Methods in Limited Resources</h2>
@@ -919,7 +938,7 @@ const FAQ = [
   }
 ];
 
-let currentLang = localStorage.getItem('dx3906-lang') || 'zh';
+let currentLang = 'en'; try{localStorage.setItem('dx3906-lang','en')}catch(e){}
 let currentPage = 'home';
 let currentPost = null;
 
@@ -1011,12 +1030,13 @@ function renderHome(){
   return `
   <div class="page active">
     <section class="hero-new container">
-      <div class="hero-left">
+      <div class="hero-header">
         <div class="hero-portrait-row">
           <img src="assets/profile.jpg" class="hero-portrait" alt="Dongxiong Liu">
           <div class="hero-titles">
             <h1>刘东雄 <span class="hero-en">Dongxiong Liu</span></h1>
             <p class="hero-role">B.Sc. Candidate in Materials Physics</p>
+        <p style="font-size:14px;color:var(--accent);font-weight:500;margin:4px 0 0">Computational Materials &times; Machine Learning &times; AI for Science</p>
             <p class="hero-org">Northeastern University · NUSRI-CQ 3+1 Program</p>
             <div class="hero-logos">
               <img src="assets/neu-logo.png" alt="NEU" class="school-logo">
@@ -1024,10 +1044,18 @@ function renderHome(){
             </div>
           </div>
         </div>
-        <p class="hero-bio">我是<b>刘东雄</b>，东北大学材料物理专业本科生，现于新加坡国立大学重庆研究院（NUSRI-CQ）参与 3+1 项目。</p>
-        <p class="hero-bio">我的研究方向是<b>计算材料科学 × 机器学习 × AI for Science</b>，尤其关注<b>能源材料</b>中的原子尺度模拟与数据驱动方法。过去两年主持 Terrylene-O₂ 半经验量子化学系统筛选：从 75 个吸附位点枚举 736 个对称轨道，完成 <b>179 个 PM7 优化构型、65 个能量盆地、138 模振动频率与 83 例 CI16 吸收光谱</b>，并独立搭建 Python 批处理管线、Kabsch 结构对齐与 SHA256 版本化质量控制。在此基础上启动 <b>ML-MOPAC</b> 子项目，用随机森林与神经网络从几何描述符预测相对能量与吸收波长，把"先算后筛"改为"先筛后算"。</p>
-        <p class="hero-bio">现在我在钟佩辰老师指导下做本科毕设：<b>用 Foundation-Potential 机器学习势分子动力学评估固态电解质的 Li⁺ 电导率</b>——从 DFT 级精度走向更大时间/空间尺度，这也是我最想继续深入的方向：用 ML 势和原子尺度模拟，为固态电池等能源材料设计提供可迁移的计算工具。</p>
-        <p class="hero-bio">业余喜欢阅读、长期捣鼓 AI 工具，坚持回到家乡高中分享学习方法。我相信扎实的方法论、跨领域的数据思维，和对材料物理本身的好奇，会相互滋养。</p>
+      </div>
+      <div class="hero-body">
+      <div class="hero-left">
+        ${currentLang==='zh'?`<p class="hero-bio">我是<b>刘东雄</b>，东北大学材料物理专业本科生，现于新加坡国立大学重庆研究院（NUSRI-CQ）参与 3+1 项目。</p>`:`<p class="hero-bio">Hi, I'm <b>Dongxiong Liu</b>, an undergraduate in Materials Physics at Northeastern University, currently on the NUSRI-CQ 3+1 programme.</p>`}
+        ${currentLang==='zh'?`<p class="hero-bio">我的研究方向是<b>计算材料科学 × 机器学习 × AI for Science</b>，尤其关注<b>能源材料</b>中的原子尺度模拟与数据驱动方法。过去两年主持 Terrylene-O₂ 半经验量子化学系统筛选：从 75 个吸附位点枚举 736 个对称轨道，完成 <b>179 个 PM7 优化构型、65 个能量盆地、138 模振动频率与 83 例 CI16 吸收光谱</b>，并独立搭建 Python 批处理管线、Kabsch 结构对齐与 SHA256 版本化质量控制。在此基础上启动 <b>ML-PM7</b> 子项目，用随机森林与神经网络从几何描述符预测相对能量与吸收波长，把"先算后筛"改为"先筛后算"。</p>`:`<p class="hero-bio">My research sits at the intersection of <b>computational materials science × machine learning × AI for Science</b>, with a focus on <b>atomistic simulation and data-driven methods for energy materials</b>. Over the past two years I led a systematic semi-empirical QC screening of Terrylene–O₂: enumerating 736 symmetry-related adsorbate configurations from 75 adsorption sites, completing <b>179 PM7-optimized geometries, 65 energy basins, 138 vibrational modes, and 83 CI16 absorption spectra</b>, and building a Python batch pipeline with Kabsch alignment and SHA256-versioned QC. This led to <b>ML-PM7</b>, a sub-project where random forests and neural nets predict relative energy and absorption wavelength from geometric descriptors—screen first, compute second.</p>`}
+        ${currentLang==='zh'?`<p class="hero-bio">现在我在钟佩辰老师指导下做本科毕设：<b>用 Foundation-Potential 机器学习势分子动力学评估固态电解质的 Li⁺ 电导率</b>——从 DFT 级精度走向更大时间/空间尺度，这也是我最想继续深入的方向：用 ML 势和原子尺度模拟，为固态电池等能源材料设计提供可迁移的计算工具。</p>`:`<p class="hero-bio">My current FYP, supervised by Dr. Zhong Peichen, benchmarks the Li⁺ conductivity of solid electrolytes via <b>Foundation-Potential machine-learning molecular dynamics</b>—extending DFT-level accuracy to larger temporal and spatial scales. This is the direction I most want to pursue: using ML potentials and atomistic simulation as transferable computational tools for energy materials design.</p>`}
+        ${currentLang==='zh'?`<p class="hero-bio">业余喜欢阅读、长期捣鼓 AI 工具，坚持回到家乡高中分享学习方法。我相信扎实的方法论、跨领域的数据思维，和对材料物理本身的好奇，会相互滋养。</p>`:`<p class="hero-bio">Outside research I read widely, build with AI tools, and keep returning to my hometown high school to share study methods. I believe rigorous methodology, cross-domain data thinking, and genuine curiosity about materials physics feed each other.</p>`}
+        <ul class="hero-highlights" style="margin:8px 0 0;padding-left:20px;font-size:14.5px;line-height:1.8">
+          <li>${currentLang==='zh'?'主导 Terrylene-O₂ 系统筛选，完成 <b>179 个 PM7 优化构型</b>全流程':'Led Terrylene-O₂ screening: <b>179 PM7-optimized configs</b>, end-to-end'}</li>
+          <li>${currentLang==='zh'?'独立搭建 Python 批量计算管线与 <b>SHA256 三层质量控制</b>体系':'Built Python batch pipeline with <b>SHA256 three-layer QC</b>'}</li>
+          <li>${currentLang==='zh'?'ML-PM7：用随机森林+NN <b>预测能量与吸收光谱</b>，把"先算后筛"改为"先筛后算"':'ML-PM7: RF+NN <b>predicts energy & spectra</b>, screening before computing'}</li>
+        </ul>
         <div class="meta-line">
           <span>NEU · NUSRI-CQ</span>
           <a href="https://github.com/Dongxiong67" target="_blank" rel="noopener">GitHub</a>
@@ -1035,14 +1063,22 @@ function renderHome(){
         </div>
       </div>
       <figure class="hero-figure">
-        <div class="hero-img-grid">
-          <img src="assets/terrylene-structure.png" class="hero-grid-img" alt="Terrylene C30H16">
-          <img src="assets/mopac-energy-ranking.png" class="hero-grid-img" alt="Energy ranking">
-          <img src="assets/mopac-fig5-ml.png" class="hero-grid-img" alt="ML feature correlation">
-          <img src="assets/mopac-graphical-abstract.png" class="hero-grid-img" alt="Research workflow">
+        <div class="hero-img-rich">
+          <div class="hero-rich-row">
+            <img src="assets/terrylene-structure.png" class="hero-rich-sm" alt="Terrylene C30H16">
+            <img src="assets/mopac-fig5-ml.png" class="hero-rich-sm" alt="ML feature Pearson correlation">
+            <img src="assets/mopac-fig8-spectra.png" class="hero-rich-sm" alt="CI16 UV-Vis spectra fingerprints">
+          </div>
+          <div class="hero-rich-row2">
+            <img src="assets/mopac-fig6-orbital.png" class="hero-rich-sm2" alt="Frontier orbital energies">
+            <img src="assets/mopac-fig7-charge.png" class="hero-rich-sm2" alt="Mulliken charge distribution">
+          </div>
+          <img src="assets/mopac-energy-landscape.png" class="hero-rich-big hero-cap-mid" alt="Energy landscape of 179 configurations">
+          <img src="assets/mopac-graphical-abstract.png" class="hero-rich-big" alt="Research workflow: 179 configs to ML prediction">
         </div>
-        <figcaption>Terrylene-O₂ computational research: structure · energy landscape · ML features · workflow</figcaption>
+        <figcaption>Terrylene–O₂ computational research: molecular structure · energy landscape · ML descriptors · UV-Vis fingerprints · workflow</figcaption>
       </figure>
+      </div>
     </section>
     <section class="recent-updates container">
       <div class="section-label">${currentLang==='zh'?'近况':'Recent Updates'}</div>
@@ -1144,8 +1180,8 @@ function renderResearch(){
           ?'设计 C₃₀H₁₆-O₂ 构型系统筛选：从 75 个吸附位点（30 顶 / 37 桥 / 8 环心）枚举 736 个对称轨道，完成 <b>179 个 PM7 优化构型、65 个能量盆地、138 模振动频率与 83 例 CI16 吸收光谱</b>，处理 5,554 个输出文件。独立搭建 Python 批处理管线、Kabsch 结构对齐与 SHA256 版本化质量控制。'
           :'Designed systematic screening of C₃₀H₁₆-O₂: from 75 adsorption sites (30 top / 37 bridge / 8 hollow) spanning 736 symmetry orbits, completed <b>179 PM7-optimized structures, 65 energy basins, 138 vibrational modes, and 83 CI16 absorption spectra</b>, processing 5,554 output files. Built Python batch pipelines, Kabsch alignment, and SHA256 versioned QC.'}</p>
         <p>${currentLang==='zh'
-          ?'进一步启动 <b>ML-MOPAC</b> 子项目：用随机森林与神经网络从结构描述符预测相对能量与 lambda_max，把"先算后筛"改为"先筛后算"——为毕设中的 Foundation-Potential MD 积累数据工程经验。相关论文初稿已完成，<b>软件著作权</b>在审批中，持续迭代投稿。'
-          :'Further launched <b>ML-MOPAC</b>: random forest and neural network models predict relative energy and lambda_max from structural descriptors, turning "compute-then-screen" into "screen-then-compute" — building data-engineering experience toward the FYP. A manuscript is in continuous revision, and a <b>software copyright</b> is pending approval.'}</p>
+          ?'进一步启动 <b>ML-PM7</b> 子项目：用随机森林与神经网络从结构描述符预测相对能量与 lambda_max，把"先算后筛"改为"先筛后算"——为毕设中的 Foundation-Potential MD 积累数据工程经验。相关论文初稿已完成，<b>软件著作权</b>在审批中，持续迭代投稿。'
+          :'Further launched <b>ML-PM7</b>: random forest and neural network models predict relative energy and lambda_max from structural descriptors, turning "compute-then-screen" into "screen-then-compute" — building data-engineering experience toward the FYP. A manuscript is in continuous revision, and a <b>software copyright</b> is pending approval.'}</p>
         <figure class="research-figure">
           <img src="assets/mopac-graphical-abstract.png" alt="Graphical abstract: 160 placements to 48 final structures">
           <figcaption>研究流程图：160 个 O₂ 放置位点 → PM7 优化 → 去重质控 → 48 个局域极小 → 4+2 vs 2+2 结构假设</figcaption>
@@ -1156,7 +1192,7 @@ function renderResearch(){
         </figure>
         <figure class="research-figure">
           <img src="assets/mopac-fig5-ml.png" alt="Pearson correlation heatmap">
-          <figcaption>ML-MOPAC 特征相关性矩阵：几何、能量、电子结构、电荷与光谱特征间的 Pearson r</figcaption>
+          <figcaption>ML-PM7 特征相关性矩阵：几何、能量、电子结构、电荷与光谱特征间的 Pearson r</figcaption>
         </figure>
         <figure class="research-figure">
           <img src="assets/mopac-fig8-spectra.png" alt="UV-Vis spectral fingerprints">
