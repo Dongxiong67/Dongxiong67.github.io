@@ -882,9 +882,9 @@ const FAQ = [
        en:`<p>Currently working on computational screening of Terrylene-O₂ systems. Terrylene is a polycyclic aromatic hydrocarbon with excellent optoelectronic properties. We use PM7 semi-empirical methods to systematically screen all O₂ adsorption configurations on its skeleton, find the lowest-energy structural basins, and analyze vibrational and electronic spectra.</p><p>Completed: 179 structure optimizations, 138-mode vibrational frequencies, 65 structural basins classified. This is as close to "real research" as an undergrad can get — from problem formulation, method selection, batch computation to data analysis, done independently.</p>`}
   },
   {
-    q:{zh:"一个材料学生为什么关注 AI 和金融科技？",en:"Why does a materials student care about AI and fintech?"},
-    a:{zh:`<p>因为我发现数据驱动的方法论是跨领域通用的。做计算材料时，我处理 5,554 个输出文件的方式，和量化分析师处理金融数据的方式本质上是一样的——批量解析、特征提取、统计分析、可视化。</p><p>AI 是工具，不是领域。掌握了数据思维和编程能力，就能在不同领域之间迁移。我对智能投顾的关注，正是这种迁移思维的体现。</p>`,
-       en:`<p>Because I discovered that data-driven methodology is universally transferable. In computational materials, the way I process 5,554 output files is essentially the same as how quants process financial data — batch parsing, feature extraction, statistical analysis, visualization.</p><p>AI is a tool, not a field. With data thinking and coding ability, you can migrate across domains. My interest in robo-advisory is exactly this migration thinking in action.</p>`}
+    q:{zh:"一个材料学生为什么关注 AI 和金融科技？",en:"Why does a materials student care about AI and ?"},
+    a:{zh:`<p>因为我发现数据驱动的方法论是跨领域通用的。做计算材料时，我处理 5,554 个输出文件的方式，和量化分析师处理金融数据的方式本质上是一样的——批量解析、特征提取、统计分析、可视化。</p><p>AI 是工具，不是领域。掌握了数据思维和编程能力，就能在不同领域之间迁移。我对的关注，正是这种迁移思维的体现。</p>`,
+       en:`<p>Because I discovered that data-driven methodology is universally transferable. In computational materials, the way I process 5,554 output files is essentially the same as how quants process financial data — batch parsing, feature extraction, statistical analysis, visualization.</p><p>AI is a tool, not a field. With data thinking and coding ability, you can migrate across domains. My interest in  is exactly this migration thinking in action.</p>`}
   },
   {
     q:{zh:"怎么联系你？",en:"How can I contact you?"},
@@ -1023,7 +1023,7 @@ function renderHome(){
           <div class="recent-meta"><b>2026.08 · TCD 访学</b><span>CRANN/AMBER、Long Room · 点击看官方报道 →</span></div>
         </a>
         <a class="recent-card" href="https://mp.weixin.qq.com/s/Lqst7Uh_9JedgMd-rP7Z1w" target="_blank" rel="noopener">
-          <img src="assets/return-school-correct.jpg" alt="Returning to high school">
+          <img src="assets/school-cover.jpg" alt="Returning to high school">
           <div class="recent-meta"><b>2024.02 · 回到永丰中学分享</b><span>优秀大学生代表 · 点击看原文 →</span></div>
         </a>
       </div>
@@ -1103,14 +1103,13 @@ function renderResearch(){
         <p>${currentLang==='zh'
           ?'在钟佩辰老师指导下，学习用 Foundation-Potential（CHGNet / MACE 类）机器学习势替代 DFT 分子动力学，从 MSD 与爱因斯坦关系预测固态电解质中的 Li⁺ 扩散系数与离子电导率。当前处于<b>方法学习与文献调研阶段</b>，重点理解 ML 势的精度边界、时间尺度权衡，以及与 DFT/实验结果的对标方法。'
           :'Under Prof. Zhong Peichen, learning to use foundation-potential ML atomic potentials (CHGNet/MACE class) as a DFT surrogate in MD, computing Li⁺ diffusion via MSD and the Einstein relation. Currently in the <b>method-learning and literature review stage</b>, focusing on accuracy limits, timescale trade-offs, and benchmarking against DFT/experiment.'}</p>
-        <figure class="research-figure">
-          <img src="assets/fyp-research-map.png" alt="FYP research roadmap">
-          <figcaption>毕设研究路线：材料选择 → ML 势 → MD 模拟 → Li⁺ 轨迹 → MSD → 电导率</figcaption>
-        </figure>
+        <p>${currentLang==='zh'
+          ?'核心流程：筛选固态电解质材料（如 LLZO、石榴石型）→ 加载 Foundation-Potential 势函数 → 跑 NVT/NPT MD → 提取 Li⁺ 轨迹 → 计算 MSD 斜率 → Einstein 关系换算扩散系数与离子电导率。'
+          :'Workflow: screen solid electrolytes (e.g. LLZO garnet) → load foundation-potential → run NVT/NPT MD → extract Li⁺ trajectories → compute MSD slope → Einstein relation to conductivity.'}</p>
       </div>
       <div class="cv-item">
         <div class="cv-date">2024.09 — Present</div>
-        <h3>${currentLang==='zh'?'基于 MOPAC 的三萘嵌苯双氧吸附系统筛选（队长）':'Systematic Computational Screening of Terrylene-O₂ (Team Leader)'}</h3>
+        <h3>${currentLang==='zh'?'三萘嵌苯–O₂ 预复合物的系统计算筛选（队长）':'Systematic Computational Screening of Terrylene–O₂ Pre-complexes (Team Leader)'}</h3>
         <div class="cv-sub">${currentLang==='zh'?'半经验量子化学 · 计算材料 · PM7 · 机器学习加速':'Semi-empirical QC · Computational Materials · PM7 · ML-accelerated'}</div>
         <p>${currentLang==='zh'
           ?'设计 C₃₀H₁₆-O₂ 构型系统筛选：从 75 个吸附位点（30 顶 / 37 桥 / 8 环心）枚举 736 个对称轨道，完成 <b>179 个 PM7 优化构型、65 个能量盆地、138 模振动频率与 83 例 CI16 吸收光谱</b>，处理 5,554 个输出文件。独立搭建 Python 批处理管线、Kabsch 结构对齐与 SHA256 版本化质量控制。'
@@ -1221,6 +1220,15 @@ function renderCV(){
         <p>${currentLang==='zh'?'高压实验 · XRD 分析 · 良好等级结题':'High-pressure experiment · XRD analysis · Graduated "Good"'}</p>
       </div>
       <h2>${t('cv.awards')}</h2>
+      <div class="photo-grid" style="margin:14px 0 22px">
+        <img src="assets/award-02.jpg" alt="全国大学生数学竞赛辽宁省一等奖" loading="lazy">
+        <img src="assets/award-05.jpg" alt="机器人及AI大赛全国三等奖" loading="lazy">
+        <img src="assets/award-08.jpg" alt="周培源力学竞赛全国优秀奖" loading="lazy">
+        <img src="assets/award-13.jpg" alt="国家励志奖学金" loading="lazy">
+        <img src="assets/award-16.jpg" alt="NCDA未来设计师大赛全国三等奖" loading="lazy">
+        <img src="assets/hs-math-awards.jpg" alt="高中时期数学竞赛奖状" loading="lazy">
+      </div>
+      <p class="photo-caption" style="margin:0 0 20px">本科主要竞赛与奖学金证书（2023–2025）</p>
       ${awardHtml}
       <h2>${t('cv.activities')}</h2>
       <div class="cv-item">
@@ -1240,17 +1248,6 @@ function renderCV(){
       </div>
       <h2>${currentLang==='zh'?'媒体报道与写作':'Featured in Media & Writing'}</h2>
       
-        <h3 style="margin-top:32px">获奖证书</h3>
-        <div class="photo-grid">
-          <img src="assets/award-02.jpg" alt="全国大学生数学竞赛辽宁省一等奖" loading="lazy">
-          <img src="assets/award-05.jpg" alt="机器人及AI大赛全国三等奖" loading="lazy">
-          <img src="assets/award-08.jpg" alt="周培源力学竞赛全国优秀奖" loading="lazy">
-          <img src="assets/award-13.jpg" alt="国家励志奖学金" loading="lazy">
-          <img src="assets/award-16.jpg" alt="NCDA未来设计师大赛全国三等奖" loading="lazy">
-          <img src="assets/hs-math-awards.jpg" alt="高中时期数学竞赛奖状" loading="lazy">
-        </div>
-        <p class="photo-caption">本科主要竞赛与奖学金证书（2023–2025）</p>
-        
         <div class="media-grid">
         <a class="media-card" href="https://mp.weixin.qq.com/s/LL0h6ByeW0vMxJ4chubXvQ" target="_blank" rel="noopener">
           <div class="media-tag">${currentLang==='zh'?'官方报道':'Official Coverage'}</div>
