@@ -396,9 +396,14 @@ footer{
 .real-cover{padding:0;overflow:hidden}
 .real-cover img{width:100%;height:100%;object-fit:cover}
 
-.hero-img-stack{display:flex;gap:12px;align-items:center;justify-content:center}
-.hero-img-stack img{width:48%;max-width:200px;border-radius:10px;border:1px solid var(--border);background:#fff;padding:8px}
-@media(max-width:780px){.hero-img-stack img{width:100%;max-width:280px}}
+.hero-img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+.hero-grid-img{width:100%;border-radius:10px;border:1px solid var(--border);background:#fff;padding:6px;transition:transform .2s,box-shadow .2s}
+.hero-grid-img:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
+@media(max-width:780px){.hero-img-grid{grid-template-columns:1fr 1fr}.hero-grid-img{padding:4px}}
+body{background-image:linear-gradient(180deg,transparent 0%,rgba(180,200,220,.06) 80%,rgba(180,200,220,.10) 100%);background-repeat:no-repeat;background-attachment:fixed}
+.hero-new{position:relative}
+.hero-new::before{content:"";position:absolute;right:-40px;top:60px;width:320px;height:260px;background:radial-gradient(ellipse at bottom,rgba(100,130,170,.07),transparent 70%);pointer-events:none;z-index:0}
+.hero-left,.hero-figure{position:relative;z-index:1}
 .recent-card{display:block;text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s;background:var(--card-bg)}
 .recent-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
 .recent-card img{width:100%;height:200px;object-fit:cover}
@@ -999,8 +1004,9 @@ function renderHome(){
           </div>
         </div>
         <p class="hero-bio">我是<b>刘东雄</b>，东北大学材料物理专业本科生，现于新加坡国立大学重庆研究院（NUSRI-CQ）参与 3+1 项目。</p>
-        <p class="hero-bio">研究方向是<b>计算材料科学 × 机器学习 × AI for Science</b>。过去两年主持 Terrylene-O₂ 半经验量子化学系统筛选：从 75 个吸附位点枚举 736 个对称轨道，完成 <b>179 个 PM7 优化构型、65 个能量盆地、138 模振动频率与 83 例 CI16 吸收光谱</b>，独立搭建 Python 批处理管线与 SHA256 版本化质量控制。现在在钟佩辰老师指导下做毕设：<b>用 Foundation-Potential 机器学习势分子动力学评估固态电解质的 Li⁺ 电导率</b>。</p>
-        <p class="hero-bio">喜欢阅读、长期捣鼓 AI 工具，坚持回到家乡高中分享学习方法——相信跨领域的经历会相互滋养。</p>
+        <p class="hero-bio">我的研究方向是<b>计算材料科学 × 机器学习 × AI for Science</b>，尤其关注<b>能源材料</b>中的原子尺度模拟与数据驱动方法。过去两年主持 Terrylene-O₂ 半经验量子化学系统筛选：从 75 个吸附位点枚举 736 个对称轨道，完成 <b>179 个 PM7 优化构型、65 个能量盆地、138 模振动频率与 83 例 CI16 吸收光谱</b>，并独立搭建 Python 批处理管线、Kabsch 结构对齐与 SHA256 版本化质量控制。在此基础上启动 <b>ML-MOPAC</b> 子项目，用随机森林与神经网络从几何描述符预测相对能量与吸收波长，把"先算后筛"改为"先筛后算"。</p>
+        <p class="hero-bio">现在我在钟佩辰老师指导下做本科毕设：<b>用 Foundation-Potential 机器学习势分子动力学评估固态电解质的 Li⁺ 电导率</b>——从 DFT 级精度走向更大时间/空间尺度，这也是我最想继续深入的方向：用 ML 势和原子尺度模拟，为固态电池等能源材料设计提供可迁移的计算工具。</p>
+        <p class="hero-bio">业余喜欢阅读、长期捣鼓 AI 工具，坚持回到家乡高中分享学习方法。我相信扎实的方法论、跨领域的数据思维，和对材料物理本身的好奇，会相互滋养。</p>
         <div class="meta-line">
           <span>NEU · NUSRI-CQ</span>
           <a href="https://github.com/Dongxiong67" target="_blank" rel="noopener">GitHub</a>
@@ -1008,11 +1014,13 @@ function renderHome(){
         </div>
       </div>
       <figure class="hero-figure">
-        <div class="hero-img-stack">
-          <img src="assets/terrylene-structure.png" class="hero-mol-img" alt="Terrylene structure">
-          <img src="assets/mopac-energy-ranking.png" class="hero-mol-img" alt="179-structure energy landscape">
+        <div class="hero-img-grid">
+          <img src="assets/terrylene-structure.png" class="hero-grid-img" alt="Terrylene C30H16">
+          <img src="assets/mopac-energy-ranking.png" class="hero-grid-img" alt="Energy ranking">
+          <img src="assets/mopac-fig5-ml.png" class="hero-grid-img" alt="ML feature correlation">
+          <img src="assets/mopac-graphical-abstract.png" class="hero-grid-img" alt="Research workflow">
         </div>
-        <figcaption>Terrylene (C&#8323;&#8320;H&#8321;&#8326;) structure · 179-structure energy landscape</figcaption>
+        <figcaption>Terrylene-O₂ computational research: structure · energy landscape · ML features · workflow</figcaption>
       </figure>
     </section>
     <section class="recent-updates container">
@@ -1204,7 +1212,7 @@ function renderCV(){
       </div>
       <div class="cv-item">
         <div class="cv-date">2023.08 — 2027.06</div>
-        <h3>${currentLang==='zh'?'东北大学（985）· 材料物理 · 学士':'Northeastern University (985) · B.S. Materials Physics'}</h3>
+        <h3>${currentLang==='zh'?'东北大学（985）· 材料物理':'Northeastern University (985) · Materials Physics'}</h3>
         <div class="cv-sub">GPA 3.68/5.0 · ${currentLang==='zh'?'算术均分 87.99':'Avg 87.82/100'} · CET-6 503</div>
         <p>${currentLang==='zh'?'核心课程：现代材料制备技术(97)、固液与纳米粒子(96)、线性代数(95)、计算机在材料科学应用(95)、材料组织结构与成分分析(95)、固体物理(89)':'Selected coursework: Modern Materials Preparation (97), Clusters & Nanoparticles (96), Linear Algebra (95), Computers in Materials Science (95), Microstructure & Composition Analysis (95), Solid State Physics (89)'}</p>
       </div>
