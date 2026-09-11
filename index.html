@@ -1119,8 +1119,24 @@ function renderResearch(){
           ?'进一步启动 <b>ML-MOPAC</b> 子项目：用随机森林与神经网络从结构描述符预测相对能量与 lambda_max，把"先算后筛"改为"先筛后算"——为毕设中的 Foundation-Potential MD 积累数据工程经验。相关论文初稿已完成，<b>软件著作权</b>在审批中，持续迭代投稿。'
           :'Further launched <b>ML-MOPAC</b>: random forest and neural network models predict relative energy and lambda_max from structural descriptors, turning "compute-then-screen" into "screen-then-compute" — building data-engineering experience toward the FYP. A manuscript is in continuous revision, and a <b>software copyright</b> is pending approval.'}</p>
         <figure class="research-figure">
-          <img src="assets/mopac-energy-ranking.png" alt="179-structure energy ranking">
-          <figcaption>179 个构型的相对能量排序与盆地聚类（PM7 占据本征值求和口径）</figcaption>
+          <img src="assets/mopac-graphical-abstract.png" alt="Graphical abstract: 160 placements to 48 final structures">
+          <figcaption>研究流程图：160 个 O₂ 放置位点 → PM7 优化 → 去重质控 → 48 个局域极小 → 4+2 vs 2+2 结构假设</figcaption>
+        </figure>
+        <figure class="research-figure">
+          <img src="assets/mopac-fig1-overview.png" alt="48 optimized structures ranked by relative energy">
+          <figcaption>48 个局域极小构型按相对能量排序（红框：低能 4+2 候选；蓝框：2+2 对照）</figcaption>
+        </figure>
+        <figure class="research-figure">
+          <img src="assets/mopac-fig5-ml.png" alt="Pearson correlation heatmap">
+          <figcaption>ML-MOPAC 特征相关性矩阵：几何、能量、电子结构、电荷与光谱特征间的 Pearson r</figcaption>
+        </figure>
+        <figure class="research-figure">
+          <img src="assets/mopac-fig8-spectra.png" alt="UV-Vis spectral fingerprints">
+          <figcaption>48 个构型的 INDO/CIS 吸收光谱指纹（300–800 nm）</figcaption>
+        </figure>
+        <figure class="research-figure">
+          <img src="assets/mopac-fig6-orbital.png" alt="Frontier orbital energies">
+          <figcaption>HOMO/LUMO/能隙分布（PM7 占据本征值求和口径）</figcaption>
         </figure>
       </div>
       <h2>${currentLang==='zh'?'已完成':'Completed'}</h2>
