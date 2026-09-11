@@ -490,7 +490,7 @@ const I18N = {
   }
 };
 
-const COVER = {'terrylene-workflow':'mol','why-computational':'city','nusri-first':'city'};
+const COVER = {'terrylene-workflow':'mol','why-computational':'city','tcd-summer-2026':'city','nusri-first':'city'};
 const COVER_CLS = {'mol':'cover-mol','ai':'cover-ai','city':'cover-city'};
 const COVER_SVG = {
   mol: `<svg viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><polygon points="40,15 70,32.5 70,67.5 40,85 10,67.5 10,32.5"/><polygon points="100,15 130,32.5 130,67.5 100,85 70,67.5 70,32.5"/><polygon points="160,15 190,32.5 190,67.5 160,85 130,67.5 130,32.5"/><circle cx="92" cy="6" r="5" fill="currentColor" stroke="none" opacity="0.5"/><circle cx="106" cy="6" r="5" fill="currentColor" stroke="none" opacity="0.5"/></svg>`,
@@ -498,7 +498,7 @@ const COVER_SVG = {
   city: `<svg viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M40,80 L40,45 L60,45 L60,80 M70,80 L70,30 L95,30 L95,80 M105,80 L105,50 L125,50 L125,80 M135,80 L135,38 L160,38 L160,80 M30,80 L170,80"/><circle cx="155" cy="20" r="7" opacity="0.5"/></svg>`,
 };
 function covHtml(id){
-  const REAL = {'terrylene-workflow':'assets/mopac-fig1-overview.png','ai-materials':'assets/mopac-fig5-ml.png','nusri-experience':'assets/tcd-2026-01.jpg','weibo-leadership':'assets/school-cover.jpg','why-computational':'assets/mopac-graphical-abstract.png','from-ji-an':'assets/school-cover.jpg'};
+  const REAL = {'terrylene-workflow':'assets/mopac-fig1-overview.png','ai-materials':'assets/mopac-fig5-ml.png','nusri-experience':'assets/tcd-2026-01.jpg','weibo-leadership':'assets/school-cover.jpg','why-computational':'assets/mopac-graphical-abstract.png','tcd-summer-2026':'assets/tcd-2026-01.jpg','from-ji-an':'assets/school-cover.jpg'};
   if(REAL[id]) return `<div class="note-cover real-cover"><img src="${REAL[id]}" alt=""></div>`;
   return COVER[id] ? `<div class="note-cover ${COVER_CLS[COVER[id]]}">${COVER_SVG[COVER[id]]}</div>` : '';
 }
@@ -807,6 +807,27 @@ const STORIES = [
 <h2>Family: The Strongest Backing</h2>
 <p>My family is not wealthy, but my parents have always supported every choice I make. They don't know what computational materials is, what PM7 is, but they know "studying is a good thing." This simple support is the most fundamental driving force behind where I am today.</p>
 <blockquote><p>Hemp rope always breaks at the thinnest point — but the thinnest point can also grow resilience.</p></blockquote>`
+    }
+  },
+  {
+    id:"tcd-summer-2026",
+    date:"2026.08",
+    title:{zh:"都柏林两周：在 Long Room 遇见学术的样子",en:"Two Weeks in Dublin: Meeting Academia in the Long Room"},
+    body:{
+      zh:`<p>2026 年 8 月，我随东北大学材料学院"知行海外"项目，在都柏林三一学院（Trinity College Dublin, QS #75）完成为期两周的暑期学校。</p>
+<h2>课堂：全英文的材料前沿</h2>
+<p>课程覆盖<b>科技论文英文写作、材料制备技术、力学性能测试、表征技术、先进过程控制</b>五大模块。听非传统金属 3D 打印、金属增材制造在换热器中的应用、钛合金增材制造等系列报告，最大的感受是：<b>英文不是障碍，而是让你直接站在前沿对话的入场券</b>。</p>
+<h2>实验室：CRANN 与 AMBER</h2>
+<p>实地走访两个 SFI 研究中心与微纳制造实验室，赴科克大学（UCC）交流柔性电子与生物相容材料，听东北大学校友郝广波教授关于柔性电子与柔性机器人的报告。在 TCD 老图书馆长厅（Long Room, 1732），20 米橡木书架、20 万册古籍——你能真正感受到学术传承的重量。</p>
+<figure><img src="assets/tcd-2026-01.jpg" style="width:100%;border-radius:10px" alt="TCD summer school"></figure>
+<blockquote><p>两周很短，但足够让我确认：我想走的路，是用计算和数据，把材料设计变得更可预测。</p></blockquote>`,
+      en:`<p>In August 2026, I joined NEU MSE's "Knowledge-in-Action" program for a two-week summer school at Trinity College Dublin (QS #75).</p>
+<h2>Classroom: English-Language Frontier Topics</h2>
+<p>Five modules: scientific writing, materials preparation, mechanical testing, characterization, and advanced process control. Lectures on non-conventional metal 3D printing, additive manufacturing for heat exchangers, and titanium-alloy AM. The biggest takeaway: <b>English is not a barrier — it's the entry ticket to direct dialogue at the frontier</b>.</p>
+<h2>Lab: CRANN & AMBER</h2>
+<p>Visited two SFI research centres and micro/nano fabrication labs; traveled to UCC for flexible electronics and biomaterials; heard an alumni lecture by Prof. Hao Guangbo on flexible electronics and soft robots. In the Long Room (1732, 20m oak arches, 200k rare volumes), you can feel the weight of academic heritage.</p>
+<figure><img src="assets/tcd-2026-01.jpg" style="width:100%;border-radius:10px" alt="TCD summer school"></figure>
+<blockquote><p>Two weeks is short, but long enough to confirm: I want to use computation and data to make materials design more predictable.</p></blockquote>`
     }
   },
   {
@@ -1292,6 +1313,7 @@ function renderCV(){
 
 function renderStoriesList(){
   const SC = {
+    'tcd-summer-2026': `<div class="story-cover cover-city">${COVER_SVG.city}</div>`,
     'why-computational': `<div class="story-cover cover-ai">${COVER_SVG.ai}</div>`,
     'from-490-to-985': `<div class="story-cover cover-journey"><svg viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M30,75 Q70,75 90,55 T150,30" stroke-dasharray="3 3"/><circle cx="30" cy="75" r="4" fill="currentColor" stroke="none"/><circle cx="90" cy="55" r="4" fill="currentColor" stroke="none"/><circle cx="150" cy="30" r="5" fill="currentColor" stroke="none" opacity="0.7"/><path d="M150,30 l8,-2 l-6,-5"/></svg></div>`,
     '_default': `<div class="story-cover cover-team"><svg viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><circle cx="100" cy="45" r="14"/><path d="M70,85 C70,65 130,65 130,85"/></svg></div>`,
